@@ -1,0 +1,338 @@
+{
+  "_note": "SYNTHETIC SAMPLE CONTENT for demo only. Rates, fees, limits and policies are placeholders (XX). Replace with verified Arcot UCB details before going live.",
+  "synthetic": true,
+  "loans": [
+    {
+      "id": "personal",
+      "title": { "en": "Personal Loan", "ta": "தனிநபர் கடன்" },
+      "summary": { "en": "Quick funds for medical needs, education, weddings, travel or home needs.", "ta": "மருத்துவம், கல்வி, திருமணம், பயணம் அல்லது வீட்டுத் தேவைகளுக்கான விரைவான கடன்." },
+      "rate": { "en": "12% p.a.", "ta": "ஆண்டுக்கு 12%" },
+      "tenure": { "en": "Up to XX months", "ta": "அதிகபட்சம் XX மாதங்கள் வரை" },
+      "amount": { "en": "Rs XX to Rs XX", "ta": "ரூ XX முதல் ரூ XX வரை" },
+      "processing_fee": { "en": "XX% of loan amount", "ta": "கடன் தொகையில் XX%" },
+      "security": { "en": "As per bank policy (guarantor may be required)", "ta": "வங்கிக் கொள்கையின்படி (உத்தரவாதியர் தேவைப்படலாம்)" },
+      "features": [
+        { "en": "Simple documentation", "ta": "எளிய ஆவண நடைமுறை" },
+        { "en": "Quick processing", "ta": "விரைவான செயலாக்கம்" },
+        { "en": "Flexible repayment through monthly EMI", "ta": "மாதத் தவணை மூலம் வசதியான திருப்பிச் செலுத்துதல்" },
+        { "en": "Part-payment and foreclosure as per bank policy", "ta": "வங்கிக் கொள்கையின்படி பகுதி செலுத்துதல் மற்றும் முன்கூட்டியே முடித்தல்" }
+      ],
+      "eligibility": [
+        { "en": "Indian resident aged 21 to XX years", "ta": "21 முதல் XX வயது வரையிலான இந்திய குடியிருப்பாளர்" },
+        { "en": "Member or account holder of the bank", "ta": "வங்கியின் உறுப்பினர் அல்லது கணக்குதாரர்" },
+        { "en": "Regular source of income (salary, business or pension)", "ta": "நிலையான வருமான ஆதாரம் (சம்பளம், தொழில் அல்லது ஓய்வூதியம்)" },
+        { "en": "Satisfactory repayment history", "ta": "திருப்திகரமான கடன் திருப்பிச் செலுத்தும் வரலாறு" }
+      ],
+      "documents": [
+        { "en": "Loan application form with photograph", "ta": "புகைப்படத்துடன் கடன் விண்ணப்பப் படிவம்" },
+        { "en": "KYC: Aadhaar, PAN, address proof", "ta": "KYC: ஆதார், PAN, முகவரிச் சான்று" },
+        { "en": "Income proof: salary slips / bank statement / ITR", "ta": "வருமானச் சான்று: சம்பளச் சீட்டுகள் / வங்கிக் கணக்கு அறிக்கை / வருமான வரி கணக்கு (ITR)" },
+        { "en": "Bank account statement for last XX months", "ta": "கடந்த XX மாதங்களுக்கான வங்கிக் கணக்கு அறிக்கை" },
+        { "en": "Guarantor details if required", "ta": "தேவைப்பட்டால் உத்தரவாதியர் விவரங்கள்" }
+      ]
+    },
+    {
+      "id": "gold",
+      "title": { "en": "Gold Loan", "ta": "தங்கக் கடன்" },
+      "summary": { "en": "Instant funds against your gold ornaments with minimal paperwork.", "ta": "குறைந்த ஆவணங்களுடன் தங்க நகைகளின் பேரில் உடனடி நிதி." },
+      "rate": { "en": "11% p.a.", "ta": "ஆண்டுக்கு 11%" },
+      "tenure": { "en": "Up to XX months", "ta": "அதிகபட்சம் XX மாதங்கள் வரை" },
+      "amount": { "en": "Based on gold value, up to XX% of appraised value", "ta": "தங்கத்தின் மதிப்பைப் பொறுத்து; மதிப்பீட்டு மதிப்பில் XX% வரை" },
+      "processing_fee": { "en": "XX% of loan amount", "ta": "கடன் தொகையில் XX%" },
+      "security": { "en": "Gold ornaments pledged to the bank", "ta": "வங்கியில் அடகு வைக்கப்படும் தங்க நகைகள்" },
+      "features": [
+        { "en": "Same-day disbursement after valuation", "ta": "மதிப்பீட்டிற்குப் பிறகு அதே நாளில் கடன் வழங்கல்" },
+        { "en": "Ornaments kept safely in bank strong room", "ta": "நகைகள் வங்கியின் பாதுகாப்பு அறையில் பாதுகாப்பாக வைக்கப்படும்" },
+        { "en": "Interest-only or bullet repayment options", "ta": "வட்டி மட்டும் அல்லது முழுத் தொகையை ஒரே தவணையில் செலுத்தும் வசதி" },
+        { "en": "Release of gold on full repayment", "ta": "முழுத் தொகையையும் செலுத்தியதும் நகைகள் திருப்பித் தரப்படும்" }
+      ],
+      "eligibility": [
+        { "en": "Indian resident aged 18 years or above", "ta": "18 வயது அல்லது அதற்கு மேற்பட்ட இந்திய குடியிருப்பாளர்" },
+        { "en": "Account holder of the bank", "ta": "வங்கியின் கணக்குதாரர்" },
+        { "en": "Gold ornaments of acceptable purity owned by the applicant", "ta": "விண்ணப்பதாரருக்குச் சொந்தமான ஏற்கத்தக்க தூய்மையுடைய தங்க நகைகள்" }
+      ],
+      "documents": [
+        { "en": "Loan application form", "ta": "கடன் விண்ணப்பப் படிவம்" },
+        { "en": "KYC: Aadhaar and PAN or other ID", "ta": "KYC: ஆதார் மற்றும் PAN அல்லது பிற அடையாளச் சான்று" },
+        { "en": "Recent photograph", "ta": "சமீபத்திய புகைப்படம்" },
+        { "en": "Gold ornaments for valuation by the bank's approved appraiser", "ta": "வங்கியின் அங்கீகரிக்கப்பட்ட மதிப்பீட்டாளரால் மதிப்பிடுவதற்கான தங்க நகைகள்" }
+      ]
+    },
+    {
+      "id": "vehicle",
+      "title": { "en": "Vehicle Loan", "ta": "வாகனக் கடன்" },
+      "summary": { "en": "Finance for new or used two-wheelers, cars and commercial vehicles.", "ta": "புதிய அல்லது பயன்படுத்திய இருசக்கர வாகனங்கள், கார்கள் மற்றும் வணிக வாகனங்கள் வாங்க கடன்." },
+      "rate": { "en": "11% p.a.", "ta": "ஆண்டுக்கு 11%" },
+      "tenure": { "en": "Up to XX months", "ta": "அதிகபட்சம் XX மாதங்கள் வரை" },
+      "amount": { "en": "Up to XX% of vehicle cost", "ta": "வாகன விலையில் XX% வரை" },
+      "processing_fee": { "en": "XX% of loan amount", "ta": "கடன் தொகையில் XX%" },
+      "security": { "en": "Hypothecation of the vehicle to the bank", "ta": "வாகனத்தை வங்கிக்கு ஈடாக வைத்தல் (Hypothecation)" },
+      "features": [
+        { "en": "Loan for new and used vehicles", "ta": "புதிய மற்றும் பயன்படுத்திய வாகனங்களுக்கான கடன்" },
+        { "en": "Convenient EMI", "ta": "வசதியான மாதத் தவணை" },
+        { "en": "Quick sanction after quotation and documents", "ta": "விலைப்புள்ளி மற்றும் ஆவணங்கள் சமர்ப்பித்த பிறகு விரைவான ஒப்புதல்" },
+        { "en": "Hypothecation noted on the RC", "ta": "வாகனப் பதிவுச் சான்றிதழில் (RC) அடமானப் பதிவு செய்யப்படும்" }
+      ],
+      "eligibility": [
+        { "en": "Indian resident aged 21 to XX years", "ta": "21 முதல் XX வயது வரையிலான இந்திய குடியிருப்பாளர்" },
+        { "en": "Stable income for repayment", "ta": "திருப்பிச் செலுத்த நிலையான வருமானம்" },
+        { "en": "Down payment as per bank norms", "ta": "வங்கி விதிமுறைகளின்படி முன்பணம்" }
+      ],
+      "documents": [
+        { "en": "Loan application form", "ta": "கடன் விண்ணப்பப் படிவம்" },
+        { "en": "KYC: Aadhaar, PAN, address proof", "ta": "KYC: ஆதார், PAN, முகவரிச் சான்று" },
+        { "en": "Income proof", "ta": "வருமானச் சான்று" },
+        { "en": "Dealer quotation / proforma invoice", "ta": "விற்பனையாளர் விலைப்புள்ளி / ப்ரோபார்மா விலைப்பட்டியல்" },
+        { "en": "RC copy and insurance for used vehicles", "ta": "பயன்படுத்திய வாகனங்களுக்கு RC நகல் மற்றும் காப்பீடு" }
+      ]
+    },
+    {
+      "id": "housing",
+      "title": { "en": "Housing Loan", "ta": "வீட்டுக் கடன்" },
+      "summary": { "en": "Loans to buy, build, extend or renovate your home.", "ta": "வீடு வாங்க, கட்ட, விரிவாக்க அல்லது புதுப்பிக்க கடன்." },
+      "rate": { "en": "12% p.a.", "ta": "ஆண்டுக்கு 12%" },
+      "tenure": { "en": "Up to XX years", "ta": "அதிகபட்சம் XX ஆண்டுகள் வரை" },
+      "amount": { "en": "Up to Rs XX", "ta": "ரூ XX வரை" },
+      "processing_fee": { "en": "XX% of loan amount", "ta": "கடன் தொகையில் XX%" },
+      "security": { "en": "Mortgage of the property", "ta": "சொத்தை அடமானமாக வைத்தல்" },
+      "features": [
+        { "en": "Long tenure with affordable EMI", "ta": "நீண்ட காலம் மற்றும் கட்டுப்படியாகும் மாதத் தவணை" },
+        { "en": "Loan for purchase, construction, extension or repair", "ta": "வாங்குதல், கட்டுதல், விரிவாக்கம் அல்லது பழுதுபார்ப்புக்கான கடன்" },
+        { "en": "Property valuation and legal check by the bank", "ta": "வங்கியால் சொத்து மதிப்பீடு மற்றும் சட்டப் பரிசோதனை" },
+        { "en": "Disbursement in stages for construction", "ta": "கட்டுமானத்திற்கு கட்டம் கட்டமாக கடன் வழங்கல்" }
+      ],
+      "eligibility": [
+        { "en": "Indian resident aged 21 to XX years", "ta": "21 முதல் XX வயது வரையிலான இந்திய குடியிருப்பாளர்" },
+        { "en": "Stable income and repayment capacity", "ta": "நிலையான வருமானம் மற்றும் திருப்பிச் செலுத்தும் திறன்" },
+        { "en": "Clear and marketable title to the property", "ta": "சொத்தின் மீது தெளிவான மற்றும் விற்பனைக்குரிய உரிமை" }
+      ],
+      "documents": [
+        { "en": "Loan application form", "ta": "கடன் விண்ணப்பப் படிவம்" },
+        { "en": "KYC: Aadhaar, PAN, address proof", "ta": "KYC: ஆதார், PAN, முகவரிச் சான்று" },
+        { "en": "Income proof and bank statements", "ta": "வருமானச் சான்று மற்றும் வங்கி அறிக்கைகள்" },
+        { "en": "Property documents: sale deed, patta, encumbrance certificate", "ta": "சொத்து ஆவணங்கள்: விற்பனை பத்திரம், பட்டா, வில்லங்கச் சான்றிதழ்" },
+        { "en": "Approved building plan and cost estimate for construction", "ta": "கட்டுமானத்திற்கான அங்கீகரிக்கப்பட்ட கட்டிட வரைபடம் மற்றும் செலவு மதிப்பீடு" }
+      ]
+    },
+    {
+      "id": "business",
+      "title": { "en": "Business Loan", "ta": "வணிகக் கடன்" },
+      "summary": { "en": "Working capital and expansion loans for shops, traders and small businesses.", "ta": "கடைகள், வணிகர்கள் மற்றும் சிறு தொழில்களுக்கான செயல்பாட்டு மூலதனம் மற்றும் விரிவாக்கக் கடன்." },
+      "rate": { "en": "12% p.a.", "ta": "ஆண்டுக்கு 12%" },
+      "tenure": { "en": "Up to XX years", "ta": "அதிகபட்சம் XX ஆண்டுகள் வரை" },
+      "amount": { "en": "Rs XX to Rs XX", "ta": "ரூ XX முதல் ரூ XX வரை" },
+      "processing_fee": { "en": "XX% of loan amount", "ta": "கடன் தொகையில் XX%" },
+      "security": { "en": "Property, stock or other security as per bank policy", "ta": "வங்கிக் கொள்கையின்படி சொத்து, சரக்கு அல்லது பிற பிணையம்" },
+      "features": [
+        { "en": "Term loan and cash credit options", "ta": "தவணைக் கடன் மற்றும் பணக் கடன் (Cash Credit) வசதிகள்" },
+        { "en": "Support for traders, shopkeepers and small enterprises", "ta": "வணிகர்கள், கடைக்காரர்கள் மற்றும் சிறு தொழில்களுக்கு ஆதரவு" },
+        { "en": "Flexible repayment linked to business cash flow", "ta": "தொழிலின் பணப்புழக்கத்திற்கேற்ப வசதியான திருப்பிச் செலுத்துதல்" }
+      ],
+      "eligibility": [
+        { "en": "Business running for at least XX years", "ta": "குறைந்தது XX ஆண்டுகள் நடைபெறும் தொழில்" },
+        { "en": "Business or current account with the bank", "ta": "வங்கியில் தொழில் அல்லது நடப்புக் கணக்கு" },
+        { "en": "Satisfactory financial record", "ta": "திருப்திகரமான நிதி வரலாறு" }
+      ],
+      "documents": [
+        { "en": "Loan application form", "ta": "கடன் விண்ணப்பப் படிவம்" },
+        { "en": "KYC of owners or partners", "ta": "உரிமையாளர்கள் அல்லது கூட்டாளிகளின் KYC" },
+        { "en": "Business proof: registration, GST, shop licence", "ta": "தொழில் சான்று: பதிவு, GST, கடை உரிமம்" },
+        { "en": "ITR and financial statements for last XX years", "ta": "கடந்த XX ஆண்டுகளுக்கான வருமான வரி கணக்கு (ITR) மற்றும் நிதி அறிக்கைகள்" },
+        { "en": "Bank statements", "ta": "வங்கி அறிக்கைகள்" },
+        { "en": "Details of security offered", "ta": "வழங்கப்படும் பிணையத்தின் விவரங்கள்" }
+      ]
+    }
+  ],
+  "loan_process": [
+    { "step": 1, "title": { "en": "Visit the nearest branch or enquire online and choose the loan that suits your need.", "ta": "அருகிலுள்ள கிளைக்குச் செல்லுங்கள் அல்லது இணையத்தில் விசாரித்து, உங்கள் தேவைக்கேற்ற கடனைத் தேர்ந்தெடுக்கவும்." } },
+    { "step": 2, "title": { "en": "Submit the application form with photographs and the required documents.", "ta": "விண்ணப்பப் படிவத்தைப் புகைப்படங்கள் மற்றும் தேவையான ஆவணங்களுடன் சமர்ப்பிக்கவும்." } },
+    { "step": 3, "title": { "en": "The bank verifies KYC, income, security and credit history.", "ta": "வங்கி KYC, வருமானம், பிணையம் மற்றும் கடன் வரலாற்றைச் சரிபார்க்கும்." } },
+    { "step": 4, "title": { "en": "Sanction: you receive the sanction letter with amount, rate, tenure and charges.", "ta": "ஒப்புதல்: தொகை, வட்டி, காலம் மற்றும் கட்டணங்களுடன் ஒப்புதல் கடிதம் கிடைக்கும்." } },
+    { "step": 5, "title": { "en": "Sign the loan agreement and complete security formalities.", "ta": "கடன் ஒப்பந்தத்தில் கையொப்பமிட்டு, பிணைய நடைமுறைகளை முடிக்கவும்." } },
+    { "step": 6, "title": { "en": "Disbursement to your account, then repay through monthly EMI.", "ta": "உங்கள் கணக்கில் கடன் வழங்கப்படும்; பின்னர் மாதத் தவணையில் திருப்பிச் செலுத்தவும்." } }
+  ],
+  "accounts": [
+    {
+      "id": "savings",
+      "title": { "en": "Savings Account", "ta": "சேமிப்புக் கணக்கு" },
+      "summary": { "en": "An everyday account for salary, savings and digital payments.", "ta": "சம்பளம், சேமிப்பு மற்றும் டிஜிட்டல் பணப் பரிவர்த்தனைகளுக்கான தினசரி வங்கிக் கணக்கு." },
+      "rate": { "en": "3% p.a.", "ta": "ஆண்டுக்கு 3%" },
+      "min_balance": { "en": "Rs XX", "ta": "ரூ XX" },
+      "features": [
+        { "en": "RuPay debit card", "ta": "RuPay பற்று அட்டை" },
+        { "en": "Passbook and SMS alerts", "ta": "கணக்குப் புத்தகம் மற்றும் SMS அறிவிப்புகள்" },
+        { "en": "NEFT / RTGS / IMPS", "ta": "NEFT / RTGS / IMPS" },
+        { "en": "Mobile banking", "ta": "மொபைல் வங்கிச் சேவை" }
+      ],
+      "eligibility": [
+        { "en": "Individuals aged 18 and above", "ta": "18 வயது மற்றும் அதற்கு மேற்பட்ட தனிநபர்கள்" },
+        { "en": "Minors through a guardian", "ta": "பாதுகாவலர் மூலம் சிறார்கள்" }
+      ],
+      "documents": [
+        { "en": "Account opening form", "ta": "கணக்கு தொடங்கும் படிவம்" },
+        { "en": "KYC: Aadhaar and PAN or Form 60", "ta": "KYC: ஆதார் மற்றும் PAN அல்லது படிவம் 60" },
+        { "en": "Address proof", "ta": "முகவரிச் சான்று" },
+        { "en": "Passport-size photographs", "ta": "பாஸ்போர்ட் அளவு புகைப்படங்கள்" }
+      ]
+    },
+    {
+      "id": "current",
+      "title": { "en": "Current Account", "ta": "நடப்புக் கணக்கு" },
+      "summary": { "en": "For traders, firms and institutions with frequent transactions.", "ta": "அடிக்கடி பரிவர்த்தனை செய்யும் வணிகர்கள், நிறுவனங்கள் மற்றும் அமைப்புகளுக்கான கணக்கு." },
+      "rate": { "en": "No interest", "ta": "வட்டி இல்லை" },
+      "min_balance": { "en": "Rs XX", "ta": "ரூ XX" },
+      "features": [
+        { "en": "Unlimited transactions as per bank policy", "ta": "வங்கிக் கொள்கையின்படி வரம்பற்ற பரிவர்த்தனைகள்" },
+        { "en": "Cheque book", "ta": "காசோலைப் புத்தகம்" },
+        { "en": "Overdraft facility on approval", "ta": "ஒப்புதலின் பேரில் மிகைப்பற்று (Overdraft) வசதி" }
+      ],
+      "eligibility": [
+        { "en": "Proprietors, partnerships, companies, trusts and societies", "ta": "தனி உரிமையாளர்கள், கூட்டாண்மை நிறுவனங்கள், நிறுவனங்கள், அறக்கட்டளைகள் மற்றும் சங்கங்கள்" }
+      ],
+      "documents": [
+        { "en": "Account opening form", "ta": "கணக்கு தொடங்கும் படிவம்" },
+        { "en": "KYC of owners or partners", "ta": "உரிமையாளர்கள் அல்லது கூட்டாளிகளின் KYC" },
+        { "en": "Business registration or GST proof", "ta": "தொழில் பதிவு அல்லது GST சான்று" },
+        { "en": "Address proof of business", "ta": "தொழில் முகவரிச் சான்று" }
+      ]
+    },
+    {
+      "id": "fd",
+      "title": { "en": "Fixed Deposit", "ta": "நிலை வைப்பு" },
+      "summary": { "en": "A safe, fixed-return deposit for a chosen term.", "ta": "தேர்ந்தெடுத்த காலத்திற்கு நிலையான வருவாய் தரும் பாதுகாப்பான வைப்பு." },
+      "rate": { "en": "7.75% p.a.", "ta": "ஆண்டுக்கு 7.75%" },
+      "min_balance": { "en": "Rs XX minimum deposit", "ta": "குறைந்தபட்ச வைப்பு ரூ XX" },
+      "features": [
+        { "en": "Terms from XX days to XX years", "ta": "XX நாட்கள் முதல் XX ஆண்டுகள் வரை காலம்" },
+        { "en": "Interest payout monthly, quarterly or at maturity", "ta": "வட்டி மாதந்தோறும், காலாண்டுதோறும் அல்லது முதிர்வில் வழங்கப்படும்" },
+        { "en": "Loan against deposit", "ta": "வைப்புத் தொகையின் மீது கடன்" },
+        { "en": "Senior citizen benefit as per bank policy", "ta": "வங்கிக் கொள்கையின்படி மூத்த குடிமக்களுக்கு கூடுதல் பலன்" }
+      ],
+      "eligibility": [
+        { "en": "Individuals, HUFs, firms and institutions", "ta": "தனிநபர்கள், இந்து கூட்டுக் குடும்பங்கள் (HUF), நிறுவனங்கள் மற்றும் அமைப்புகள்" }
+      ],
+      "documents": [
+        { "en": "FD application form", "ta": "நிலை வைப்பு விண்ணப்பப் படிவம்" },
+        { "en": "KYC documents", "ta": "KYC ஆவணங்கள்" },
+        { "en": "Savings account details for payout", "ta": "வட்டி செலுத்துவதற்கான சேமிப்புக் கணக்கு விவரங்கள்" }
+      ]
+    },
+    {
+      "id": "rd",
+      "title": { "en": "Recurring Deposit", "ta": "தொடர் வைப்பு" },
+      "summary": { "en": "Build savings with a fixed deposit every month.", "ta": "மாதந்தோறும் நிலையான தொகையை வைப்பு செய்து சேமிப்பை உருவாக்குங்கள்." },
+      "rate": { "en": "7.75% p.a.", "ta": "ஆண்டுக்கு 7.75%" },
+      "min_balance": { "en": "Rs XX per month", "ta": "மாதம் ரூ XX" },
+      "features": [
+        { "en": "Monthly instalments", "ta": "மாதாந்திரத் தவணைகள்" },
+        { "en": "Terms from XX months to XX years", "ta": "XX மாதங்கள் முதல் XX ஆண்டுகள் வரை காலம்" },
+        { "en": "Auto-debit from savings account", "ta": "சேமிப்புக் கணக்கிலிருந்து தானியங்கி பற்று" },
+        { "en": "Maturity amount with interest", "ta": "வட்டியுடன் கூடிய முதிர்வுத் தொகை" }
+      ],
+      "eligibility": [
+        { "en": "Individuals aged 18 and above; minors through guardian", "ta": "18 வயது மற்றும் அதற்கு மேற்பட்ட தனிநபர்கள்; சிறார்கள் பாதுகாவலர் மூலம்" }
+      ],
+      "documents": [
+        { "en": "RD application form", "ta": "தொடர் வைப்பு விண்ணப்பப் படிவம்" },
+        { "en": "KYC documents", "ta": "KYC ஆவணங்கள்" },
+        { "en": "Savings account details", "ta": "சேமிப்புக் கணக்கு விவரங்கள்" }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "atm",
+      "title": { "en": "ATM / Debit Card", "ta": "ஏடிஎம் / டெபிட் கார்டு" },
+      "summary": { "en": "RuPay debit card for cash withdrawal and shopping.", "ta": "பணம் எடுக்கவும் பொருட்கள் வாங்கவும் RuPay பற்று அட்டை." },
+      "how_to": [
+        { "en": "Apply at your branch or through the request form", "ta": "உங்கள் கிளையில் அல்லது கோரிக்கைப் படிவம் மூலம் விண்ணப்பிக்கவும்" },
+        { "en": "Collect the card and set your PIN", "ta": "அட்டையைப் பெற்று உங்கள் PIN-ஐ அமைக்கவும்" },
+        { "en": "Never share PIN or card details with anyone", "ta": "PIN அல்லது அட்டை விவரங்களை யாருடனும் பகிர வேண்டாம்" },
+        { "en": "Report a lost card immediately at the branch or helpline", "ta": "அட்டை தொலைந்தால் உடனடியாகக் கிளையிலோ உதவி எண்ணிலோ தெரிவிக்கவும்" }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": { "en": "NEFT / RTGS / IMPS", "ta": "நெஃப்ட் / ஆர்டிஜிஎஸ் / ஐஎம்பிஎஸ்" },
+      "summary": { "en": "Transfer money to other bank accounts safely.", "ta": "பிற வங்கிக் கணக்குகளுக்குப் பாதுகாப்பாகப் பணம் அனுப்புங்கள்." },
+      "how_to": [
+        { "en": "Collect the fund transfer form at the branch or use mobile banking", "ta": "கிளையில் பணப் பரிமாற்றப் படிவத்தைப் பெறுங்கள் அல்லது மொபைல் வங்கிச் சேவையைப் பயன்படுத்துங்கள்" },
+        { "en": "Enter beneficiary name, account number and IFSC carefully", "ta": "பயனாளியின் பெயர், கணக்கு எண் மற்றும் IFSC-ஐ கவனமாக உள்ளிடவும்" },
+        { "en": "Choose NEFT, RTGS (high value) or IMPS (instant)", "ta": "NEFT, RTGS (அதிக மதிப்பு) அல்லது IMPS (உடனடி) என்பதைத் தேர்ந்தெடுக்கவும்" },
+        { "en": "Keep the reference number for your records", "ta": "பதிவுக்காகக் குறிப்பு எண்ணை வைத்துக்கொள்ளவும்" }
+      ]
+    },
+    {
+      "id": "mobile",
+      "title": { "en": "Mobile Banking", "ta": "மொபைல் வங்கி" },
+      "summary": { "en": "Check balance and transfer funds from your phone.", "ta": "உங்கள் தொலைபேசியிலிருந்தே இருப்பைச் சரிபார்த்துப் பணம் அனுப்புங்கள்." },
+      "how_to": [
+        { "en": "Register your mobile number at the branch", "ta": "கிளையில் உங்கள் மொபைல் எண்ணைப் பதிவு செய்யவும்" },
+        { "en": "Download the bank's official app", "ta": "வங்கியின் அதிகாரப்பூர்வ செயலியைப் பதிவிறக்கவும்" },
+        { "en": "Set your login and transaction PIN", "ta": "உங்கள் உள்நுழைவு மற்றும் பரிவர்த்தனை PIN-ஐ அமைக்கவும்" },
+        { "en": "Do not share OTP or PIN with anyone", "ta": "OTP அல்லது PIN-ஐ யாருடனும் பகிர வேண்டாம்" }
+      ]
+    },
+    {
+      "id": "sms",
+      "title": { "en": "SMS Alerts", "ta": "எஸ்எம்எஸ் எச்சரிக்கைகள்" },
+      "summary": { "en": "Get an SMS for every transaction on your account.", "ta": "உங்கள் கணக்கில் நடக்கும் ஒவ்வொரு பரிவர்த்தனைக்கும் SMS பெறுங்கள்." },
+      "how_to": [
+        { "en": "Register or update your mobile number at the branch", "ta": "கிளையில் உங்கள் மொபைல் எண்ணைப் பதிவு செய்யவும் அல்லது புதுப்பிக்கவும்" },
+        { "en": "Alerts are sent after each debit or credit", "ta": "ஒவ்வொரு பற்று அல்லது வரவுக்குப் பிறகும் அறிவிப்பு அனுப்பப்படும்" },
+        { "en": "Contact the bank at once if you see a transaction you did not make", "ta": "நீங்கள் செய்யாத பரிவர்த்தனையைக் கண்டால் உடனடியாக வங்கியைத் தொடர்புகொள்ளவும்" }
+      ]
+    },
+    {
+      "id": "locker",
+      "title": { "en": "Locker", "ta": "லாக்கர்" },
+      "summary": { "en": "Safe deposit lockers for documents and valuables.", "ta": "ஆவணங்கள் மற்றும் மதிப்புமிக்க பொருட்களுக்கான பாதுகாப்புப் பெட்டகங்கள்." },
+      "how_to": [
+        { "en": "Ask the branch for locker availability", "ta": "பெட்டகம் உள்ளதா என்று கிளையில் கேளுங்கள்" },
+        { "en": "Fill the application form and submit KYC", "ta": "விண்ணப்பப் படிவத்தை நிரப்பி KYC-ஐ சமர்ப்பிக்கவும்" },
+        { "en": "Sign the locker agreement and pay the annual rent of Rs XX", "ta": "பெட்டக ஒப்பந்தத்தில் கையொப்பமிட்டு ஆண்டு வாடகை ரூ XX செலுத்தவும்" },
+        { "en": "Visit during banking hours with your key and ID", "ta": "வங்கி நேரத்தில் உங்கள் சாவி மற்றும் அடையாளச் சான்றுடன் வரவும்" }
+      ]
+    }
+  ],
+  "procedures": {
+    "kyc": [
+      { "en": "Fill the KYC form with photograph", "ta": "புகைப்படத்துடன் KYC படிவத்தை நிரப்பவும்" },
+      { "en": "Provide identity proof (Aadhaar, voter ID, passport or driving licence)", "ta": "அடையாளச் சான்று வழங்கவும் (ஆதார், வாக்காளர் அடையாள அட்டை, கடவுச்சீட்டு அல்லது ஓட்டுநர் உரிமம்)" },
+      { "en": "Provide address proof", "ta": "முகவரிச் சான்று வழங்கவும்" },
+      { "en": "Provide PAN or Form 60", "ta": "PAN அல்லது படிவம் 60 வழங்கவும்" },
+      { "en": "Complete signature verification at the branch", "ta": "கிளையில் கையொப்பச் சரிபார்ப்பை முடிக்கவும்" }
+    ],
+    "account_opening": [
+      { "en": "Visit the branch and collect the account opening form", "ta": "கிளைக்குச் சென்று கணக்கு தொடங்கும் படிவத்தைப் பெறுங்கள்" },
+      { "en": "Fill in the form and attach photographs and KYC documents", "ta": "படிவத்தை நிரப்பி புகைப்படங்கள் மற்றும் KYC ஆவணங்களை இணைக்கவும்" },
+      { "en": "Bank verifies documents", "ta": "வங்கி ஆவணங்களைச் சரிபார்க்கும்" },
+      { "en": "Make the initial deposit", "ta": "ஆரம்ப வைப்புத் தொகையைச் செலுத்தவும்" },
+      { "en": "Receive account number, passbook and debit card", "ta": "கணக்கு எண், கணக்குப் புத்தகம் மற்றும் பற்று அட்டையைப் பெறுங்கள்" }
+    ],
+    "complaint": [
+      { "en": "Raise the complaint at your branch or through the helpline", "ta": "உங்கள் கிளையில் அல்லது உதவி எண் மூலம் புகார் அளிக்கவும்" },
+      { "en": "Note the complaint reference number", "ta": "புகார் குறிப்பு எண்ணைக் குறித்துக்கொள்ளவும்" },
+      { "en": "Bank resolves it within the time stated in its grievance policy (XX days)", "ta": "வங்கியின் குறை தீர்வுக் கொள்கையில் குறிப்பிட்ட காலத்திற்குள் (XX நாட்கள்) வங்கி தீர்வு காணும்" },
+      { "en": "If unresolved, escalate to the Grievance Redressal Officer, then to the RBI Ombudsman as per RBI rules", "ta": "தீர்வு கிடைக்கவில்லை என்றால், குறை தீர்க்கும் அதிகாரியிடமும், பின்னர் RBI விதிகளின்படி RBI ஒம்புட்ஸ்மனிடமும் முறையிடவும்" }
+    ],
+    "security_tips": [
+      { "en": "The bank never asks for your OTP, PIN, CVV or password by phone, SMS or email", "ta": "வங்கி தொலைபேசி, SMS அல்லது மின்னஞ்சல் மூலம் உங்கள் OTP, PIN, CVV அல்லது கடவுச்சொல்லை ஒருபோதும் கேட்காது" },
+      { "en": "Do not click links from unknown senders", "ta": "தெரியாதவர்கள் அனுப்பும் இணைப்புகளைக் கிளிக் செய்ய வேண்டாம்" },
+      { "en": "Do not share your card or account details with strangers", "ta": "உங்கள் அட்டை அல்லது கணக்கு விவரங்களை அந்நியர்களுடன் பகிர வேண்டாம்" },
+      { "en": "Report lost cards and suspicious transactions immediately", "ta": "தொலைந்த அட்டைகள் மற்றும் சந்தேகத்திற்கிடமான பரிவர்த்தனைகளை உடனடியாகப் புகாரளிக்கவும்" },
+      { "en": "Check your SMS alerts and passbook regularly", "ta": "உங்கள் SMS அறிவிப்புகள் மற்றும் கணக்குப் புத்தகத்தை அடிக்கடி சரிபார்க்கவும்" }
+    ]
+  },
+  "faqs": [
+    { "q": { "en": "Are my deposits insured?", "ta": "என் வைப்புகளுக்குக் காப்பீடு உள்ளதா?" }, "a": { "en": "Deposits are insured by DICGC up to Rs 5 lakh per depositor per bank, subject to DICGC rules.", "ta": "DICGC விதிகளுக்கு உட்பட்டு, ஒரு வங்கியில் ஒரு வைப்பாளருக்கு ரூ 5 லட்சம் வரை வைப்புகள் DICGC-யால் காப்பீடு செய்யப்படுகின்றன." } },
+    { "q": { "en": "How long does loan approval take?", "ta": "கடன் ஒப்புதலுக்கு எவ்வளவு நேரம் ஆகும்?" }, "a": { "en": "Approval time depends on the loan type and documents. Sample: XX working days.", "ta": "ஒப்புதல் நேரம் கடன் வகை மற்றும் ஆவணங்களைப் பொறுத்தது. மாதிரி: XX வேலை நாட்கள்." } },
+    { "q": { "en": "Can I repay a loan early?", "ta": "கடனை முன்கூட்டியே திருப்பிச் செலுத்தலாமா?" }, "a": { "en": "Part-payment and foreclosure are allowed as per bank policy. Charges, if any: XX.", "ta": "வங்கிக் கொள்கையின்படி பகுதி செலுத்துதல் மற்றும் முன்கூட்டியே முடித்தல் அனுமதிக்கப்படும். கட்டணம் இருந்தால்: XX." } },
+    { "q": { "en": "What if I lose my debit card?", "ta": "என் பற்று அட்டை தொலைந்தால் என்ன செய்வது?" }, "a": { "en": "Contact the bank immediately to block the card. Helpline: 000-0000-0000.", "ta": "அட்டையை முடக்க உடனடியாக வங்கியைத் தொடர்புகொள்ளவும். உதவி எண்: 000-0000-0000." } },
+    { "q": { "en": "How do I update my mobile number?", "ta": "என் மொபைல் எண்ணை எப்படி மாற்றுவது?" }, "a": { "en": "Submit a request form with ID proof at your home branch.", "ta": "அடையாளச் சான்றுடன் கோரிக்கைப் படிவத்தை உங்கள் முதன்மைக் கிளையில் சமர்ப்பிக்கவும்." } }
+  ],
+  "disclaimer": {
+    "en": "Sample information for demonstration only. Rates, charges and eligibility are placeholders and are subject to change as per bank policy.",
+    "ta": "இது செயல்விளக்கத்திற்கான மாதிரித் தகவல் மட்டுமே. வட்டி விகிதங்கள், கட்டணங்கள் மற்றும் தகுதிகள் மாதிரி மதிப்புகள்; வங்கியின் கொள்கைப்படி மாறக்கூடும்."
+  }
+}

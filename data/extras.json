@@ -1,0 +1,75 @@
+{
+  "_note": "SYNTHETIC SAMPLE CONTENT for demo only. Rates, fees, limits and policies are placeholders (XX). Replace with verified Arcot UCB details before going live.",
+  "synthetic": true,
+  "loans": [
+    { "id": "personal", "title": { "en": "Personal Loan", "ta": "தனிநபர் கடன்" },
+      "summary": { "en": "Quick funds for medical needs, education, weddings, travel or home needs.", "ta": "தனிப்பட்ட தேவைகளுக்கான விரைவான கடன்." },
+      "rate": "12% p.a.", "tenure": "Up to XX months", "amount": "Rs XX to Rs XX", "processing_fee": "XX% of loan amount", "security": "As per bank policy (guarantor may be required)",
+      "features": ["Simple documentation", "Quick processing", "Flexible repayment through monthly EMI", "Part-payment and foreclosure as per bank policy"],
+      "eligibility": ["Indian resident aged 21 to XX years", "Member or account holder of the bank", "Regular source of income (salary, business or pension)", "Satisfactory repayment history"],
+      "documents": ["Loan application form with photograph", "KYC: Aadhaar, PAN, address proof", "Income proof: salary slips / bank statement / ITR", "Bank account statement for last XX months", "Guarantor details if required"] },
+    { "id": "gold", "title": { "en": "Gold Loan", "ta": "தங்கக் கடன்" },
+      "summary": { "en": "Instant funds against your gold ornaments with minimal paperwork.", "ta": "தங்க நகைகளின் பேரில் உடனடி நிதி." },
+      "rate": "11% p.a.", "tenure": "Up to XX months", "amount": "Based on gold value, up to XX% of appraised value", "processing_fee": "XX% of loan amount", "security": "Gold ornaments pledged to the bank",
+      "features": ["Same-day disbursement after valuation", "Ornaments kept safely in bank strong room", "Interest-only or bullet repayment options", "Release of gold on full repayment"],
+      "eligibility": ["Indian resident aged 18 years or above", "Account holder of the bank", "Gold ornaments of acceptable purity owned by the applicant"],
+      "documents": ["Loan application form", "KYC: Aadhaar and PAN or other ID", "Recent photograph", "Gold ornaments for valuation by the bank's approved appraiser"] },
+    { "id": "vehicle", "title": { "en": "Vehicle Loan", "ta": "வாகனக் கடன்" },
+      "summary": { "en": "Finance for new or used two-wheelers, cars and commercial vehicles.", "ta": "புதிய அல்லது பயன்படுத்திய வாகனம் வாங்க கடன்." },
+      "rate": "11% p.a.", "tenure": "Up to XX months", "amount": "Up to XX% of vehicle cost", "processing_fee": "XX% of loan amount", "security": "Hypothecation of the vehicle to the bank",
+      "features": ["Loan for new and used vehicles", "Convenient EMI", "Quick sanction after quotation and documents", "Hypothecation noted on the RC"],
+      "eligibility": ["Indian resident aged 21 to XX years", "Stable income for repayment", "Down payment as per bank norms"],
+      "documents": ["Loan application form", "KYC: Aadhaar, PAN, address proof", "Income proof", "Dealer quotation / proforma invoice", "RC copy and insurance for used vehicles"] },
+    { "id": "housing", "title": { "en": "Housing Loan", "ta": "வீட்டுக் கடன்" },
+      "summary": { "en": "Loans to buy, build, extend or renovate your home.", "ta": "வீடு கட்ட, வாங்க அல்லது புதுப்பிக்க கடன்." },
+      "rate": "12% p.a.", "tenure": "Up to XX years", "amount": "Up to Rs XX", "processing_fee": "XX% of loan amount", "security": "Mortgage of the property",
+      "features": ["Long tenure with affordable EMI", "Loan for purchase, construction, extension or repair", "Property valuation and legal check by the bank", "Disbursement in stages for construction"],
+      "eligibility": ["Indian resident aged 21 to XX years", "Stable income and repayment capacity", "Clear and marketable title to the property"],
+      "documents": ["Loan application form", "KYC: Aadhaar, PAN, address proof", "Income proof and bank statements", "Property documents: sale deed, patta, encumbrance certificate", "Approved building plan and cost estimate for construction"] },
+    { "id": "business", "title": { "en": "Business Loan", "ta": "வணிகக் கடன்" },
+      "summary": { "en": "Working capital and expansion loans for shops, traders and small businesses.", "ta": "தொழில் விரிவாக்கம் மற்றும் செயல்பாட்டு மூலதனத்திற்கான கடன்." },
+      "rate": "12% p.a.", "tenure": "Up to XX years", "amount": "Rs XX to Rs XX", "processing_fee": "XX% of loan amount", "security": "Property, stock or other security as per bank policy",
+      "features": ["Term loan and cash credit options", "Support for traders, shopkeepers and small enterprises", "Flexible repayment linked to business cash flow"],
+      "eligibility": ["Business running for at least XX years", "Business or current account with the bank", "Satisfactory financial record"],
+      "documents": ["Loan application form", "KYC of owners or partners", "Business proof: registration, GST, shop licence", "ITR and financial statements for last XX years", "Bank statements", "Details of security offered"] }
+  ],
+  "loan_process": [
+    { "step": 1, "en": "Visit the nearest branch or enquire online and choose the loan that suits your need." },
+    { "step": 2, "en": "Submit the application form with photographs and the required documents." },
+    { "step": 3, "en": "The bank verifies KYC, income, security and credit history." },
+    { "step": 4, "en": "Sanction: you receive the sanction letter with amount, rate, tenure and charges." },
+    { "step": 5, "en": "Sign the loan agreement and complete security formalities." },
+    { "step": 6, "en": "Disbursement to your account, then repay through monthly EMI." }
+  ],
+  "accounts": [
+    { "id": "savings", "title": { "en": "Savings Account", "ta": "சேமிப்புக் கணக்கு" }, "summary": { "en": "An everyday account for salary, savings and digital payments.", "ta": "தினசரி வங்கி சேவைக்கான கணக்கு." },
+      "rate": "3% p.a.", "min_balance": "Rs XX", "features": ["RuPay debit card", "Passbook and SMS alerts", "NEFT / RTGS / IMPS", "Mobile banking"], "eligibility": ["Individuals aged 18 and above", "Minors through a guardian"], "documents": ["Account opening form", "KYC: Aadhaar and PAN or Form 60", "Address proof", "Passport-size photographs"] },
+    { "id": "current", "title": { "en": "Current Account", "ta": "நடப்புக் கணக்கு" }, "summary": { "en": "For traders, firms and institutions with frequent transactions.", "ta": "வணிகர்களுக்கான கணக்கு." },
+      "rate": "No interest", "min_balance": "Rs XX", "features": ["Unlimited transactions as per bank policy", "Cheque book", "Overdraft facility on approval"], "eligibility": ["Proprietors, partnerships, companies, trusts and societies"], "documents": ["Account opening form", "KYC of owners or partners", "Business registration or GST proof", "Address proof of business"] },
+    { "id": "fd", "title": { "en": "Fixed Deposit", "ta": "நிலை வைப்பு" }, "summary": { "en": "A safe, fixed-return deposit for a chosen term.", "ta": "நிர்ணயிக்கப்பட்ட காலத்திற்கு பாதுகாப்பான முதலீடு." },
+      "rate": "7.75% p.a.", "min_balance": "Rs XX minimum deposit", "features": ["Terms from XX days to XX years", "Interest payout monthly, quarterly or at maturity", "Loan against deposit", "Senior citizen benefit as per bank policy"], "eligibility": ["Individuals, HUFs, firms and institutions"], "documents": ["FD application form", "KYC documents", "Savings account details for payout"] },
+    { "id": "rd", "title": { "en": "Recurring Deposit", "ta": "தொடர் வைப்பு" }, "summary": { "en": "Build savings with a fixed deposit every month.", "ta": "மாதந்தோறும் சிறிது சிறிதாகச் சேமிக்க." },
+      "rate": "7.75% p.a.", "min_balance": "Rs XX per month", "features": ["Monthly instalments", "Terms from XX months to XX years", "Auto-debit from savings account", "Maturity amount with interest"], "eligibility": ["Individuals aged 18 and above; minors through guardian"], "documents": ["RD application form", "KYC documents", "Savings account details"] }
+  ],
+  "services": [
+    { "id": "atm", "title": { "en": "ATM / Debit Card", "ta": "ஏடிஎம் / டெபிட் கார்டு" }, "summary": "RuPay debit card for cash withdrawal and shopping.", "how_to": ["Apply at your branch or through the request form", "Collect the card and set your PIN", "Never share PIN or card details with anyone", "Report a lost card immediately at the branch or helpline"] },
+    { "id": "transfer", "title": { "en": "NEFT / RTGS / IMPS", "ta": "நெஃப்ட் / ஆர்டிஜிஎஸ் / ஐஎம்பிஎஸ்" }, "summary": "Transfer money to other bank accounts safely.", "how_to": ["Collect the fund transfer form at the branch or use mobile banking", "Enter beneficiary name, account number and IFSC carefully", "Choose NEFT, RTGS (high value) or IMPS (instant)", "Keep the reference number for your records"] },
+    { "id": "mobile", "title": { "en": "Mobile Banking", "ta": "மொபைல் வங்கி" }, "summary": "Check balance and transfer funds from your phone.", "how_to": ["Register your mobile number at the branch", "Download the bank's official app", "Set your login and transaction PIN", "Do not share OTP or PIN with anyone"] },
+    { "id": "sms", "title": { "en": "SMS Alerts", "ta": "எஸ்எம்எஸ் எச்சரிக்கைகள்" }, "summary": "Get an SMS for every transaction on your account.", "how_to": ["Register or update your mobile number at the branch", "Alerts are sent after each debit or credit", "Contact the bank at once if you see a transaction you did not make"] },
+    { "id": "locker", "title": { "en": "Locker", "ta": "லாக்கர்" }, "summary": "Safe deposit lockers for documents and valuables.", "how_to": ["Ask the branch for locker availability", "Fill the application form and submit KYC", "Sign the locker agreement and pay the annual rent of Rs XX", "Visit during banking hours with your key and ID"] }
+  ],
+  "procedures": {
+    "kyc": ["Fill the KYC form with photograph", "Provide identity proof (Aadhaar, voter ID, passport or driving licence)", "Provide address proof", "Provide PAN or Form 60", "Complete signature verification at the branch"],
+    "account_opening": ["Visit the branch and collect the account opening form", "Fill in the form and attach photographs and KYC documents", "Bank verifies documents", "Make the initial deposit", "Receive account number, passbook and debit card"],
+    "complaint": ["Raise the complaint at your branch or through the helpline", "Note the complaint reference number", "Bank resolves it within the time stated in its grievance policy (XX days)", "If unresolved, escalate to the Grievance Redressal Officer, then to the RBI Ombudsman as per RBI rules"],
+    "security_tips": ["The bank never asks for your OTP, PIN, CVV or password by phone, SMS or email", "Do not click links from unknown senders", "Do not share your card or account details with strangers", "Report lost cards and suspicious transactions immediately", "Check your SMS alerts and passbook regularly"]
+  },
+  "faqs": [
+    { "q": "Are my deposits insured?", "a": "Deposits are insured by DICGC up to Rs 5 lakh per depositor per bank, subject to DICGC rules." },
+    { "q": "How long does loan approval take?", "a": "Approval time depends on the loan type and documents. Sample: XX working days." },
+    { "q": "Can I repay a loan early?", "a": "Part-payment and foreclosure are allowed as per bank policy. Charges, if any: XX." },
+    { "q": "What if I lose my debit card?", "a": "Contact the bank immediately to block the card. Helpline: 000-0000-0000." },
+    { "q": "How do I update my mobile number?", "a": "Submit a request form with ID proof at your home branch." }
+  ],
+  "disclaimer": { "en": "Sample information for demonstration only. Rates, charges and eligibility are placeholders and are subject to change as per bank policy.", "ta": "இது செயல்விளக்கத்திற்கான மாதிரித் தகவல் மட்டுமே. வட்டி விகிதங்கள், கட்டணங்கள் மற்றும் தகுதிகள் மாதிரி மதிப்புகள்; வங்கியின் கொள்கைப்படி மாறக்கூடும்." }
+}

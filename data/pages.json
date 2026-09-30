@@ -1,0 +1,291 @@
+{
+  "_note": "SYNTHETIC SAMPLE CONTENT for demo only. Names, years, charges and contact details are placeholders. Replace with verified Arcot UCB information before going live.",
+  "synthetic": true,
+  "about": {
+    "intro": {
+      "en": "Arcot Urban Co-operative Bank Ltd is a community bank built on co-operative values, local knowledge and responsible banking.",
+      "ta": "ஆற்காடு நகர கூட்டுறவு வங்கி என்பது கூட்டுறவு மதிப்புகள், உள்ளூர் அறிவு மற்றும் பொறுப்பான வங்கிச் சேவையை அடிப்படையாகக் கொண்ட சமூக வங்கி."
+    },
+    "vision": {
+      "en": "To be the most trusted community bank, helping every family and small business in our area save, borrow and grow with confidence.",
+      "ta": "எங்கள் பகுதியிலுள்ள ஒவ்வொரு குடும்பமும் சிறு வணிகமும் நம்பிக்கையுடன் சேமிக்கவும், கடன் பெறவும், வளரவும் உதவும் மிகவும் நம்பகமான சமூக வங்கியாக இருப்பது."
+    },
+    "mission": {
+      "en": "Provide simple, safe and affordable banking, encourage the habit of saving, support local livelihoods, and serve members with honesty and respect.",
+      "ta": "எளிய, பாதுகாப்பான, மலிவான வங்கிச் சேவைகளை வழங்குவது; சேமிப்புப் பழக்கத்தை ஊக்குவிப்பது; உள்ளூர் வாழ்வாதாரத்திற்கு துணை நிற்பது; உறுப்பினர்களை நேர்மையுடனும் மரியாதையுடனும் சேவை செய்வது."
+    },
+    "values": [
+      { "title": { "en": "Trust and transparency", "ta": "நம்பிக்கையும் வெளிப்படைத்தன்மையும்" } },
+      { "title": { "en": "Member-first service", "ta": "உறுப்பினர்களுக்கு முன்னுரிமை அளிக்கும் சேவை" } },
+      { "title": { "en": "Community development", "ta": "சமூக வளர்ச்சி" } },
+      { "title": { "en": "Financial inclusion", "ta": "நிதி உள்ளடக்கம்" } },
+      { "title": { "en": "Integrity and good governance", "ta": "நேர்மையும் நல்லாட்சியும்" } }
+    ],
+    "cooperative_principles": [
+      { "title": { "en": "Voluntary and open membership", "ta": "தன்னார்வ மற்றும் திறந்த உறுப்பினர் சேர்க்கை" } },
+      { "title": { "en": "Democratic member control", "ta": "உறுப்பினர்களின் ஜனநாயகக் கட்டுப்பாடு" } },
+      { "title": { "en": "Member economic participation", "ta": "உறுப்பினர்களின் பொருளாதாரப் பங்கேற்பு" } },
+      { "title": { "en": "Autonomy and independence", "ta": "தன்னாட்சி மற்றும் சுதந்திரம்" } },
+      { "title": { "en": "Education, training and information", "ta": "கல்வி, பயிற்சி மற்றும் தகவல்" } },
+      { "title": { "en": "Co-operation among co-operatives", "ta": "கூட்டுறவு அமைப்புகளிடையே ஒத்துழைப்பு" } },
+      { "title": { "en": "Concern for community", "ta": "சமூகத்தின் மீது அக்கறை" } }
+    ],
+    "history": [
+      {
+        "year": "19XX",
+        "title": {
+          "en": "Founded by local residents as an urban credit co-operative society to encourage thrift and provide fair credit.",
+          "ta": "உள்ளூர் மக்கள் சிக்கனத்தை ஊக்குவிக்கவும் நியாயமான கடன் வழங்கவும் நகர கடன் கூட்டுறவுச் சங்கமாக இதை நிறுவினர்."
+        }
+      },
+      {
+        "year": "19XX",
+        "title": {
+          "en": "Received permission to operate as an urban co-operative bank; Head Office established at Arcot.",
+          "ta": "நகர கூட்டுறவு வங்கியாகச் செயல்பட அனுமதி பெற்றது; தலைமை அலுவலகம் ஆற்காட்டில் நிறுவப்பட்டது."
+        }
+      },
+      {
+        "year": "20XX",
+        "title": {
+          "en": "Opened additional branches in nearby towns to serve more members.",
+          "ta": "அதிக உறுப்பினர்களுக்குச் சேவை செய்ய அருகிலுள்ள நகரங்களில் கூடுதல் கிளைகள் திறக்கப்பட்டன."
+        }
+      },
+      {
+        "year": "20XX",
+        "title": {
+          "en": "Introduced ATM / RuPay debit cards and locker facility.",
+          "ta": "ATM / RuPay பற்று அட்டைகள் மற்றும் பாதுகாப்புப் பெட்டக வசதி அறிமுகப்படுத்தப்பட்டன."
+        }
+      },
+      {
+        "year": "20XX",
+        "title": {
+          "en": "Started NEFT, RTGS and IMPS fund transfer services.",
+          "ta": "NEFT, RTGS மற்றும் IMPS நிதிப் பரிமாற்றச் சேவைகள் தொடங்கப்பட்டன."
+        }
+      },
+      {
+        "year": "20XX",
+        "title": {
+          "en": "Launched mobile banking and SMS alerts.",
+          "ta": "மொபைல் வங்கிச் சேவை மற்றும் SMS அறிவிப்புகள் தொடங்கப்பட்டன."
+        }
+      }
+    ],
+   "board": {
+  "note": {
+    "en": "The Board of Directors is not in place at present. Day-to-day contact points are listed below.",
+    "ta": "தற்போது இயக்குநர் குழு செயல்பாட்டில் இல்லை. அன்றாடத் தொடர்புக்கான நபர்கள் கீழே பட்டியலிடப்பட்டுள்ளனர்."
+  },
+  "members": [
+    {
+      "title": { "en": "Board of Directors", "ta": "இயக்குநர் குழு" },
+      "description": {
+        "en": "The Board of Directors is not in place at present. Day-to-day contact points are listed below.",
+        "ta": "தற்போது இயக்குநர் குழு செயல்பாட்டில் இல்லை. அன்றாடத் தொடர்புக்கான நபர்கள் கீழே பட்டியலிடப்பட்டுள்ளனர்."
+      }
+    },
+    {
+      "role": { "en": "CSR / Administrator", "ta": "CSR / நிர்வாகி" },
+      "name": { "en": "V. Amuda", "ta": "வி. அமுதா" },
+      "description": { "en": "Phone: 90800 21285", "ta": "தொலைபேசி: 90800 21285" }
+    },
+    {
+      "role": { "en": "General Manager", "ta": "பொது மேலாளர்" },
+      "name": { "en": "K. Panneerselvam", "ta": "கே. பன்னீர்செல்வம்" },
+      "description": { "en": "Phone: 94430 35248", "ta": "தொலைபேசி: 94430 35248" }
+    },
+    {
+      "role": { "en": "Assistant General Manager (Grievance Officer)", "ta": "உதவி பொது மேலாளர் (குறை தீர்க்கும் அலுவலர்)" },
+      "name": { "en": "K. Venkatesan", "ta": "கே. வெங்கடேசன்" },
+      "description": { "en": "Phone: 94428 62088", "ta": "தொலைபேசி: 94428 62088" }
+    }
+  ]
+}
+  },
+  "rates_charges": {
+    "how_to_read": [
+      {
+        "en": "Rates are per annum (p.a.) and may change; the rate applicable is the one on the date of deposit or sanction.",
+        "ta": "வட்டி விகிதங்கள் ஆண்டுக்கானவை (p.a.); அவை மாறலாம். வைப்பு அல்லது கடன் அனுமதி வழங்கிய நாளில் உள்ள விகிதமே பொருந்தும்."
+      },
+      {
+        "en": "Senior citizen and special rates, if any, are as per bank policy.",
+        "ta": "மூத்த குடிமக்கள் மற்றும் சிறப்பு விகிதங்கள், இருப்பின், வங்கிக் கொள்கையின்படி இருக்கும்."
+      },
+      {
+        "en": "Ask your branch for the latest rate card before you decide.",
+        "ta": "முடிவெடுக்கும் முன் சமீபத்திய வட்டி விகிதப் பட்டியலை உங்கள் கிளையில் கேளுங்கள்."
+      }
+    ],
+    "deposit_rates": [
+      { "product": { "en": "Savings Account", "ta": "சேமிப்புக் கணக்கு" }, "rate": "3%" },
+      { "product": { "en": "Fixed Deposit (12 to 24 days)", "ta": "நிலையான வைப்பு (12 முதல் 24 நாட்கள்)" }, "rate": "7.75%" },
+      { "product": { "en": "Fixed Deposit (1 year to less than 2 years)", "ta": "நிலையான வைப்பு (1 ஆண்டு முதல் 2 ஆண்டுகளுக்குக் குறைவு)" }, "rate": "7.75%" },
+      { "product": { "en": "Fixed Deposit (2 years and above)", "ta": "நிலையான வைப்பு (2 ஆண்டுகள் மற்றும் அதற்கு மேல்)" }, "rate": "7.75%" },
+      { "product": { "en": "Recurring Deposit", "ta": "தொடர் வைப்பு" }, "rate": "7.75%" }
+    ],
+    "loan_rates": [
+      { "product": { "en": "Personal Loan", "ta": "தனிநபர் கடன்" }, "rate": "12%" },
+      { "product": { "en": "Gold Loan", "ta": "தங்க நகைக் கடன்" }, "rate": "11%" },
+      { "product": { "en": "Vehicle Loan", "ta": "வாகனக் கடன்" }, "rate": "11%" },
+      { "product": { "en": "Housing Loan", "ta": "வீட்டுக் கடன்" }, "rate": "12%" },
+      { "product": { "en": "Business Loan", "ta": "தொழில் கடன்" }, "rate": "12%" }
+    ],
+    "service_charges": [
+      { "service": { "en": "Cheque book (per leaf)", "ta": "காசோலைப் புத்தகம் (ஒரு தாளுக்கு)" }, "charge": { "en": "Rs 3", "ta": "ரூ 3" } },
+      { "service": { "en": "Duplicate passbook", "ta": "நகல் வங்கிக் கணக்குப் புத்தகம்" }, "charge": { "en": "Rs 50", "ta": "ரூ 50" } },
+      { "service": { "en": "Debit card issuance / replacement", "ta": "பற்று அட்டை வழங்கல் / மாற்றம்" }, "charge": { "en": "Rs 150", "ta": "ரூ 150" } },
+      { "service": { "en": "NEFT (per transaction)", "ta": "NEFT (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Rs 2.50", "ta": "ரூ 2.50" } },
+      { "service": { "en": "RTGS (per transaction)", "ta": "RTGS (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Rs 25", "ta": "ரூ 25" } },
+      { "service": { "en": "IMPS (per transaction)", "ta": "IMPS (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Rs 5", "ta": "ரூ 5" } },
+      { "service": { "en": "Cheque return (insufficient funds)", "ta": "காசோலை திரும்புதல் (போதிய இருப்பு இல்லை)" }, "charge": { "en": "Rs 200", "ta": "ரூ 200" } },
+      { "service": { "en": "Account statement copy", "ta": "கணக்கு அறிக்கை நகல்" }, "charge": { "en": "Rs 30", "ta": "ரூ 30" } },
+      { "service": { "en": "Non-maintenance of minimum balance", "ta": "குறைந்தபட்ச இருப்பு பராமரிக்காதது" }, "charge": { "en": "Rs 100 per quarter", "ta": "காலாண்டுக்கு ரூ 100" } },
+      { "service": { "en": "Locker annual rent (by size)", "ta": "பாதுகாப்புப் பெட்டக ஆண்டு வாடகை (அளவுப்படி)" }, "charge": { "en": "Rs 1500 - 5000", "ta": "ரூ 1500 - 5000" } },
+      { "service": { "en": "Loan processing fee", "ta": "கடன் செயலாக்கக் கட்டணம்" }, "charge": { "en": "0.50% of loan amount", "ta": "கடன் தொகையில் 0.50%" } },
+      { "service": { "en": "Loan foreclosure", "ta": "கடன் முன்கூட்டியே முடித்தல்" }, "charge": { "en": "As per bank policy", "ta": "வங்கிக் கொள்கையின்படி" } }
+    ],
+    "note": {
+      "en": "GST and other taxes are extra as applicable. All values are placeholders.",
+      "ta": "GST மற்றும் பிற வரிகள் பொருந்தும் இடங்களில் கூடுதலாகும். அனைத்து மதிப்புகளும் மாதிரி மட்டுமே."
+    }
+  },
+  "calculators": {
+    "disclaimer": {
+      "en": "Results are estimates for planning only and may differ from actual bank calculations and terms.",
+      "ta": "முடிவுகள் திட்டமிடலுக்கான மதிப்பீடுகள் மட்டுமே; வங்கியின் உண்மையான கணக்கீடு மற்றும் விதிமுறைகளிலிருந்து வேறுபடலாம்."
+    },
+    "emi": {
+      "how_to": [
+        { "en": "Move the sliders to set the loan amount, interest rate and tenure.", "ta": "கடன் தொகை, வட்டி விகிதம் மற்றும் காலத்தை அமைக்க ஸ்லைடர்களை நகர்த்துங்கள்." },
+        { "en": "The monthly EMI, total interest and total payable update instantly.", "ta": "மாதத் தவணை, மொத்த வட்டி மற்றும் செலுத்த வேண்டிய மொத்தத் தொகை உடனடியாக மாறும்." },
+        { "en": "Use the rate offered by the bank for your loan type.", "ta": "உங்கள் கடன் வகைக்கு வங்கி வழங்கும் வட்டி விகிதத்தைப் பயன்படுத்துங்கள்." }
+      ]
+    },
+    "fd": {
+      "how_to": [
+        { "en": "Enter the deposit amount, rate and term.", "ta": "வைப்புத் தொகை, வட்டி விகிதம் மற்றும் காலத்தை உள்ளிடுங்கள்." },
+        { "en": "The maturity amount is shown with interest earned.", "ta": "ஈட்டிய வட்டியுடன் முதிர்வுத் தொகை காட்டப்படும்." },
+        { "en": "Interest is assumed to compound quarterly.", "ta": "வட்டி காலாண்டுக்கு ஒருமுறை கூட்டப்படுவதாகக் கருதப்படுகிறது." }
+      ]
+    },
+    "rd": {
+      "how_to": [
+        { "en": "Enter the monthly instalment, rate and term.", "ta": "மாதத் தவணை, வட்டி விகிதம் மற்றும் காலத்தை உள்ளிடுங்கள்." },
+        { "en": "The maturity amount and total interest are shown.", "ta": "முதிர்வுத் தொகை மற்றும் மொத்த வட்டி காட்டப்படும்." },
+        { "en": "Interest is assumed to compound quarterly.", "ta": "வட்டி காலாண்டுக்கு ஒருமுறை கூட்டப்படுவதாகக் கருதப்படுகிறது." }
+      ]
+    },
+    "compare": {
+      "how_to": [
+        { "en": "Set the loan amount and tenure.", "ta": "கடன் தொகை மற்றும் காலத்தை அமைக்கவும்." },
+        { "en": "Set two interest rates: Option A and Option B.", "ta": "விருப்பம் A மற்றும் விருப்பம் B என இரண்டு வட்டி விகிதங்களை அமைக்கவும்." },
+        { "en": "The difference in monthly EMI is shown.", "ta": "மாதத் தவணையில் உள்ள வேறுபாடு காட்டப்படும்." }
+      ]
+    }
+  },
+  "downloads": {
+    "categories": [
+      {
+        "name": { "en": "Account Forms", "ta": "கணக்குப் படிவங்கள்" },
+        "items": [
+          { "title": { "en": "Account Opening Form", "ta": "கணக்கு தொடங்கும் படிவம்" } },
+          { "title": { "en": "KYC Form", "ta": "KYC படிவம்" } },
+          { "title": { "en": "Nomination Form", "ta": "வாரிசு நியமனப் படிவம்" } },
+          { "title": { "en": "Standing Instruction Form", "ta": "நிலையான அறிவுறுத்தல் படிவம்" } },
+          { "title": { "en": "Debit Card Request Form", "ta": "பற்று அட்டை கோரிக்கைப் படிவம்" } },
+          { "title": { "en": "Mobile Banking Registration Form", "ta": "மொபைல் வங்கிச் சேவை பதிவுப் படிவம்" } }
+        ]
+      },
+      {
+        "name": { "en": "Loan Forms", "ta": "கடன் படிவங்கள்" },
+        "items": [
+          { "title": { "en": "Personal Loan Application", "ta": "தனிநபர் கடன் விண்ணப்பம்" } },
+          { "title": { "en": "Gold Loan Application", "ta": "தங்க நகைக் கடன் விண்ணப்பம்" } },
+          { "title": { "en": "Vehicle Loan Application", "ta": "வாகனக் கடன் விண்ணப்பம்" } },
+          { "title": { "en": "Housing Loan Application", "ta": "வீட்டுக் கடன் விண்ணப்பம்" } },
+          { "title": { "en": "Business Loan Application", "ta": "தொழில் கடன் விண்ணப்பம்" } }
+        ]
+      },
+      {
+        "name": { "en": "Service Forms", "ta": "சேவைப் படிவங்கள்" },
+        "items": [
+          { "title": { "en": "Locker Application Form", "ta": "பாதுகாப்புப் பெட்டக விண்ணப்பப் படிவம்" } },
+          { "title": { "en": "NEFT / RTGS / IMPS Fund Transfer Form", "ta": "NEFT / RTGS / IMPS நிதிப் பரிமாற்றப் படிவம்" } },
+          { "title": { "en": "Cheque Book Request Form", "ta": "காசோலைப் புத்தகக் கோரிக்கைப் படிவம்" } },
+          { "title": { "en": "Mobile Number Update Form", "ta": "மொபைல் எண் புதுப்பிப்புப் படிவம்" } }
+        ]
+      },
+      {
+        "name": { "en": "Policies", "ta": "கொள்கைகள்" },
+        "items": [
+          { "title": { "en": "Grievance Redressal Policy", "ta": "குறை தீர்க்கும் கொள்கை" } },
+          { "title": { "en": "KYC and Anti-Money Laundering Policy", "ta": "KYC மற்றும் பணமோசடி தடுப்புக் கொள்கை" } },
+          { "title": { "en": "Customer Rights Charter", "ta": "வாடிக்கையாளர் உரிமைகள் சாசனம்" } },
+          { "title": { "en": "Privacy Policy", "ta": "தனியுரிமைக் கொள்கை" } }
+        ]
+      },
+      {
+        "name": { "en": "Notices and Reports", "ta": "அறிவிப்புகள் மற்றும் அறிக்கைகள்" },
+        "items": [
+          { "title": { "en": "Annual Report (Year XXXX)", "ta": "ஆண்டு அறிக்கை (ஆண்டு XXXX)" } },
+          { "title": { "en": "AGM Notice (Year XXXX)", "ta": "பொதுப் பேரவைக் கூட்ட அறிவிப்பு (ஆண்டு XXXX)" } },
+          { "title": { "en": "Rate Revision Notice", "ta": "வட்டி விகித மாற்ற அறிவிப்பு" } }
+        ]
+      }
+    ],
+    "note": {
+      "en": "Sample list. Each item will link to its PDF once the bank supplies the verified documents.",
+      "ta": "மாதிரிப் பட்டியல். வங்கி சரிபார்க்கப்பட்ட ஆவணங்களை வழங்கியதும் ஒவ்வொரு உருப்படியும் அதன் PDF-உடன் இணைக்கப்படும்."
+    }
+  },
+  "contact": {
+    "head_office": {
+      "en": "Arcot Urban Co-operative Bank Ltd, 170A, Main Road, Arcot, Tamil Nadu",
+      "ta": "ஆற்காடு நகர கூட்டுறவு வங்கி லிமிடெட், 170A, பிரதான சாலை, ஆற்காடு, தமிழ்நாடு"
+    },
+    "phone": "8273963616",
+    "email": "contact@actcub.bank.in",
+    "hours": {
+      "en": "Mon-Fri 10:00-16:00, Sat 10:00-14:00",
+      "ta": "திங்கள்–வெள்ளி 10:00–16:00, சனி 10:00–14:00"
+    },
+    "grievance": [
+  {
+    "title": { "en": "Level 1: Branch Manager", "ta": "நிலை 1: கிளை மேலாளர்" },
+    "description": {
+      "en": "Visit the branch or call the branch phone. Response within XX working days.",
+      "ta": "கிளைக்கு நேரில் வரவும் அல்லது கிளை தொலைபேசியில் அழைக்கவும். XX வேலை நாட்களுக்குள் பதில்."
+    }
+  },
+  {
+    "title": { "en": "Level 2: Grievance Redressal Officer", "ta": "நிலை 2: குறை தீர்ப்பு அதிகாரி" },
+    "description": {
+      "en": "Write to contact@actcub.bank.in with your account details, or call K. Venkatesan, Assistant General Manager (Grievance Officer), on 94428 62088. Response within XX working days.",
+      "ta": "உங்கள் கணக்கு விவரங்களுடன் contact@actcub.bank.in முகவரிக்கு எழுதுங்கள், அல்லது உதவி பொது மேலாளர் (குறை தீர்க்கும் அலுவலர்) கே. வெங்கடேசனை 94428 62088 என்ற எண்ணில் அழைக்கவும். XX வேலை நாட்களுக்குள் பதில்."
+    }
+  },
+  {
+    "title": { "en": "Level 3: Regulator", "ta": "நிலை 3: ஒழுங்குமுறை அமைப்பு" },
+    "description": {
+      "en": "If unresolved, you may approach the RBI Ombudsman as per RBI rules.",
+      "ta": "தீர்வு கிடைக்கவில்லை என்றால், RBI விதிகளின்படி RBI ஒம்புட்ஸ்மனை அணுகலாம்."
+    }
+  }
+],
+    "form_fields": [
+      { "name": "name", "type": "text", "label": { "en": "Name", "ta": "பெயர்" } },
+      { "name": "mobile", "type": "tel", "label": { "en": "Mobile number", "ta": "மொபைல் எண்" } },
+      { "name": "email", "type": "email", "label": { "en": "Email", "ta": "மின்னஞ்சல்" } },
+      { "name": "subject", "type": "text", "label": { "en": "Subject", "ta": "பொருள்" } },
+      { "name": "message", "type": "textarea", "label": { "en": "Message", "ta": "செய்தி" } }
+    ],
+    "safety_note": {
+      "en": "Never share your OTP, PIN, CVV or password with anyone, including people who claim to be bank staff.",
+      "ta": "உங்கள் OTP, PIN, CVV அல்லது கடவுச்சொல்லை யாருடனும் பகிர வேண்டாம்; வங்கி ஊழியர் என்று கூறுபவர்களிடமும் கூட."
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "_note": "SYNTHETIC SAMPLE DATA for demo only. Replace with verified Arcot UCB branch details before going live.",
+  "hours_default": {
+    "en": "Mon-Fri 10:00-16:00, Sat 10:00-14:00",
+    "ta": "திங்கள்-வெள்ளி 10:00-16:00, சனி 10:00-14:00"
+  },
+  "branches": [
+    {
+      "id": "B001",
+      "type": "Head Office",
+      "synthetic": true,
+      "name": {
+        "en": "Head Office - Arcot",
+        "ta": "தலைமை அலுவலகம் - ஆற்காடு"
+      },
+      "address": {
+        "en": "170A, Main Road, Arcot",
+        "ta": "170A, பிரதான சாலை, ஆற்காடு"
+      },
+      "pincode": "632XXX",
+      "phone": "8273963616",
+      "email": "contact@actcub.bank.in",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": true,
+      "services": [
+        "Savings",
+        "Current",
+        "FD/RD",
+        "Loans",
+        "NEFT/RTGS/IMPS",
+        "Locker"
+      ]
+    },
+    {
+      "id": "B002",
+      "type": "Branch",
+      "synthetic": true,
+      "name": {
+        "en": "Ranipet Branch",
+        "ta": "இராணிப்பேட்டை கிளை"
+      },
+      "address": {
+        "en": "12, Bazaar Street, Ranipet",
+        "ta": "12, பஜார் தெரு, இராணிப்பேட்டை"
+      },
+      "pincode": "632XXX",
+      "phone": "000-0000-0002",
+      "email": "ranipet@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": true,
+      "services": [
+        "Savings",
+        "Current",
+        "FD/RD",
+        "Gold Loan",
+        "Vehicle Loan",
+        "NEFT/RTGS/IMPS"
+      ]
+    },
+    {
+      "id": "B003",
+      "type": "Branch",
+      "synthetic": true,
+      "name": {
+        "en": "Walajapet Branch",
+        "ta": "வாலாஜாபேட்டை கிளை"
+      },
+      "address": {
+        "en": "45, Gandhi Road, Walajapet",
+        "ta": "45, காந்தி சாலை, வாலாஜாபேட்டை"
+      },
+      "pincode": "632XXX",
+      "phone": "000-0000-0003",
+      "email": "walajapet@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": false,
+      "services": [
+        "Savings",
+        "FD/RD",
+        "Gold Loan",
+        "Housing Loan",
+        "NEFT/RTGS/IMPS"
+      ]
+    },
+    {
+      "id": "B004",
+      "type": "Branch",
+      "synthetic": true,
+      "name": {
+        "en": "Arakkonam Branch",
+        "ta": "அரக்கோணம் கிளை"
+      },
+      "address": {
+        "en": "8, Station Road, Arakkonam",
+        "ta": "8, ஸ்டேஷன் சாலை, அரக்கோணம்"
+      },
+      "pincode": "631XXX",
+      "phone": "000-0000-0004",
+      "email": "arakkonam@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": true,
+      "services": [
+        "Savings",
+        "Current",
+        "FD/RD",
+        "Personal Loan",
+        "Business Loan",
+        "Locker"
+      ]
+    },
+    {
+      "id": "B005",
+      "type": "Branch",
+      "synthetic": true,
+      "name": {
+        "en": "Vellore Branch",
+        "ta": "வேலூர் கிளை"
+      },
+      "address": {
+        "en": "27, Officers Line, Vellore",
+        "ta": "27, ஆபீசர்ஸ் லைன், வேலூர்"
+      },
+      "pincode": "632XXX",
+      "phone": "000-0000-0005",
+      "email": "vellore@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": true,
+      "services": [
+        "Savings",
+        "Current",
+        "FD/RD",
+        "Housing Loan",
+        "Vehicle Loan",
+        "Locker"
+      ]
+    },
+    {
+      "id": "B006",
+      "type": "Branch",
+      "synthetic": true,
+      "name": {
+        "en": "Melvisharam Branch",
+        "ta": "மேல்விஷாரம் கிளை"
+      },
+      "address": {
+        "en": "3, Market Street, Melvisharam",
+        "ta": "3, மார்க்கெட் தெரு, மேல்விஷாரம்"
+      },
+      "pincode": "632XXX",
+      "phone": "000-0000-0006",
+      "email": "melvisharam@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": false,
+      "locker": false,
+      "services": [
+        "Savings",
+        "FD/RD",
+        "Gold Loan",
+        "NEFT/RTGS/IMPS"
+      ]
+    },
+    {
+      "id": "B007",
+      "type": "Branch",
+      "synthetic": true,
+      "name": {
+        "en": "Sholinghur Branch",
+        "ta": "சோளிங்கர் கிளை"
+      },
+      "address": {
+        "en": "19, Temple Road, Sholinghur",
+        "ta": "19, கோயில் சாலை, சோளிங்கர்"
+      },
+      "pincode": "631XXX",
+      "phone": "000-0000-0007",
+      "email": "sholinghur@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": false,
+      "services": [
+        "Savings",
+        "Current",
+        "FD/RD",
+        "Gold Loan",
+        "Personal Loan"
+      ]
+    },
+    {
+      "id": "B008",
+      "type": "Extension Counter",
+      "synthetic": true,
+      "name": {
+        "en": "Katpadi Extension Counter",
+        "ta": "காட்பாடி விரிவாக்க கவுண்டர்"
+      },
+      "address": {
+        "en": "6, Gandhinagar, Katpadi",
+        "ta": "6, காந்திநகர், காட்பாடி"
+      },
+      "pincode": "632XXX",
+      "phone": "000-0000-0008",
+      "email": "katpadi@arcotucb.example",
+      "ifsc": "XXXX0XXXXXX",
+      "atm": true,
+      "locker": false,
+      "services": [
+        "Savings",
+        "Deposits",
+        "Cash Withdrawal",
+        "NEFT/RTGS/IMPS"
+      ]
+    }
+  ]
+}

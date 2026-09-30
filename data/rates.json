@@ -1,0 +1,88 @@
+{
+  "rates": [
+    {
+      "product": {
+        "en": "Savings Account",
+        "ta": "சேமிப்புக் கணக்கு"
+      },
+      "tenure": {
+        "en": "All balances",
+        "ta": "அனைத்து இருப்புகளுக்கும்"
+      },
+      "rateMin": 3,
+      "rateMax": 3.5,
+      "effectiveFrom": ""
+    },
+    {
+      "product": {
+        "en": "Fixed Deposit",
+        "ta": "நிலையான வைப்பு"
+      },
+      "tenure": {
+        "en": "1 year",
+        "ta": "1 ஆண்டு"
+      },
+      "rateMin": 6.25,
+      "rateMax": 7,
+      "effectiveFrom": ""
+    },
+    {
+      "product": {
+        "en": "Fixed Deposit",
+        "ta": "நிலையான வைப்பு"
+      },
+      "tenure": {
+        "en": "Above 1 year to 5 years",
+        "ta": "1 ஆண்டுக்கு மேல் முதல் 5 ஆண்டுகள் வரை"
+      },
+      "rateMin": 6.5,
+      "rateMax": 7.25,
+      "effectiveFrom": ""
+    },
+    {
+      "product": {
+        "en": "Recurring Deposit",
+        "ta": "தொடர் வைப்பு"
+      },
+      "tenure": {
+        "en": "12 – 60 months",
+        "ta": "12 – 60 மாதங்கள்"
+      },
+      "rateMin": 6,
+      "rateMax": 7,
+      "effectiveFrom": ""
+    },
+     {
+      "product": {
+        "en": "Gold Loan",
+        "ta": "தங்க நகைக் கடன்"
+      },
+      "tenure": {
+        "en": "As per scheme",
+        "ta": "திட்டத்தின்படி"
+      },
+      "rateMin": 11,
+      "rateMax": 11,
+      "effectiveFrom": ""
+    }
+  ],
+  "seniorCitizenExtra": 0.5,
+  "ratesLastUpdated": "",
+  "notices": [
+    {
+      "text": {
+        "en": "Fraud safety: The Bank never asks for your OTP, PIN, CVV or card details. Never share them with anyone.",
+        "ta": "மோசடி பாதுகாப்பு: வங்கி உங்கள் OTP, PIN, CVV அல்லது அட்டை விவரங்களைக் கேட்காது. அவற்றை யாருடனும் பகிர வேண்டாம்."
+      },
+      "date": ""
+    },
+    {
+      "text": {
+        "en": "Deposit insurance: Deposits are insured by DICGC up to ₹5,00,000 per depositor per bank, covering principal and interest together.",
+        "ta": "வைப்புக் காப்பீடு: ஒவ்வொரு வங்கியிலும் ஒவ்வொரு வைப்பாளருக்கும் அசல் மற்றும் வட்டி சேர்த்து ₹5,00,000 வரை DICGC காப்பீடு வழங்குகிறது."
+      },
+      "date": ""
+    }
+  ]
+  
+}
