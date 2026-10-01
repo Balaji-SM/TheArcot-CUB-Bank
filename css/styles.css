@@ -1323,7 +1323,8 @@ body[data-page="about"] .coop-intro,body[data-page="about"] .coop-interactive{al
 /* Rates & Charges page table layout */
 body[data-page="rates"] .rates-page-layout{display:grid;gap:0}
 body[data-page="rates"] .rates-page-top,
-body[data-page="rates"] .rates-page-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:start}
+body[data-page="rates"] .rates-page-service-grid{display:grid;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;align-items:start}
+body[data-page="rates"] .rates-page-service-grid>.table-scroll{min-width:0}
 body[data-page="rates"] .rates-page-block h2{margin:0 0 8px;font-size:1.35rem}
 body[data-page="rates"] .rates-page-services h2{margin:0 0 24px;font-size:1.35rem}
 body[data-page="rates"] .rates-page-note-slot{box-sizing:border-box;min-height:2.6em;margin:0 0 24px;line-height:1.3}
@@ -1349,7 +1350,8 @@ body[data-page="rates"] .rates-page-charges th:last-child,
 body[data-page="rates"] .rates-page-charges td:last-child{width:38%}
 body[data-page="rates"] .rates-page-table th:last-child,
 body[data-page="rates"] .rates-page-table td:last-child{text-align:right;font-variant-numeric:tabular-nums}
-@media(max-width:899px){body[data-page="rates"] .rates-page-top,body[data-page="rates"] .rates-page-service-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
+@media(max-width:899px){body[data-page="rates"] .rates-page-top{grid-template-columns:minmax(0,1fr);gap:24px}}
+@media(max-width:767px){body[data-page="rates"] .rates-page-service-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
 
 /* Accounts page: compact opening steps */
 body[data-page="accounts"] .page-product-sections+.data-section .account-opening-steps{--step-badge-size:34px;position:relative;display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:principle}
@@ -2185,3 +2187,217 @@ body.fill-open{overflow:hidden}
 }
 /* Colour options widget hidden: site uses the default maroon palette */
 .theme-widget{display:none!important}
+
+/* =========================================================
+   LOANS PAGE: rate list + detail popup
+   Paste at the very END of css/styles.css
+   Works with the "Loans page: rate list with a centred detail popup" block in app.js
+   ========================================================= */
+
+/* The original long product articles stay in the page (the script reads them) but are not shown */
+.page-product-sections--loans>article.content-product{display:none!important}
+
+/* ---------- Rate list ---------- */
+.loan-list{
+  --loan-amber:color-mix(in srgb,var(--gold) 78%,#c88719);
+  --loan-amber-soft:color-mix(in srgb,var(--gold) 10%,transparent);
+  --loan-amber-pill:color-mix(in srgb,var(--gold) 15%,var(--surface));
+  --loan-divider:color-mix(in srgb,var(--navy) 12%,transparent);
+  --loan-row-pad:18px;
+  --loan-motion:200ms;
+  --loan-row-duration:400ms;
+  --loan-stagger:50ms;
+  --loan-heading-duration:600ms;
+  --loan-column-gap:1.5rem;
+  margin:0 0 2.5rem;
+}
+.loan-list-title{
+  position:relative;width:100%;max-width:none;box-sizing:border-box;
+  margin:0 0 .4rem;padding:0 0 14px;
+  border:0;color:var(--navy);font-size:1.35rem;font-weight:700;line-height:1.3;
+}
+.loan-list-title::before,.loan-list-title::after{
+  position:absolute;bottom:0;left:0;content:"";transform:scaleX(0);transform-origin:left;
+}
+.loan-list-title::before{width:100%;height:1px;background:color-mix(in srgb,var(--loan-amber) 48%,transparent)}
+.loan-list-title::after{width:48px;height:3px;background:var(--loan-amber);transition:transform var(--loan-heading-duration) ease-out}
+.loan-list.in-view .loan-list-title::before{animation:loanUnderline var(--loan-heading-duration) ease-out both}
+.loan-list.in-view .loan-list-title::after{transform:scaleX(1)}
+.loan-list-rows{
+  list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(var(--rows,6),auto);grid-auto-flow:column;column-gap:var(--loan-column-gap);
+}
+.loan-list-rows>li{position:relative;min-width:0;margin:0;padding:0;border-bottom:1px solid var(--loan-divider)}
+.loan-list-rows>li.is-column-end{border-bottom-color:transparent}
+.loan-row{
+  position:relative;isolation:isolate;display:flex;align-items:center;gap:12px;
+  width:100%;min-height:64px;margin:0;padding:var(--loan-row-pad) 12px;
+  border:0;border-radius:6px;background:transparent;color:var(--ink);
+  font:inherit;text-align:left;cursor:pointer;
+  transition:background-color var(--loan-motion) ease,transform var(--loan-motion) ease;
+}
+.loan-row::before{
+  position:absolute;z-index:-1;top:12px;bottom:12px;left:0;width:2px;
+  border-radius:2px;background:var(--loan-amber);content:"";
+  transform:scaleY(0);transform-origin:center;transition:transform var(--loan-motion) ease;
+}
+.loan-row-name{
+  flex:1 1 auto;min-width:0;color:var(--navy);font-size:.96rem;font-weight:500;line-height:1.4;
+  overflow-wrap:anywhere;transition:transform var(--loan-motion) ease;
+}
+.loan-row-rate{
+  flex:0 0 58px;min-width:58px;padding:4px 8px;border-radius:999px;
+  background:var(--loan-amber-pill);color:var(--navy);font-size:.92rem;font-weight:600;
+  line-height:1.2;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;
+  transition:background-color var(--loan-motion) ease,color var(--loan-motion) ease,font-weight var(--loan-motion) ease;
+}
+.loan-row::after{
+  flex:none;width:7px;height:7px;margin-left:-7px;border-top:2px solid var(--loan-amber);border-right:2px solid var(--loan-amber);
+  content:"";opacity:0;transform:translateX(-4px) rotate(45deg);transition:transform var(--loan-motion) ease,opacity var(--loan-motion) ease;
+}
+.loan-row:hover,.loan-row:focus-visible,.loan-row.is-selected{background:var(--loan-amber-soft)}
+.loan-row:hover::before,.loan-row:focus-visible::before,.loan-row.is-selected::before{transform:scaleY(1)}
+.loan-row:hover .loan-row-name,.loan-row:focus-visible .loan-row-name{transform:translateX(4px)}
+.loan-row:hover .loan-row-rate,.loan-row:focus-visible .loan-row-rate,.loan-row.is-selected .loan-row-rate{background:var(--loan-amber);color:var(--navy);font-weight:700}
+.loan-row:hover::after,.loan-row:focus-visible::after,.loan-row.is-selected::after{opacity:1;transform:translateX(0) rotate(45deg)}
+.loan-row:focus-visible{outline:2px solid var(--loan-amber);outline-offset:-2px}
+.loan-row:active{transform:scale(.99)}
+.loan-list-hint{display:flex;align-items:center;gap:7px;margin:1rem 0 0;color:var(--muted);font-size:.82rem}
+.loan-list-hint::before{color:var(--loan-amber);content:"ⓘ";font-size:.92rem}
+@keyframes loanUnderline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes loanRowIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.loan-list.in-view .loan-list-rows>li{animation:loanRowIn var(--loan-row-duration) ease-out both;animation-delay:calc(var(--i)*var(--loan-stagger))}
+@media(max-width:767px){
+  .loan-list-rows{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row;row-gap:0}
+  .loan-list-rows>li.is-column-end{border-bottom-color:var(--loan-divider)}
+  .loan-list-rows>li:last-child{border-bottom-color:transparent}
+  .loan-row{min-height:58px;padding:15px 10px;gap:9px}
+  .loan-row-name{font-size:.9rem}
+  .loan-row-rate{flex-basis:54px;min-width:54px;font-size:.86rem}
+  .loan-list-title{font-size:1.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .loan-list-rows>li{opacity:1;transform:none;animation:none!important}
+  .loan-list-title::before{transform:scaleX(1);animation:none!important}
+  .loan-list-title::after{transform:scaleX(1);transition:none}
+  .loan-row,.loan-row::before,.loan-row::after,.loan-row-name,.loan-row-rate{transition:none}
+  .loan-row,.loan-row:active,.loan-row-name,.loan-row:hover .loan-row-name,.loan-row:focus-visible .loan-row-name{transform:none}
+  .loan-row::after,.loan-row:hover::after,.loan-row:focus-visible::after,.loan-row.is-selected::after{transform:rotate(45deg)}
+}
+
+/* ---------- Detail popup ---------- */
+html.loan-modal-open{overflow:hidden}
+.loan-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px}
+.loan-modal-backdrop{
+  position:absolute;inset:0;background:rgba(40,8,16,.55);
+  opacity:0;transition:opacity .25s ease;
+}
+.loan-modal.is-open .loan-modal-backdrop{opacity:1}
+
+.loan-modal-panel{
+  position:relative;width:min(640px,100%);max-height:min(88vh,780px);overflow-y:auto;
+  background:var(--surface);color:var(--ink);
+  border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);
+  border-top:5px solid var(--gold);border-radius:16px;
+  box-shadow:0 28px 70px rgba(0,0,0,.36);
+  opacity:0;transform:translateY(18px) scale(.98);
+  transition:opacity .25s ease,transform .3s ease;
+}
+.loan-modal.is-open .loan-modal-panel{opacity:1;transform:none}
+.loan-modal-panel:focus{outline:none}
+
+.loan-modal-close{
+  position:absolute;top:10px;right:12px;z-index:2;
+  width:40px;height:40px;padding:0;border:0;border-radius:50%;
+  background:transparent;color:var(--navy);font-size:1.8rem;line-height:1;cursor:pointer;
+  transition:background-color .2s ease;
+}
+.loan-modal-close:hover{background:color-mix(in srgb,var(--navy) 12%,transparent)}
+
+.loan-modal-inner{padding:1.7rem 1.8rem 1.4rem}
+.loan-modal-inner.is-swap{animation:loanSwap .3s ease both}
+
+.loan-modal-head{padding-right:2.4rem}
+.loan-modal-count{margin:0;color:var(--muted);font-size:.82rem;font-variant-numeric:tabular-nums}
+.loan-modal-head h2{margin:.25rem 0 .5rem;color:var(--navy);font-size:clamp(1.35rem,3.4vw,1.7rem);line-height:1.25}
+.loan-modal-sum{margin:0;color:var(--muted);font-size:.95rem;line-height:1.6}
+.loan-modal-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1rem;margin-top:1.1rem}
+.loan-modal-rate{
+  padding:.55rem 1.1rem;border-left:4px solid var(--gold);border-radius:0 8px 8px 0;
+  background:color-mix(in srgb,var(--gold) 14%,var(--surface));
+}
+.loan-modal-rate span{display:block;color:var(--muted);font-size:.78rem;line-height:1.3}
+.loan-modal-rate b{display:block;color:var(--navy);font-size:1.7rem;line-height:1.2;font-variant-numeric:tabular-nums}
+.loan-modal-tenure{
+  padding:.35rem .9rem;border:1px solid var(--card-border);border-radius:999px;
+  color:var(--ink);font-size:.86rem;font-weight:600;
+}
+
+/* tabs: Features / Eligibility / Documents */
+.loan-modal-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:1.5rem 0 1rem}
+.loan-modal-tab{
+  padding:8px 16px;border:1px solid var(--navy);border-radius:999px;
+  background:var(--surface);color:var(--navy);
+  font-size:.84rem;font-weight:700;line-height:1.3;cursor:pointer;
+  transition:background-color .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.loan-modal-tab:hover{background:color-mix(in srgb,var(--gold) 16%,var(--surface))}
+.loan-modal-tab.is-active{background:var(--navy);color:#fff;box-shadow:inset 0 0 0 1px var(--gold)}
+.loan-modal-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.loan-modal-body{min-height:9rem}
+.loan-modal-body ul{list-style:none;margin:0;padding:0}
+.loan-modal-body li{position:relative;padding:.42rem 0 .42rem 1.5rem;line-height:1.55}
+.loan-modal-body li::before{content:"✦";position:absolute;left:0;top:.55rem;font-size:.8rem;color:var(--gold)}
+.loan-modal-body.is-in li{animation:loanItem .35s ease both;animation-delay:calc(var(--i,0)*40ms)}
+
+/* footer: previous / next + contact */
+.loan-modal-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid var(--card-border);
+}
+.loan-modal-nav{display:flex;gap:8px}
+.loan-modal-nav button{
+  width:42px;height:42px;padding:0 0 3px;border:1.5px solid var(--navy);border-radius:50%;
+  background:var(--surface);color:var(--navy);font-size:1.6rem;line-height:1;cursor:pointer;
+  transition:background-color .2s ease,color .2s ease;
+}
+.loan-modal-nav button:hover{background:var(--navy);color:#fff}
+.loan-modal-nav button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.loan-modal-cta,.loan-modal-cta:hover{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.7rem 1.5rem;border-radius:8px;background:var(--navy);
+  color:#fff;font-weight:700;text-decoration:none;
+}
+.loan-modal-cta:hover{filter:brightness(1.12)}
+.loan-modal-cta:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+@keyframes loanSwap{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+@keyframes loanItem{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* phones: popup slides up as a bottom sheet */
+@media(max-width:600px){
+  .loan-modal{align-items:end;padding:0}
+  .loan-modal-panel{width:100%;max-height:92vh;border-radius:16px 16px 0 0;transform:translateY(40px)}
+  .loan-modal-inner{padding:1.4rem 1.2rem 1.2rem}
+  .loan-modal-rate b{font-size:1.5rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .loan-row,.loan-row::after,.loan-modal-backdrop,.loan-modal-panel,
+  .loan-modal-tab,.loan-modal-nav button,.loan-modal-close{transition:none}
+  .loan-modal-inner.is-swap,.loan-modal-body.is-in li{animation:none}
+}
+
+
+
+
+
+
+
+
+
+/* Services: balance the existing item order across two columns. */
+body[data-page="services"] .page-product-sections--services{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(var(--service-rows),auto);grid-auto-flow:column;gap:2rem}
+@media(max-width:767px){body[data-page="services"] .page-product-sections--services{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}

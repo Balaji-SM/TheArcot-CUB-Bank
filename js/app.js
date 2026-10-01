@@ -20,7 +20,7 @@ function applyPalette(){const p=palettes[Number(state.palette)-1]||palettes[0],r
 function shade(hex,amount){const n=parseInt(hex.slice(1),16),f=amount<0?0:255,a=Math.abs(amount),r=(n>>16)&255,g=(n>>8)&255,b=n&255;return '#'+[r,g,b].map(c=>Math.round((f-c)*a+c).toString(16).padStart(2,'0')).join('')}
 function renderPalettes(){const root=$('#palette-list');if(!root)return;root.innerHTML=palettes.map((p,i)=>`<button class="palette-swatch" style="--swatch:${p[1]};--accent:${p[3]}" data-palette="${i+1}" aria-label="${p[0]}" aria-pressed="${state.palette==i+1}"></button>`).join('');root.onclick=e=>{const b=e.target.closest('[data-palette]');if(!b)return;state.palette=b.dataset.palette;savePreference('arcot-palette',state.palette);applyPalette();renderPalettes()};}
 function slug(value){return String(value??'').normalize('NFKD').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'item'}
-function navMarkup(){const extras=[['menuBranches','branches.html'],['menuContact','contact.html']];const items=[...menu,...extras].map(([key,href,subs])=>{const extraServices=key==='menuServices'?(state.data.extras?.more_services||[]):[],links=[...(subs||[]).map(s=>`<a href="${href}#${slug(s)}">${tr(s)}</a>`),...extraServices.map(s=>`<a href="services.html#${slug(s.id||localized(s.title)||localized(s.name))}">${localized(s.title)||localized(s.name)||localized(s.id)}</a>`)];return `<div class="nav-item"><a class="nav-link" href="${href}" ${links.length?'aria-haspopup="true"':''}>${tr(key)}</a>${links.length?`<div class="dropdown">${links.join('')}</div>`:''}</div>`});return items.join('')+`<div class="nav-item more-item"><button class="nav-link more-button" type="button" aria-expanded="false">${tr('more')} </button><div class="dropdown more-dropdown"></div></div>`}
+function navMarkup(){const extras=[['menuBranches','branches.html'],['menuContact','contact.html']];const items=[...menu,...extras].map(([key,href,subs])=>{const extraServices=key==='menuServices'?(state.data.extras?.more_services||[]):[],loanSubs=key==='menuLoans'&&Array.isArray(state.data.loans)&&state.data.loans.length?state.data.loans.map(l=>`<a href="loans.html#${slug(l.id)}">${localized(l.title)}</a>`):null,links=[...(loanSubs||(subs||[]).map(s=>`<a href="${href}#${slug(s)}">${tr(s)}</a>`)),...extraServices.map(s=>`<a href="services.html#${slug(s.id||localized(s.title)||localized(s.name))}">${localized(s.title)||localized(s.name)||localized(s.id)}</a>`)];return `<div class="nav-item"><a class="nav-link" href="${href}" ${links.length?'aria-haspopup="true"':''}>${tr(key)}</a>${links.length?`<div class="dropdown">${links.join('')}</div>`:''}</div>`});return items.join('')+`<div class="nav-item more-item"><button class="nav-link more-button" type="button" aria-expanded="false">${tr('more')} </button><div class="dropdown more-dropdown"></div></div>`}
 
 function renderNavControls(){const root=$('#header-controls');if(!root)return;root.innerHTML=`<div class="language-control" role="group" aria-label="Language"><button type="button" data-language="ta" aria-label="View in Tamil" aria-pressed="${state.lang==='ta'}" class="${state.lang==='ta'?'active':''}">&#x0BA4;&#x0BAE;&#x0BBF;&#x0BB4;&#x0BCD;</button><button type="button" data-language="en" aria-label="View in English" aria-pressed="${state.lang==='en'}" class="${state.lang==='en'?'active':''}">EN</button></div><div class="font-control" role="group" aria-label="Text size"><button type="button" data-scale="-1" aria-label="Decrease text size" aria-pressed="${state.fontScale===.875}">A&minus;</button><button type="button" data-scale="0" aria-label="Reset text size" aria-pressed="${state.fontScale===1}">A</button><button type="button" data-scale="1" aria-label="Increase text size" aria-pressed="${state.fontScale===1.25}">A+</button></div>`;$$('[data-scale]',root).forEach(b=>{if(Number(b.dataset.scale)===-1)b.disabled=state.fontScale<=.875;if(Number(b.dataset.scale)===1)b.disabled=state.fontScale>=1.25})}
 function fitNavigation(){const nav=$('#navigation'),more=$('.more-item',nav);if(!nav||!more)return;if(innerWidth<768){more.hidden=true;return}const items=$$('.nav-item:not(.more-item)',nav),dropdown=$('.more-dropdown',more);items.forEach(item=>item.hidden=false);dropdown.querySelectorAll('[data-overflow-link]').forEach(link=>link.remove());const overflow=()=>nav.scrollWidth>nav.clientWidth+1,priority=items.map((_,i)=>i).slice(1).reverse();for(const i of priority){if(!overflow())break;const item=items[i];item.hidden=true;const link=$('.nav-link',item);if(link)dropdown.insertAdjacentHTML('beforeend',`<a data-overflow-link href="${link.getAttribute('href')}">${link.textContent.replace(/\u2304/g,'').replace(/\u25be/g,'').trim()}</a>`)}more.hidden=dropdown.children.length===0}
@@ -101,7 +101,7 @@ document.addEventListener('focusin',e=>{const point=e.target.closest('[data-coop
 document.addEventListener('keydown',e=>{const point=e.target.closest('[data-coop-point]');if(!point)return;const index=Number(point.dataset.coopPoint);if(['ArrowRight','ArrowDown'].includes(e.key)){e.preventDefault();selectCoopPrinciple(index+1,true)}else if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();selectCoopPrinciple(index-1,true)}else if(e.key==='Home'){e.preventDefault();selectCoopPrinciple(0,true)}else if(e.key==='End'){e.preventDefault();selectCoopPrinciple(6,true)}});
 window.addEventListener('resize',positionCoopPoints);
 function renderDataPageBody(id,p){const content=state.data.content||{},next=state.lang==='ta'?'அடுத்த படி: உறுதிப்படுத்தப்பட்ட விவரங்களுக்கு வங்கிக் கிளையை அணுகவும்.':'Next step: contact a verified bank branch for confirmed details.';if(id==='about'){const vm=pageList(p,'vision_mission','visionMission');return `${vm.length?listSection(state.lang==='ta'?'தொலைநோக்கு & நோக்கம்':'Vision & Mission',vm,'cards'):`<section class="detail-block data-section"><h2>${state.lang==='ta'?'தொலைநோக்கு & நோக்கம்':'Vision & Mission'}</h2><div class="inner-grid">${[['Vision','vision'],['Mission','mission']].map(([en,key])=>{const item=p[key]||{};return `<article class="info-card"><h3>${localized(item.title)|| (state.lang==='ta'?(key==='vision'?'தொலைநோக்கு':'நோக்கம்'):en)}</h3><p>${localized(item.description??item.text??item)||next}</p></article>`}).join('')}</div></section>`}${listSection(state.lang==='ta'?'இயக்குநர் குழு':'Board of Directors',boardContacts(pageList(p,'board_members','directors','board_of_directors') .length?pageList(p,'board_members','directors','board_of_directors'):pageList(p.board,'members')),'people')}${listSection(state.lang==='ta'?'எங்கள் மதிப்புகள்':'Our Values',pageList(p,'values','value_chips'),'inline')}${renderCoopPrinciples()}${listSection(state.lang==='ta'?'வரலாறு':'History',pageList(p,'history','timeline'),'timeline')}${listSection(state.lang==='ta'?'குழுக்கள்':'Committees',pageList(p,'committees').length?pageList(p,'committees'):pageList(p.board,'committees'))}`}
-if(id==='rates'){const loans=pageList(p,'loan_rates','loans'),charges=pageList(p,'service_charges','charges'),split=Math.ceil(charges.length/2);return `${p.how_to_read?`<div class="placeholder-box"><strong>${state.lang==='ta'?'எவ்வாறு படிப்பது':'How to read'}:</strong> ${localized(p.how_to_read)}</div>`:''}<div class="rates-page-layout"><div class="rates-page-top"><section class="rates-page-block"><h2>${tr('currentRates')}</h2><p class="rates-current-note rates-page-note-slot">${tr('ratesCurrentNote')}</p>${sharedRatesTable()}</section><section class="rates-page-block"><h2>${state.lang==='ta'?'கடன் வட்டி விகிதங்கள்':'Loan rates'}</h2><p class="rates-page-note-slot" aria-hidden="true"></p>${ratesDetailTable(loans,'loans')}</section></div><p class="fine-print rates-page-footnote">${ratesFootnote()}</p><section class="rates-page-services"><h2>${state.lang==='ta'?'சேவைக் கட்டணங்கள்':'Service charges'}</h2><div class="rates-page-service-grid">${ratesDetailTable(charges.slice(0,split),'charges')}${ratesDetailTable(charges.slice(split),'charges')}</div></section></div>`}
+if(id==='rates'){const loans=pageList(p,'loan_rates','loans'),charges=pageList(p,'service_charges','charges'),split=Math.ceil(charges.length/2);return `${p.how_to_read?`<div class="placeholder-box"><strong>${state.lang==='ta'?'எவ்வாறு படிப்பது':'How to read'}:</strong> ${localized(p.how_to_read)}</div>`:''}<div class="rates-page-layout"><div class="rates-page-top"><section class="rates-page-block"><h2>${tr('currentRates')}</h2><p class="rates-current-note rates-page-note-slot">${tr('ratesCurrentNote')}</p>${sharedRatesTable()}</section><section class="rates-page-block"><h2>${state.lang==='ta'?'கடன் வட்டி விகிதங்கள்':'Loan rates'}</h2><p class="rates-page-note-slot" aria-hidden="true"></p>${ratesDetailTable(loans,'loans')}</section></div><section class="rates-page-services"><h2>${state.lang==='ta'?'சேவைக் கட்டணங்கள்':'Service charges'}</h2><div class="rates-page-service-grid">${ratesDetailTable(charges.slice(0,split),'charges')}${ratesDetailTable(charges.slice(split),'charges')}</div></section></div>`}
 if(id==='calculators')return `<div class="calculator-layout"><div class="calculator-shell" id="inner-calculator"></div><aside class="calculator-guide info-card" id="calculator-guide"></aside></div>`;
 if(id==='downloads'){
   const ta=state.lang==='ta';        
@@ -127,7 +127,7 @@ if(id==='downloads'){
 
 
 if(id==='contact'){const phone=localized(p.phone??p.telephone)||'',email=localized(p.email)||'',address=localized(p.address)||tr('branchesPending'),hours=localized(p.hours)||tr('branchesPending'),grievance=pageList(p,'grievance','grievance_process','steps'),fields=pageList(p,'form_fields','fields');return `<div class="contact-cards"><article class="info-card"><h3>${tr('address')}</h3><p>${address}</p></article><article class="info-card"><h3>${tr('phone')}</h3><a href="tel:${phone.replace(/[^+\d]/g,'')}">${phone}</a></article><article class="info-card"><h3>${tr('email')}</h3><a href="mailto:${email}">${email}</a></article><article class="info-card"><h3>${tr('hours')}</h3><p>${hours}</p></article></div><section class="detail-block data-section"><h2>${state.lang==='ta'?'குறை தீர்வு நடைமுறை':'Grievance process'}</h2>${grievance.length?`<ol class="grievance-stepper">${grievance.slice(0,3).map((x,i)=>`<li><b>${i+1}</b><div><strong>${localized(x.title??x.role)||`${state.lang==='ta'?'நிலை':'Level'} ${i+1}`}</strong><p>${localized(x.description??x.text??x)}</p></div></li>`).join('')}</ol>`:`<ol class="grievance-stepper">${[1,2,3].map(i=>`<li><b>${i}</b><div><strong>${state.lang==='ta'?`நிலை ${i}`:`Level ${i}`}</strong><p>${state.lang==='ta'?'விவரம் உறுதிப்படுத்தப்பட வேண்டும்.':'Details to be confirmed from the supplied pages.json.'}</p></div></li>`).join('')}</ol>`}</section><section class="detail-block"><h2>${state.lang==='ta'?'எங்களைத் தொடர்புகொள்ளுங்கள்':'Contact form'}</h2><form class="demo-contact-form" data-contact-form data-lang="${state.lang}" data-mailto="${email}">${fields.map((f,i)=>{const label=localized(f.label??f.title??f.name)||`${state.lang==='ta'?'புலம்':'Field'} ${i+1}`,type=f.type||'text',nm=f.name||'field'+i,req=['name','mobile','message'].includes(nm)||f.required;return `<label class="${type==='textarea'?'field-wide':''}">${label}${req?'<span class="req" aria-hidden="true"> *</span>':''}${type==='textarea'?`<textarea name="${nm}" placeholder="${label}" rows="5" ${req?'required':''}></textarea>`:`<input name="${nm}" type="${['email','tel','text'].includes(type)?type:'text'}" placeholder="${label}" ${nm==='mobile'?`pattern="[6-9][0-9]{9}" inputmode="numeric" maxlength="10" autocomplete="tel" title="${state.lang==='ta'?'10 இலக்க மொபைல் எண்ணை உள்ளிடவும்':'Enter a 10-digit mobile number'}"`:''} ${nm==='email'?'autocomplete="email"':''} ${nm==='name'?'autocomplete="name"':''} ${req?'required':''}>`}</label>`}).join('')}<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit">${state.lang==='ta'?'செய்தியை அனுப்பு':'Send message'}</button><p class="form-status" role="status" aria-live="polite"></p></form></section>`}
-if(['accounts','loans','services'].includes(id)){const extra=state.data.extras||{},baseList=content[id]||state.data[id]||[],list=id==='services'?[...baseList,...(extra.more_services||[])]:baseList,stepData=id==='loans'?content.loan_process:id==='accounts'?[...(content.procedures?.account_opening||[]),...(extra.open_account_extra?.steps||[])]:id==='services'?(content.service_process||[
+if(['accounts','loans','services'].includes(id)){const extra=state.data.extras||{},baseList=(id==='loans'&&Array.isArray(state.data.loans)&&state.data.loans.length?state.data.loans:(content[id]||state.data[id]||[])),list=id==='services'?[...baseList,...(extra.more_services||[])]:baseList,stepData=id==='loans'?content.loan_process:id==='accounts'?[...(content.procedures?.account_opening||[]),...(extra.open_account_extra?.steps||[])]:id==='services'?(content.service_process||[
 {title:{en:'Visit the nearest branch and tell us which service you need.',ta:'அருகிலுள்ள கிளையை அணுகி தேவையான சேவையைத் தெரிவிக்கவும்.'}},
 {title:{en:'Submit the service request form with ID and address proof.',ta:'சேவை விண்ணப்பப் படிவத்தை அடையாளம் மற்றும் முகவரிச் சான்றுடன் சமர்ப்பிக்கவும்.'}},
 {title:{en:'The bank verifies your account and KYC details.',ta:'வங்கி உங்கள் கணக்கு மற்றும் கே.ஒய்.சி விவரங்களைச் சரிபார்க்கும்.'}},
@@ -136,7 +136,7 @@ if(['accounts','loans','services'].includes(id)){const extra=state.data.extras||
 const ta=state.lang==='ta';
 const isSoon=it=>id==='services'&&/mobile/i.test(String(it.id||'')+' '+(typeof it.title==='string'?it.title:(it.title&&it.title.en)||''));
 const soonHtml=()=>`<div class="coming-soon" role="status"><span class="coming-soon-badge"><i aria-hidden="true"></i>${ta?'விரைவில் வருகிறது':'Coming Soon'}</span><h3>${ta?'மொபைல் பேங்கிங் விரைவில் உங்களுக்காக':'Mobile Banking is on its way'}</h3><p>${ta?'உங்கள் தொலைபேசியிலிருந்தே பணத்தை பாதுகாப்பாகவும் எளிதாகவும் நிர்வகிக்கும் வசதியை உருவாக்கி வருகிறோம். விரைவில் நல்ல செய்தியுடன் சந்திப்போம்!':'We are building a safe and simple way for you to manage your money from your phone. Something good is coming your way very soon!'}</p><ul class="coming-soon-chips"><li>${ta?'எப்போதும் இருப்பு பார்க்கலாம்':'Check balance anytime'}</li><li>${ta?'எளிதாகப் பணம் அனுப்பலாம்':'Transfer funds easily'}</li><li>${ta?'பாதுகாப்பானது & எளிமையானது':'Safe and simple'}</li></ul><p class="coming-soon-note">${ta?'அதுவரை, உங்கள் அருகிலுள்ள கிளையை அணுகுங்கள் - எங்கள் குழு உதவ மகிழ்ச்சியடையும்.':'Until then, visit your nearest branch - our team will be happy to help you.'}</p></div>`;
-return `<div class="page-product-sections page-product-sections--${id}">${list.map(rawItem=>{const soon=isSoon(rawItem),item=soon?{...rawItem,features:null,eligibility:null,documents:null,how_to:null}:rawItem;return `<article class="info-card content-product split-card"${item.id?` id="${slug(item.id)}"`:''}><div class="split-left"><div><h2>${localized(item.title)||item.id||localized(item.name)}</h2><p class="split-desc">${localized(item.summary)}</p>${item.rate?`<p class="split-rate"><span>${state.lang==='ta'?'வட்டி':'Rate'}</span><b>${localized(item.rate)}</b></p>`:''}${item.tenure?`<p class="split-tenure"><span>${state.lang==='ta'?'காலம்':'Tenure'}:</span> ${localized(item.tenure)}</p>`:''}</div><a class="split-cta" href="contact.html">${tr(id==='accounts'?'openAccount':'menuContact')}</a></div><div class="split-right">${soon?soonHtml():''}${Array.isArray(item.features)&&item.features.length?`<section class="split-col"><h3>${state.lang==='ta'?'அம்சங்கள்':'Features'}</h3><ul>${item.features.map(x=>`<li>${localized(x)}</li>`).join('')}</ul></section>`:''}${Array.isArray(item.eligibility)&&item.eligibility.length?`<section class="split-col"><h3>${state.lang==='ta'?'தகுதி':'Eligibility'}</h3><ul>${item.eligibility.map(x=>`<li>${localized(x)}</li>`).join('')}</ul></section>`:''}${Array.isArray(item.documents)&&item.documents.length?`<section class="split-col"><h3>${state.lang==='ta'?'தேவையான ஆவணங்கள்':'Documents'}</h3><ul>${item.documents.map(x=>`<li>${localized(x)}</li>`).join('')}</ul></section>`:''}${Array.isArray(item.how_to)&&item.how_to.length?`<section class="split-col"><h3>${state.lang==='ta'?'எப்படிப் பயன்படுத்துவது':'How to use'}</h3><ol>${item.how_to.map(x=>`<li>${localized(x)}</li>`).join('')}</ol></section>`:''}</div></article>`}).join('')||`<p>${localized(p.intro)||next}</p>`}</div>${stepData?.length?listSection(stepTitle,stepData,'account-steps'):''}${id==='accounts'&&Array.isArray(schemes.items)?`${listSection(state.lang==='ta'?'அரசுத் திட்டங்கள்':'Government Schemes',schemes.items,'cards')}${listSection(state.lang==='ta'?'எப்படி விண்ணப்பிப்பது':'How to apply',schemes.how_to_apply||[],'numbered')}${schemes.note?`<div class="placeholder-box">${localized(schemes.note)}</div>`:''}`:''}`}
+return `<div class="page-product-sections page-product-sections--${id}"${id==='services'?` style="--service-rows:${Math.ceil(list.length/2)}"`:""}>${list.map(rawItem=>{const soon=isSoon(rawItem),item=soon?{...rawItem,features:null,eligibility:null,documents:null,how_to:null}:rawItem;return `<article class="info-card content-product split-card"${item.id?` id="${slug(item.id)}"`:''}><div class="split-left"><div><h2>${localized(item.title)||item.id||localized(item.name)}</h2><p class="split-desc">${localized(item.summary)}</p>${item.rate?`<p class="split-rate"><span>${state.lang==='ta'?'வட்டி':'Rate'}</span><b>${localized(item.rate)}</b></p>`:''}${item.tenure?`<p class="split-tenure"><span>${state.lang==='ta'?'காலம்':'Tenure'}:</span> ${localized(item.tenure)}</p>`:''}</div><a class="split-cta" href="contact.html">${tr(id==='accounts'?'openAccount':'menuContact')}</a></div><div class="split-right">${soon?soonHtml():''}${Array.isArray(item.features)&&item.features.length?`<section class="split-col"><h3>${state.lang==='ta'?'அம்சங்கள்':'Features'}</h3><ul>${item.features.map(x=>`<li>${localized(x)}</li>`).join('')}</ul></section>`:''}${Array.isArray(item.eligibility)&&item.eligibility.length?`<section class="split-col"><h3>${state.lang==='ta'?'தகுதி':'Eligibility'}</h3><ul>${item.eligibility.map(x=>`<li>${localized(x)}</li>`).join('')}</ul></section>`:''}${Array.isArray(item.documents)&&item.documents.length?`<section class="split-col"><h3>${state.lang==='ta'?'தேவையான ஆவணங்கள்':'Documents'}</h3><ul>${item.documents.map(x=>`<li>${localized(x)}</li>`).join('')}</ul></section>`:''}${Array.isArray(item.how_to)&&item.how_to.length?`<section class="split-col"><h3>${state.lang==='ta'?'எப்படிப் பயன்படுத்துவது':'How to use'}</h3><ol>${item.how_to.map(x=>`<li>${localized(x)}</li>`).join('')}</ol></section>`:''}</div></article>`}).join('')||`<p>${localized(p.intro)||next}</p>`}</div>${stepData?.length?listSection(stepTitle,stepData,'account-steps'):''}${id==='accounts'&&Array.isArray(schemes.items)?`${listSection(state.lang==='ta'?'அரசுத் திட்டங்கள்':'Government Schemes',schemes.items,'cards')}${listSection(state.lang==='ta'?'எப்படி விண்ணப்பிப்பது':'How to apply',schemes.how_to_apply||[],'numbered')}${schemes.note?`<div class="placeholder-box">${localized(schemes.note)}</div>`:''}`:''}`}
 if(id==='branches'){const c=state.data.pages?.contact||{},office=localized(c.head_office),items=state.data.branches||[],ta=state.lang==='ta',phone=localized(c.phone??c.telephone),email=localized(c.email),hours=localized(c.hours),row=(label,val)=>val?`<div class="office-row"><h3>${label}</h3><p>${val}</p></div>`:'';return `${office?`<section class="office-block"><div class="office-title"><h2>${ta?'தலைமை அலுவலகம்':'Head Office'}</h2><a class="office-cta" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office)}" target="_blank" rel="noopener">${ta?'வழி காண':'Get directions'}</a></div><div class="office-details">${row(ta?'முகவரி':'Address',office)}${row(ta?'தொலைபேசி':'Phone',phone)}${row(ta?'வேலை நேரம்':'Working hours',hours)}${email?`<div class="office-row"><h3>${ta?'மின்னஞ்சல்':'Email'}</h3><p><a href="mailto:${email}">${email}</a></p></div>`:''}</div></section>`:''}${items.length?cards(items):''}`}
 if(id==='security'){const tips=content.procedures?.security_tips||[];return `${localized(p.intro)||tr('securityIntro')}${listSection(state.lang==='ta'?'பாதுகாப்பு குறிப்புகள்':'Security tips',tips)}<div class="placeholder-box">${tr('securityTip')}</div>`}
 return `${localized(p.intro)||localized(p.description)||next}`}
@@ -150,7 +150,7 @@ function setupSharedHeader(){
  const utility=document.createElement('div');utility.className='utility';utility.innerHTML=(()=>{
   /* Edit these two lines to change the working hours and head-office text shown in the top bar */
   const INFO={en:{hours:'Mon - Sat: 10:00 am - 4:00 pm',place:'Head Office, Arcot (T.N)'},ta:{hours:'திங்கள் - சனி: காலை 10:00 - மாலை 4:00',place:'தலைமை அலுவலகம், ஆற்காடு'}}[state.lang]||{};
-  const PHONE_FALLBACK='8273963616'; /* used only if the contact data has no phone number */
+  const PHONE_FALLBACK='9442862088'; /* used only if the contact data has no phone number */
   const fromData=localized(state.data.pages?.contact?.phone??state.data.pages?.contact?.telephone),fromLabel=String(tr('phone')).replace(/^[^\d+]*/,'').trim();
   const ph=[fromData,fromLabel].map(v=>String(v||'').trim()).find(v=>/\d{6,}/.test(v))||PHONE_FALLBACK,tel=ph.replace(/[^\d+]/g,'');
   const ic=p=>`<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded',init);
   let listenersBound=false;
 
   function enhance(){
-    const groups=$$('.page-product-sections');
+    const groups=$$('.page-product-sections').filter(g=>!g.classList.contains('page-product-sections--loans'));
     groups.forEach(group=>{
       const products=$$(':scope > article.content-product',group);
       if(!products.length)return;
@@ -423,6 +423,163 @@ document.addEventListener('DOMContentLoaded',init);
 
   const previousRefresh=refresh;
   refresh=function(){previousRefresh();enhance();};
+})();
+
+/* ===== Loans page: rate list with a centred detail popup ===== */
+(function(){
+  const GROUP='.page-product-sections--loans';
+  let modal=null,lastRow=null,items=[],current=-1,selectedLoanIndex=-1,tabIndex=0,closing=false,hashDone=false,listObserver=null;
+  const ta=()=>state.lang==='ta';
+  const txt=el=>el?el.textContent.trim():'';
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const shortRate=r=>String(r).replace(/\s*p\.a\.$/i,'').replace(/^ஆண்டுக்கு\s*/,'');
+
+  function readItems(group){
+    return $$(':scope > article.content-product',group).map(a=>({
+      id:a.id,
+      title:txt($('h2',a)),
+      summary:txt($('.split-desc',a)),
+      rate:txt($('.split-rate b',a)),
+      tenure:txt($('.split-tenure',a)),
+      cols:$$('.split-col',a).map(c=>({title:txt($('h3',c)),items:$$('li',c).map(li=>li.textContent.trim())}))
+    }));
+  }
+
+  function buildList(group){
+    if(listObserver){listObserver.disconnect();listObserver=null}
+    $$('.loan-list',group).forEach(x=>x.remove());
+    items=readItems(group);
+    if(!items.length)return;
+    const el=document.createElement('div');
+    el.className='loan-list';
+    el.style.setProperty('--rows',Math.ceil(items.length/2));
+    el.innerHTML=`<h2 class="loan-list-title">${ta()?'கடன்':'Loan'}</h2><ul class="loan-list-rows">${items.map((it,i)=>`<li class="${i===Math.ceil(items.length/2)-1||i===items.length-1?'is-column-end':''}" style="--i:${i}"><button type="button" class="loan-row${i===selectedLoanIndex?' is-selected':''}" data-loan-index="${i}" aria-haspopup="dialog" aria-pressed="${i===selectedLoanIndex}"><span class="loan-row-name">${esc(it.title)}</span><span class="loan-row-rate">${esc(shortRate(it.rate))}</span></button></li>`).join('')}</ul><p class="loan-list-hint">${ta()?'விவரங்களைக் காண ஒரு கடனைத் தேர்ந்தெடுக்கவும்.':'Select a loan to see its features, eligibility and documents.'}</p>`;
+    group.insertBefore(el,group.firstChild);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver'in window){listObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');listObserver.disconnect();listObserver=null}}),{threshold:.12});listObserver.observe(el)}else el.classList.add('in-view');
+  }
+
+  function bodyHtml(){
+    const c=items[current].cols[tabIndex];
+    return c?`<ul>${c.items.map((x,i)=>`<li style="--i:${i}">${esc(x)}</li>`).join('')}</ul>`:'';
+  }
+
+  function fill(){
+    const it=items[current],inner=$('.loan-modal-inner',modal);
+    const tabs=it.cols.map((c,i)=>`<button type="button" role="tab" class="loan-modal-tab${i===tabIndex?' is-active':''}" aria-selected="${i===tabIndex}" tabindex="${i===tabIndex?0:-1}" data-loan-tab="${i}">${esc(c.title)}</button>`).join('');
+    inner.innerHTML=`<header class="loan-modal-head"><p class="loan-modal-count">${current+1} / ${items.length}</p><h2 id="loan-modal-title">${esc(it.title)}</h2>${it.summary?`<p class="loan-modal-sum">${esc(it.summary)}</p>`:''}<div class="loan-modal-meta"><div class="loan-modal-rate"><span>${ta()?'வட்டி':'Rate'}</span><b>${esc(it.rate)}</b></div>${it.tenure?`<div class="loan-modal-tenure">${esc(it.tenure)}</div>`:''}</div></header>${it.cols.length?`<div class="loan-modal-tabs" role="tablist">${tabs}</div><div class="loan-modal-body is-in" role="tabpanel">${bodyHtml()}</div>`:''}<footer class="loan-modal-foot"><div class="loan-modal-nav"><button type="button" data-loan-step="-1" aria-label="${ta()?'முந்தைய கடன்':'Previous loan'}">&lsaquo;</button><button type="button" data-loan-step="1" aria-label="${ta()?'அடுத்த கடன்':'Next loan'}">&rsaquo;</button></div><a class="loan-modal-cta" href="contact.html">${tr('menuContact')}</a></footer>`;
+  }
+
+  function setTab(i){
+    tabIndex=i;
+    $$('.loan-modal-tab',modal).forEach((b,k)=>{const on=k===i;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
+    const b=$('.loan-modal-body',modal);
+    if(!b)return;
+    b.innerHTML=bodyHtml();b.classList.remove('is-in');void b.offsetWidth;b.classList.add('is-in');
+  }
+
+  function step(d){
+    current=(current+d+items.length)%items.length;tabIndex=0;
+    fill();
+    const inner=$('.loan-modal-inner',modal);
+    inner.classList.remove('is-swap');void inner.offsetWidth;inner.classList.add('is-swap');
+    history.replaceState(null,'','#'+items[current].id);
+    const btn=$(`[data-loan-step="${d}"]`,modal);if(btn)btn.focus({preventScroll:true});
+  }
+
+  function open(index,row){
+    if(!items[index])return;
+    if(modal){modal.remove();modal=null}
+    closing=false;
+    if(row)lastRow=row;
+    current=index;selectedLoanIndex=index;tabIndex=0;
+    $$('.loan-row',document).forEach((button,i)=>{const selected=i===selectedLoanIndex;button.classList.toggle('is-selected',selected);button.setAttribute('aria-pressed',String(selected))});
+    modal=document.createElement('div');
+    modal.className='loan-modal';
+    modal.innerHTML=`<div class="loan-modal-backdrop" data-loan-close></div><div class="loan-modal-panel" role="dialog" aria-modal="true" aria-labelledby="loan-modal-title" tabindex="-1"><button type="button" class="loan-modal-close" data-loan-close aria-label="${ta()?'மூடு':'Close'}">&times;</button><div class="loan-modal-inner"></div></div>`;
+    document.body.append(modal);
+    fill();
+    document.documentElement.classList.add('loan-modal-open');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{if(modal)modal.classList.add('is-open')}));
+    $('.loan-modal-close',modal).focus({preventScroll:true});
+    history.replaceState(null,'','#'+items[current].id);
+  }
+
+  function close(){
+    if(!modal||closing)return;
+    closing=true;
+    const m=modal;
+    m.classList.remove('is-open');m.classList.add('is-closing');
+    document.documentElement.classList.remove('loan-modal-open');
+    history.replaceState(null,'',location.pathname+location.search);
+    setTimeout(()=>{m.remove();if(modal===m)modal=null;closing=false;if(lastRow&&lastRow.isConnected)lastRow.focus({preventScroll:true})},reduced()?0:260);
+  }
+
+  function teardown(){
+    if(modal){modal.remove();modal=null}
+    closing=false;
+    document.documentElement.classList.remove('loan-modal-open');
+  }
+
+  function indexFromHash(h){
+    const id=decodeURIComponent((h||'').replace('#',''));
+    return id?items.findIndex(it=>it.id===id):-1;
+  }
+
+  document.addEventListener('click',e=>{
+    const link=e.target.closest('.main-nav .dropdown a[href*="loans.html#"]');
+    if(link&&document.body.dataset.page==='loans'&&items.length){
+      const idx=indexFromHash('#'+link.getAttribute('href').split('#')[1]);
+      if(idx>-1){
+        e.preventDefault();e.stopPropagation();
+        const nav=$('.main-nav');if(nav)nav.classList.remove('open');
+        if(document.activeElement)document.activeElement.blur();
+        open(idx);
+      }
+    }
+  },true);
+
+  document.addEventListener('click',e=>{
+    const row=e.target.closest('.loan-row');
+    if(row){open(Number(row.dataset.loanIndex),row);return}
+    if(!modal)return;
+    if(e.target.closest('[data-loan-close]')){close();return}
+    const tab=e.target.closest('[data-loan-tab]');
+    if(tab){setTab(Number(tab.dataset.loanTab));return}
+    const st=e.target.closest('[data-loan-step]');
+    if(st)step(Number(st.dataset.loanStep));
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(!modal)return;
+    if(e.key==='Escape'){e.preventDefault();close();return}
+    const tab=e.target.closest&&e.target.closest('[data-loan-tab]');
+    if(tab&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){
+      const n=$$('.loan-modal-tab',modal).length,i=Number(tab.dataset.loanTab),next=(i+(e.key==='ArrowRight'?1:-1)+n)%n;
+      e.preventDefault();setTab(next);const t=$(`[data-loan-tab="${next}"]`,modal);if(t)t.focus();return;
+    }
+    if(e.key==='Tab'){
+      const f=$$('button,a[href]',$('.loan-modal-panel',modal)).filter(x=>x.tabIndex>=0&&!x.disabled);
+      if(!f.length)return;
+      const first=f[0],last=f[f.length-1];
+      if(!$('.loan-modal-panel',modal).contains(document.activeElement)){e.preventDefault();first.focus()}
+      else if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
+
+  const previousRefresh=refresh;
+  refresh=function(){
+    previousRefresh();
+    teardown();
+    const g=$(GROUP);
+    if(!g)return;
+    buildList(g);
+    if(!hashDone&&location.hash){
+      const idx=indexFromHash(location.hash);
+      if(idx>-1){hashDone=true;setTimeout(()=>open(idx),250)}
+    }
+  };
 })();
 
 
@@ -769,4 +926,87 @@ function productIcon(type,i,it){
     e.preventDefault();
     open(b.dataset.fillPdf,b.dataset.fillName,b);
   });
+})();
+
+/* Rates & Charges: loan rates table */
+(function(){
+  const LOAN_ROWS=[
+    ['House Construction Loan','வீடு கட்டுமானக் கடன்','12%'],
+    ['Gold Loan','நகைக் கடன்','11%'],
+    ['Joint Liability Group Loan','கூட்டுப் பொறுப்புக் குழுக் கடன்','13%'],
+    ['Mortgage Loan','அடமானக் கடன்','12%'],
+    ['Loan for Differently Abled Persons (NHFDC)','மாற்றுத்திறனாளிகளுக்கான கடன் (NHFDC)','12%'],
+    ['Self Help Group Loan','சுய உதவிக் குழுக் கடன்','12%'],
+    ['Business Loan','வணிகக் கடன்','12%'],
+    ['TABCEDCO Loan','TABCEDCO கடன்','8%'],
+    ['TAMCO Loan','TAMCO கடன்','6%'],
+    ['Women Entrepreneur Loan','பெண் தொழில்முனைவோர் கடன்','12%'],
+    ['Working Women Loan','பணிபுரியும் பெண்கள் கடன்','12%']
+  ];
+  const T={
+    en:{loanType:'Loan type',loanRate:'Interest rate (p.a.)',savingsNote:'Savings account interest rate: 3% p.a.'},
+    ta:{loanType:'Loan type',loanRate:'Interest rate (p.a.)',savingsNote:'Savings account interest rate: 3% p.a.'}
+  };
+  function build(){
+    if(document.body.dataset.page!=='rates')return;
+    const top=$('.rates-page-top');
+    if(!top||top.dataset.loanRatesBuilt)return;
+    top.dataset.loanRatesBuilt='1';
+    const ta=state.lang==='ta',t=T[ta?'ta':'en'],ti=ta?1:0;
+    const loanBlock=$$('.rates-page-block',top)[1];
+    if(loanBlock&&$('h2',loanBlock)){
+      $$('.table-scroll,.loan-rates-note',loanBlock).forEach(x=>x.remove());
+      loanBlock.insertAdjacentHTML('beforeend',`<div class="table-scroll"><table class="data-table rates-page-table rates-page-loans"><thead><tr><th scope="col">${t.loanType}</th><th scope="col">${t.loanRate}</th></tr></thead><tbody>${LOAN_ROWS.map(r=>`<tr><td>${r[ti]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table></div><p class="fine-print loan-rates-note">${t.savingsNote}</p>`);
+    }
+  }
+  const prev=refresh;refresh=function(){prev();build()};
+})();
+
+
+/* Real bank rates for the home page "Current rates" table */
+(function(){
+  const R=[
+    ['Savings Account','சேமிப்புக் கணக்கு','All balances','அனைத்து இருப்புகளுக்கும்','3.00%'],
+    ['Fixed Deposit','நிலை வைப்பு','1 to 2 months','1 முதல் 2 மாதங்கள்','4.00%'],
+    ['Fixed Deposit','நிலை வைப்பு','3 to 4 months','3 முதல் 4 மாதங்கள்','5.00%'],
+    ['Fixed Deposit','நிலை வைப்பு','5 to 6 months','5 முதல் 6 மாதங்கள்','5.50%'],
+    ['Fixed Deposit','நிலை வைப்பு','6 to 9 months','6 முதல் 9 மாதங்கள்','6.00%'],
+    ['Fixed Deposit','நிலை வைப்பு','10 to 11 months','10 முதல் 11 மாதங்கள்','6.50%'],
+    ['Fixed Deposit','நிலை வைப்பு','12 to 24 months','12 முதல் 24 மாதங்கள்','7.75%'],
+    ['Recurring Deposit','தொடர் வைப்பு','12 to 24 months','12 முதல் 24 மாதங்கள்','7.75%'],
+    ['Gold Loan','நகைக் கடன்','As per scheme','திட்டத்தின்படி','11.00%']
+  ];
+  rateRows=function(){
+    const i=state.lang==='ta'?1:0;
+    return R.map(r=>({product:r[i],tenure:r[i+2],rate:r[4]}));
+  };
+  ratesFootnote=function(){
+    return state.lang==='ta'
+      ?'12 மாதங்களுக்கு மேற்பட்ட வைப்புகளுக்கு மூத்த குடிமக்களுக்கு ஆண்டுக்கு கூடுதலாக 0.25% வட்டி. நிலை வைப்பு விகிதங்கள் முதிர்வில் வழங்கும் வட்டிக்கானவை; மாதாந்திர வட்டி 0.10% குறைவு.'
+      :'Senior citizens earn an additional 0.25% p.a. on deposits above 12 months. Fixed deposit rates shown are cumulative; monthly payout is 0.10% lower.';
+  };
+})();
+
+/* Rates & Charges: Loan rates + Service charges in the same one-by-one structure */
+(function(){
+  const T={
+    en:{loanTitle:'Current Rates',loanSub:'Rates per annum, calculated as simple interest on a daily basis (principal ÷ 365 × rate × days).'},
+    ta:{loanTitle:'தற்போதைய வட்டி விகிதங்கள்',loanSub:'ஆண்டுக்கான விகிதங்கள்; தினசரி அடிப்படையில் எளிய வட்டியாகக் கணக்கிடப்படுகிறது (அசல் ÷ 365 × வட்டி விகிதம் × நாட்கள்).'}
+  };
+  function tidyRates(){
+    if(document.body.dataset.page!=='rates')return;
+    const t=T[state.lang==='ta'?'ta':'en'];
+
+    /* Loan block: same heading + intro line as the Fixed deposit block */
+    const loan=$('.rates-page-top > .rates-page-block');
+    if(loan){
+      const h=$('h2',loan);if(h)h.textContent=t.loanTitle;
+      const slot=$('.rates-page-note-slot',loan);
+      if(slot){slot.className='deposit-rates-sub';slot.removeAttribute('aria-hidden');slot.textContent=t.loanSub}
+    }
+
+    /* Service charges are already split evenly into separate tables at render time. */
+  }
+  const prevRefresh=refresh;refresh=function(){prevRefresh();tidyRates()};
+  tidyRates();
 })();

@@ -1,1 +1,661 @@
-[{"id":"personal","icon":"♧","en":"Personal Loan","ta":"தனிநபர் கடன்","description":{"en":"For personal financial needs. Eligibility, interest and charges: details to be verified.","ta":"தனிப்பட்ட நிதித் தேவைகளுக்காக. தகுதி, வட்டி மற்றும் கட்டண விவரங்கள் உறுதிப்படுத்தப்பட வேண்டும்."}},{"id":"gold","icon":"◇","en":"Gold Loan","ta":"தங்கக் கடன்","description":{"en":"Loan against eligible gold ornaments. Valuation and terms must be confirmed with the Bank.","ta":"தகுதியான தங்க நகைகளுக்கு எதிரான கடன். மதிப்பீடு மற்றும் விதிமுறைகள் வங்கியிடம் உறுதிப்படுத்தப்பட வேண்டும்."}},{"id":"vehicle","icon":"⌁","en":"Vehicle Loan","ta":"வாகனக் கடன்","description":{"en":"Financing options for a vehicle purchase. Rates and conditions are not yet verified.","ta":"வாகனம் வாங்குவதற்கான நிதி வாய்ப்புகள். வட்டி மற்றும் நிபந்தனைகள் இன்னும் உறுதிப்படுத்தப்படவில்லை."}},{"id":"housing","icon":"⌂","en":"Housing Loan","ta":"வீட்டுக் கடன்","description":{"en":"Explore financing for a home. Please contact the Bank for verified details.","ta":"வீட்டிற்கான நிதி வாய்ப்புகளைப் பற்றி அறியுங்கள். உறுதிப்படுத்தப்பட்ட விவரங்களுக்கு வங்கியை அணுகவும்."}},{"id":"business","icon":"▥","en":"Business Loan","ta":"வணிகக் கடன்","description":{"en":"Credit options for local enterprise. Product terms are placeholders pending verification.","ta":"உள்ளூர் நிறுவனங்களுக்கான கடன் வாய்ப்புகள். தயாரிப்பு விதிமுறைகள் உறுதிப்படுத்தப்பட வேண்டியவை."}}]
+[
+  {
+    "id": "house-construction",
+    "title": {
+      "en": "House Construction Loan",
+      "ta": "வீடு கட்டுமானக் கடன்"
+    },
+    "summary": {
+      "en": "Finance to build your own home on land you own.",
+      "ta": "உங்களுக்குச் சொந்தமான நிலத்தில் வீடு கட்ட நிதி உதவி."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Finance for constructing a new house",
+        "ta": "புதிய வீடு கட்டுவதற்கான நிதி"
+      },
+      {
+        "en": "Repayment in monthly instalments",
+        "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Applicant should be a member of the Bank",
+        "ta": "விண்ணப்பதாரர் வங்கியின் உறுப்பினராக இருக்க வேண்டும்"
+      },
+      {
+        "en": "Owner of the plot on which the house will be built",
+        "ta": "வீடு கட்டவுள்ள நிலத்தின் உரிமையாளர்"
+      },
+      {
+        "en": "Steady income or means to repay the loan",
+        "ta": "கடனைத் திருப்பிச் செலுத்தும் வருமான ஆதாரம் இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Land title documents and approved building plan",
+        "ta": "நில உரிமை ஆவணங்கள் மற்றும் அனுமதிக்கப்பட்ட கட்டிட வரைபடம்"
+      },
+      {
+        "en": "Construction cost estimate",
+        "ta": "கட்டுமானச் செலவு மதிப்பீடு"
+      }
+    ]
+  },
+  {
+    "id": "gold",
+    "title": {
+      "en": "Gold Loan",
+      "ta": "தங்கக் கடன்"
+    },
+    "summary": {
+      "en": "Instant funds against your gold ornaments with minimal paperwork.",
+      "ta": "குறைந்த ஆவணங்களுடன் உங்கள் தங்க நகைகளுக்கு எதிராக உடனடி நிதி."
+    },
+    "rate": {
+      "en": "11% p.a.",
+      "ta": "ஆண்டுக்கு 11%"
+    },
+    "features": [
+      {
+        "en": "Same-day disbursement after valuation",
+        "ta": "மதிப்பீட்டுக்குப் பின் அதே நாளில் தொகை வழங்கல்"
+      },
+      {
+        "en": "Ornaments kept safely in bank strong room",
+        "ta": "நகைகள் வங்கியின் பாதுகாப்பு அறையில் பத்திரமாக வைக்கப்படும்"
+      },
+      {
+        "en": "Interest-only or bullet repayment options",
+        "ta": "வட்டி மட்டும் அல்லது முழுத் தொகை ஒரே தவணை திருப்பிச் செலுத்தும் வசதி"
+      },
+      {
+        "en": "Release of gold on full repayment",
+        "ta": "முழுத் தொகை செலுத்தியதும் நகைகள் திரும்ப வழங்கப்படும்"
+      },
+      {
+        "en": "Interest rate of 11% p.a.",
+        "ta": "ஆண்டுக்கு 11% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Individuals who own gold ornaments",
+        "ta": "தங்க நகைகள் வைத்திருக்கும் தனிநபர்கள்"
+      },
+      {
+        "en": "Applicant should be a member of the Bank",
+        "ta": "விண்ணப்பதாரர் வங்கியின் உறுப்பினராக இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Passport-size photographs",
+        "ta": "பாஸ்போர்ட் அளவு புகைப்படங்கள்"
+      }
+    ]
+  },
+  {
+    "id": "jlg",
+    "title": {
+      "en": "Joint Liability Group Loan",
+      "ta": "கூட்டுப் பொறுப்புக் குழுக் கடன்"
+    },
+    "summary": {
+      "en": "Group-based credit for small borrowers who share responsibility for repayment.",
+      "ta": "திருப்பிச் செலுத்தும் பொறுப்பைப் பகிர்ந்துகொள்ளும் சிறு கடன் பெறுவோருக்கான குழு அடிப்படையிலான கடன்."
+    },
+    "rate": {
+      "en": "13% p.a.",
+      "ta": "ஆண்டுக்கு 13%"
+    },
+    "features": [
+      {
+        "en": "Loan sanctioned to a group of borrowers",
+        "ta": "கடன் ஒரு குழுவாக வழங்கப்படும்"
+      },
+      {
+        "en": "Members share responsibility for repayment",
+        "ta": "உறுப்பினர்கள் திருப்பிச் செலுத்தும் பொறுப்பைப் பகிர்ந்துகொள்வர்"
+      },
+      {
+        "en": "Interest rate of 13% p.a.",
+        "ta": "ஆண்டுக்கு 13% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Group of small farmers, traders or workers with a common purpose",
+        "ta": "பொதுவான நோக்கமுடைய சிறு விவசாயிகள், வணிகர்கள் அல்லது தொழிலாளர் குழு"
+      },
+      {
+        "en": "All members jointly responsible for repayment",
+        "ta": "அனைத்து உறுப்பினர்களும் கூட்டாகப் பொறுப்பேற்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Group application form",
+        "ta": "குழு விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "KYC documents of every member",
+        "ta": "ஒவ்வொரு உறுப்பினரின் கே.ஒய்.சி ஆவணங்கள்"
+      },
+      {
+        "en": "Details of the activity to be financed",
+        "ta": "நிதியளிக்கப்படும் தொழில் குறித்த விவரங்கள்"
+      }
+    ]
+  },
+  {
+    "id": "mortgage",
+    "title": {
+      "en": "Mortgage Loan",
+      "ta": "அடமானக் கடன்"
+    },
+    "summary": {
+      "en": "Loan against your immovable property to meet financial needs.",
+      "ta": "உங்கள் அசையாச் சொத்தை அடமானமாகக் கொண்டு நிதித் தேவைகளுக்கான கடன்."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Loan secured against your property",
+        "ta": "உங்கள் சொத்தை அடமானமாகக் கொண்ட கடன்"
+      },
+      {
+        "en": "Repayment in monthly instalments",
+        "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Applicant should be a member of the Bank",
+        "ta": "விண்ணப்பதாரர் வங்கியின் உறுப்பினராக இருக்க வேண்டும்"
+      },
+      {
+        "en": "Owner of immovable property with clear title",
+        "ta": "தெளிவான உரிமையுடைய அசையாச் சொத்தின் உரிமையாளர்"
+      },
+      {
+        "en": "Steady income or means to repay the loan",
+        "ta": "கடனைத் திருப்பிச் செலுத்தும் வருமான ஆதாரம் இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Property title deeds and encumbrance certificate",
+        "ta": "சொத்து உரிமை ஆவணங்கள் மற்றும் வில்லங்கச் சான்றிதழ்"
+      },
+      {
+        "en": "Property tax receipts and valuation report",
+        "ta": "சொத்து வரி ரசீதுகள் மற்றும் மதிப்பீட்டு அறிக்கை"
+      },
+      {
+        "en": "Income proof",
+        "ta": "வருமானச் சான்று"
+      }
+    ]
+  },
+  {
+    "id": "nhfdc",
+    "title": {
+      "en": "Loan for Differently Abled Persons (NHFDC)",
+      "ta": "மாற்றுத்திறனாளிகளுக்கான கடன் (என்.எச்.எஃப்.டி.சி)"
+    },
+    "summary": {
+      "en": "Financial support for differently abled persons to start or grow an income-generating activity.",
+      "ta": "மாற்றுத்திறனாளிகள் வருமானம் ஈட்டும் தொழிலைத் தொடங்க அல்லது விரிவுபடுத்த நிதி உதவி."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Supports self-employment and small enterprises",
+        "ta": "சுயதொழில் மற்றும் சிறு தொழில்களுக்கு ஆதரவு"
+      },
+      {
+        "en": "Offered under the NHFDC scheme",
+        "ta": "என்.எச்.எஃப்.டி.சி திட்டத்தின் கீழ் வழங்கப்படுகிறது"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Differently abled person with a valid disability certificate",
+        "ta": "செல்லுபடியாகும் மாற்றுத்திறனாளி சான்றிதழ் உள்ளவர்"
+      },
+      {
+        "en": "Able to carry out the proposed activity",
+        "ta": "முன்மொழியப்பட்ட தொழிலைச் செய்யும் திறன் உடையவர்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Disability certificate",
+        "ta": "மாற்றுத்திறனாளி சான்றிதழ்"
+      },
+      {
+        "en": "Details or quotation of the proposed activity",
+        "ta": "முன்மொழியப்பட்ட தொழில் விவரம் அல்லது விலைப்புள்ளி"
+      },
+      {
+        "en": "Passport-size photographs",
+        "ta": "பாஸ்போர்ட் அளவு புகைப்படங்கள்"
+      }
+    ]
+  },
+  {
+    "id": "shg",
+    "title": {
+      "en": "Self Help Group Loan",
+      "ta": "சுய உதவிக் குழுக் கடன்"
+    },
+    "summary": {
+      "en": "Credit for registered self help groups to support members' income-generating activities.",
+      "ta": "உறுப்பினர்களின் வருமானம் ஈட்டும் செயல்பாடுகளுக்கு சுய உதவிக் குழுக்களுக்கான கடன்."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Loan given to the group for members' activities",
+        "ta": "உறுப்பினர்களின் தொழில்களுக்காகக் குழுவுக்கு வழங்கப்படும் கடன்"
+      },
+      {
+        "en": "Encourages regular savings and timely repayment",
+        "ta": "தொடர் சேமிப்பு மற்றும் உரிய நேரத்தில் திருப்பிச் செலுத்துதலை ஊக்குவிக்கிறது"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Self help group with regular meetings and savings",
+        "ta": "தொடர் கூட்டங்கள் மற்றும் சேமிப்புடன் செயல்படும் சுய உதவிக் குழு"
+      },
+      {
+        "en": "Group maintains proper records",
+        "ta": "குழு முறையான பதிவேடுகளைப் பராமரிக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Group resolution and application",
+        "ta": "குழுத் தீர்மானம் மற்றும் விண்ணப்பம்"
+      },
+      {
+        "en": "KYC documents of members",
+        "ta": "உறுப்பினர்களின் கே.ஒய்.சி ஆவணங்கள்"
+      },
+      {
+        "en": "Group savings and meeting records",
+        "ta": "குழுவின் சேமிப்பு மற்றும் கூட்டப் பதிவேடுகள்"
+      }
+    ]
+  },
+  {
+    "id": "business",
+    "title": {
+      "en": "Business Loan",
+      "ta": "தொழில் கடன்"
+    },
+    "summary": {
+      "en": "Working capital and growth finance for small businesses and traders.",
+      "ta": "சிறு தொழில்கள் மற்றும் வணிகர்களுக்கான மூலதனம் மற்றும் வளர்ச்சிக் கடன்."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Funds for working capital or expansion",
+        "ta": "நடைமுறை மூலதனம் அல்லது விரிவாக்கத்திற்கான நிதி"
+      },
+      {
+        "en": "Repayment in monthly instalments",
+        "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Individuals or firms running a business",
+        "ta": "தொழில் நடத்தும் தனிநபர்கள் அல்லது நிறுவனங்கள்"
+      },
+      {
+        "en": "Applicant should be a member of the Bank",
+        "ta": "விண்ணப்பதாரர் வங்கியின் உறுப்பினராக இருக்க வேண்டும்"
+      },
+      {
+        "en": "Business with regular income",
+        "ta": "முறையான வருமானம் உள்ள தொழில்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Business proof (licence or registration)",
+        "ta": "தொழில் சான்று (உரிமம் அல்லது பதிவு)"
+      },
+      {
+        "en": "Bank statements and income records",
+        "ta": "வங்கி அறிக்கைகள் மற்றும் வருமானப் பதிவுகள்"
+      }
+    ]
+  },
+  {
+    "id": "tabcedco",
+    "title": {
+      "en": "TABCEDCO Loan",
+      "ta": "டாப்செட்கோ (TABCEDCO) கடன்"
+    },
+    "summary": {
+      "en": "Loan under the Tamil Nadu Backward Classes Economic Development Corporation (TABCEDCO) scheme.",
+      "ta": "தமிழ்நாடு பிற்படுத்தப்பட்டோர் பொருளாதார மேம்பாட்டுக் கழகத் (TABCEDCO) திட்டத்தின் கீழ் கடன்."
+    },
+    "rate": {
+      "en": "8% p.a.",
+      "ta": "ஆண்டுக்கு 8%"
+    },
+    "features": [
+      {
+        "en": "Concessional interest rate under the scheme",
+        "ta": "திட்டத்தின் கீழ் சலுகை வட்டி விகிதம்"
+      },
+      {
+        "en": "Supports self-employment and small business",
+        "ta": "சுயதொழில் மற்றும் சிறு தொழிலுக்கு ஆதரவு"
+      },
+      {
+        "en": "Interest rate of 8% p.a.",
+        "ta": "ஆண்டுக்கு 8% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Applicant must meet the TABCEDCO scheme conditions",
+        "ta": "விண்ணப்பதாரர் TABCEDCO திட்ட நிபந்தனைகளைப் பூர்த்தி செய்ய வேண்டும்"
+      },
+      {
+        "en": "Valid community certificate",
+        "ta": "செல்லுபடியாகும் சமூகச் சான்றிதழ்"
+      },
+      {
+        "en": "Steady income or means to repay the loan",
+        "ta": "கடனைத் திருப்பிச் செலுத்தும் வருமான ஆதாரம் இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Community certificate",
+        "ta": "சமூகச் சான்றிதழ்"
+      },
+      {
+        "en": "Income certificate",
+        "ta": "வருமானச் சான்றிதழ்"
+      },
+      {
+        "en": "Details of the proposed activity",
+        "ta": "முன்மொழியப்பட்ட தொழில் விவரம்"
+      }
+    ]
+  },
+  {
+    "id": "tamco",
+    "title": {
+      "en": "TAMCO Loan",
+      "ta": "டாம்கோ (TAMCO) கடன்"
+    },
+    "summary": {
+      "en": "Loan under the Tamil Nadu Minorities Economic Development Corporation (TAMCO) scheme.",
+      "ta": "தமிழ்நாடு சிறுபான்மையினர் பொருளாதார மேம்பாட்டுக் கழகத் (TAMCO) திட்டத்தின் கீழ் கடன்."
+    },
+    "rate": {
+      "en": "6% p.a.",
+      "ta": "ஆண்டுக்கு 6%"
+    },
+    "features": [
+      {
+        "en": "Concessional interest rate under the scheme",
+        "ta": "திட்டத்தின் கீழ் சலுகை வட்டி விகிதம்"
+      },
+      {
+        "en": "Supports self-employment and small business",
+        "ta": "சுயதொழில் மற்றும் சிறு தொழிலுக்கு ஆதரவு"
+      },
+      {
+        "en": "Interest rate of 6% p.a.",
+        "ta": "ஆண்டுக்கு 6% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Applicant must meet the TAMCO scheme conditions",
+        "ta": "விண்ணப்பதாரர் TAMCO திட்ட நிபந்தனைகளைப் பூர்த்தி செய்ய வேண்டும்"
+      },
+      {
+        "en": "Valid community certificate",
+        "ta": "செல்லுபடியாகும் சமூகச் சான்றிதழ்"
+      },
+      {
+        "en": "Steady income or means to repay the loan",
+        "ta": "கடனைத் திருப்பிச் செலுத்தும் வருமான ஆதாரம் இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Community certificate",
+        "ta": "சமூகச் சான்றிதழ்"
+      },
+      {
+        "en": "Income certificate",
+        "ta": "வருமானச் சான்றிதழ்"
+      },
+      {
+        "en": "Details of the proposed activity",
+        "ta": "முன்மொழியப்பட்ட தொழில் விவரம்"
+      }
+    ]
+  },
+  {
+    "id": "women-entrepreneur",
+    "title": {
+      "en": "Women Entrepreneur Loan",
+      "ta": "பெண் தொழில்முனைவோர் கடன்"
+    },
+    "summary": {
+      "en": "Finance for women who want to start or grow their own business.",
+      "ta": "சொந்தத் தொழிலைத் தொடங்க அல்லது விரிவுபடுத்த விரும்பும் பெண்களுக்கான நிதி."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Funds to start or expand a business",
+        "ta": "தொழிலைத் தொடங்க அல்லது விரிவாக்க நிதி"
+      },
+      {
+        "en": "Repayment in monthly instalments",
+        "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Women who run or plan to start a business",
+        "ta": "தொழில் நடத்தும் அல்லது தொடங்க விரும்பும் பெண்கள்"
+      },
+      {
+        "en": "Applicant should be a member of the Bank",
+        "ta": "விண்ணப்பதாரர் வங்கியின் உறுப்பினராக இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Business plan or proof of business",
+        "ta": "தொழில் திட்டம் அல்லது தொழில் சான்று"
+      },
+      {
+        "en": "Passport-size photographs",
+        "ta": "பாஸ்போர்ட் அளவு புகைப்படங்கள்"
+      }
+    ]
+  },
+  {
+    "id": "working-women",
+    "title": {
+      "en": "Working Women Loan",
+      "ta": "பணிபுரியும் பெண்கள் கடன்"
+    },
+    "summary": {
+      "en": "Finance for working women to meet personal and family needs.",
+      "ta": "பணிபுரியும் பெண்களின் தனிப்பட்ட மற்றும் குடும்பத் தேவைகளுக்கான நிதி."
+    },
+    "rate": {
+      "en": "12% p.a.",
+      "ta": "ஆண்டுக்கு 12%"
+    },
+    "features": [
+      {
+        "en": "Support for personal and family needs",
+        "ta": "தனிப்பட்ட மற்றும் குடும்பத் தேவைகளுக்கு ஆதரவு"
+      },
+      {
+        "en": "Repayment in monthly instalments",
+        "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
+      },
+      {
+        "en": "Interest rate of 12% p.a.",
+        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
+      }
+    ],
+    "eligibility": [
+      {
+        "en": "Women in regular employment or with a regular income",
+        "ta": "முறையான வேலை அல்லது வருமானம் உள்ள பெண்கள்"
+      },
+      {
+        "en": "Applicant should be a member of the Bank",
+        "ta": "விண்ணப்பதாரர் வங்கியின் உறுப்பினராக இருக்க வேண்டும்"
+      }
+    ],
+    "documents": [
+      {
+        "en": "Completed loan application form",
+        "ta": "பூர்த்தி செய்த கடன் விண்ணப்பப் படிவம்"
+      },
+      {
+        "en": "Identity and address proof (KYC)",
+        "ta": "அடையாளம் மற்றும் முகவரிச் சான்று (கே.ஒய்.சி)"
+      },
+      {
+        "en": "Salary slips or income proof",
+        "ta": "சம்பளச் சீட்டு அல்லது வருமானச் சான்று"
+      },
+      {
+        "en": "Recent bank statement",
+        "ta": "சமீபத்திய வங்கி அறிக்கை"
+      }
+    ]
+  }
+]
