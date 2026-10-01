@@ -122,9 +122,9 @@
     ],
     "deposit_rates": [
       { "product": { "en": "Savings Account", "ta": "சேமிப்புக் கணக்கு" }, "rate": "3%" },
-      { "product": { "en": "Fixed Deposit (12 to 24 days)", "ta": "நிலையான வைப்பு (12 முதல் 24 நாட்கள்)" }, "rate": "7.75%" },
-      { "product": { "en": "Fixed Deposit (1 year to less than 2 years)", "ta": "நிலையான வைப்பு (1 ஆண்டு முதல் 2 ஆண்டுகளுக்குக் குறைவு)" }, "rate": "7.75%" },
-      { "product": { "en": "Fixed Deposit (2 years and above)", "ta": "நிலையான வைப்பு (2 ஆண்டுகள் மற்றும் அதற்கு மேல்)" }, "rate": "7.75%" },
+      { "product": { "en": "Fixed Deposit (12 to 24 days)", "ta": "நிலையான வைப்பு (12 முதல் 24 நாட்கள்)" }, "rate": "8%" },
+      { "product": { "en": "Fixed Deposit (1 year to less than 2 years)", "ta": "நிலையான வைப்பு (1 ஆண்டு முதல் 2 ஆண்டுகளுக்குக் குறைவு)" }, "rate": "8%" },
+      { "product": { "en": "Fixed Deposit (2 years and above)", "ta": "நிலையான வைப்பு (2 ஆண்டுகள் மற்றும் அதற்கு மேல்)" }, "rate": "8%" },
       { "product": { "en": "Recurring Deposit", "ta": "தொடர் வைப்பு" }, "rate": "7.75%" }
     ],
     "loan_rates": [

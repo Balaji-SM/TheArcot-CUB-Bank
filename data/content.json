@@ -200,7 +200,7 @@
       "id": "fd",
       "title": { "en": "Fixed Deposit", "ta": "நிலை வைப்பு" },
       "summary": { "en": "A safe, fixed-return deposit for a chosen term.", "ta": "தேர்ந்தெடுத்த காலத்திற்கு நிலையான வருவாய் தரும் பாதுகாப்பான வைப்பு." },
-      "rate": { "en": "7.75% p.a.", "ta": "ஆண்டுக்கு 7.75%" },
+      "rate": { "en": "8% p.a.", "ta": "ஆண்டுக்கு 8%" },
       "min_balance": { "en": "Rs XX minimum deposit", "ta": "குறைந்தபட்ச வைப்பு ரூ XX" },
       "features": [
         { "en": "Terms from XX days to XX years", "ta": "XX நாட்கள் முதல் XX ஆண்டுகள் வரை காலம்" },
