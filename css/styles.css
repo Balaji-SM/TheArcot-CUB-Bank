@@ -1427,22 +1427,22 @@ body.ux-scrolled .brand-row{box-shadow:0 8px 22px rgba(23,32,51,.1)}
 }
 
 /* Loans page: application steps (same style as account steps) */
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps{--step-badge-size:34px;position:relative;display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:principle}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps::before{position:absolute;z-index:0;top:calc(11px + var(--step-badge-size)/2);bottom:calc(11px + var(--step-badge-size)/2);left:calc(15px + var(--step-badge-size)/2);width:2px;background:color-mix(in srgb,var(--gold) 60%,transparent);content:""}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li{counter-increment:none;position:relative;z-index:1;display:grid;grid-template-columns:var(--step-badge-size) minmax(0,1fr) 18px;align-items:start;gap:12px;min-width:0;margin:0;padding:10px 14px;border:1px solid var(--card-border);border-radius:12px;background:var(--surface);cursor:pointer;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li::before{counter-increment:principle;content:counter(principle);position:relative;z-index:2;display:grid;place-items:center;box-sizing:border-box;width:var(--step-badge-size);height:var(--step-badge-size);border-radius:50%;background:var(--navy);color:var(--gold);font-size:14px;font-weight:500}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li>span{min-width:0;padding-top:7px;color:var(--ink);font-size:14px;line-height:1.4;overflow-wrap:anywhere}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li>p{grid-column:2;margin:0;color:var(--ink);font-size:14px;line-height:1.4;overflow-wrap:anywhere}
-body[data-page="loans"] .page-product-sections+.data-section .account-step-arrow{width:18px;height:18px;align-self:center;color:var(--gold);opacity:0;transition:opacity .25s ease;justify-self:end}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:hover,
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:focus-within{transform:translateX(6px);border-color:var(--gold);box-shadow:0 2px 0 color-mix(in srgb,var(--gold) 60%,transparent)}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:hover::before,
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:focus-within::before{transform:scale(1.1)}
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:hover .account-step-arrow,
-body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:focus-within .account-step-arrow{opacity:1}
-@media(hover:none){body[data-page="loans"] .page-product-sections+.data-section .account-step-arrow{opacity:1}}
-@media(max-width:639px){body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps{--step-badge-size:30px}body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps::before{left:calc(13px + var(--step-badge-size)/2)}body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li{grid-template-columns:var(--step-badge-size) minmax(0,1fr) 18px;gap:10px;padding:10px 12px}body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li>span,body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li>p{font-size:13.5px}}
-@media(prefers-reduced-motion:reduce){body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li,body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li::before,body[data-page="loans"] .page-product-sections+.data-section .account-step-arrow{transition:none}body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:hover,body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:focus-within{transform:none}body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:hover::before,body[data-page="loans"] .page-product-sections+.data-section .account-opening-steps li:focus-within::before{transform:none}}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps{--step-badge-size:34px;position:relative;display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:principle}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps::before{position:absolute;z-index:0;top:calc(11px + var(--step-badge-size)/2);bottom:calc(11px + var(--step-badge-size)/2);left:calc(15px + var(--step-badge-size)/2);width:2px;background:color-mix(in srgb,var(--gold) 60%,transparent);content:""}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li{counter-increment:none;position:relative;z-index:1;display:grid;grid-template-columns:var(--step-badge-size) minmax(0,1fr) 18px;align-items:start;gap:12px;min-width:0;margin:0;padding:10px 14px;border:1px solid var(--card-border);border-radius:12px;background:var(--surface);cursor:pointer;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li::before{counter-increment:principle;content:counter(principle);position:relative;z-index:2;display:grid;place-items:center;box-sizing:border-box;width:var(--step-badge-size);height:var(--step-badge-size);border-radius:50%;background:var(--navy);color:var(--gold);font-size:14px;font-weight:500}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li>span{min-width:0;padding-top:7px;color:var(--ink);font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li>p{grid-column:2;margin:0;color:var(--ink);font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-step-arrow{width:18px;height:18px;align-self:center;color:var(--gold);opacity:0;transition:opacity .25s ease;justify-self:end}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:hover,
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:focus-within{transform:translateX(6px);border-color:var(--gold);box-shadow:0 2px 0 color-mix(in srgb,var(--gold) 60%,transparent)}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:hover::before,
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:focus-within::before{transform:scale(1.1)}
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:hover .account-step-arrow,
+body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:focus-within .account-step-arrow{opacity:1}
+@media(hover:none){body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-step-arrow{opacity:1}}
+@media(max-width:639px){body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps{--step-badge-size:30px}body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps::before{left:calc(13px + var(--step-badge-size)/2)}body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li{grid-template-columns:var(--step-badge-size) minmax(0,1fr) 18px;gap:10px;padding:10px 12px}body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li>span,body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li>p{font-size:13.5px}}
+@media(prefers-reduced-motion:reduce){body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li,body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li::before,body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-step-arrow{transition:none}body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:hover,body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:focus-within{transform:none}body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:hover::before,body:is([data-page="loans"],[data-page="services"]) .page-product-sections+.data-section .account-opening-steps li:focus-within::before{transform:none}}
 
 /* Header: keep action buttons readable in Tamil (longer text) */
 .brand-actions>.button{flex:none;white-space:nowrap;overflow:visible}
@@ -2112,21 +2112,21 @@ body[data-page="downloads"] .info-card.download-row .fine-print{
 
 
 /* ===== Accounts page: travelling dot on account opening steps ===== */
-body[data-page="accounts"] .account-opening-steps{--dot:10px;--t:5.6s;--n:5}
-body[data-page="accounts"] .account-opening-steps::after{content:"";position:absolute;z-index:3;box-sizing:border-box;left:calc(15px + var(--step-badge-size)/2 + 1px);margin-left:calc(var(--dot)/-2);top:calc(var(--step-badge-size)/2 + 11px - var(--dot)/2);width:var(--dot);height:var(--dot);border-radius:50%;background:var(--gold);border:2px solid var(--navy);pointer-events:none;animation:acct-dot 7s linear infinite}
-body[data-page="accounts"] .account-opening-steps li{outline:1.5px solid transparent;outline-offset:-1px;animation:acct-nudge 7s ease-in-out infinite;animation-delay:calc(var(--i,0) * var(--t) / (var(--n) - 1) - .56s)}
-body[data-page="accounts"] .account-opening-steps li:nth-child(1){--i:0}
-body[data-page="accounts"] .account-opening-steps li:nth-child(2){--i:1}
-body[data-page="accounts"] .account-opening-steps li:nth-child(3){--i:2}
-body[data-page="accounts"] .account-opening-steps li:nth-child(4){--i:3}
-body[data-page="accounts"] .account-opening-steps li:nth-child(5){--i:4}
-body[data-page="accounts"] .account-opening-steps li:nth-child(6){--i:5}
-body[data-page="accounts"] .account-opening-steps li:nth-child(7){--i:6}
-body[data-page="accounts"] .account-opening-steps li:nth-child(8){--i:7}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps{--dot:10px;--t:5.6s;--n:5}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps::after{content:"";position:absolute;z-index:3;box-sizing:border-box;left:calc(15px + var(--step-badge-size)/2 + 1px);margin-left:calc(var(--dot)/-2);top:calc(var(--step-badge-size)/2 + 11px - var(--dot)/2);width:var(--dot);height:var(--dot);border-radius:50%;background:var(--gold);border:2px solid var(--navy);pointer-events:none;animation:acct-dot 7s linear infinite}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li{outline:1.5px solid transparent;outline-offset:-1px;animation:acct-nudge 7s ease-in-out infinite;animation-delay:calc(var(--i,0) * var(--t) / (var(--n) - 1) - .56s)}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(1){--i:0}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(2){--i:1}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(3){--i:2}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(4){--i:3}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(5){--i:4}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(6){--i:5}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(7){--i:6}
+body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li:nth-child(8){--i:7}
 @keyframes acct-dot{0%{top:calc(var(--step-badge-size)/2 + 11px - var(--dot)/2);opacity:0}3%{opacity:1}80%{top:calc(100% - var(--step-badge-size)/2 - 11px - var(--dot)/2);opacity:1}92%,100%{top:calc(100% - var(--step-badge-size)/2 - 11px - var(--dot)/2);opacity:0}}
 @keyframes acct-nudge{0%{translate:0 0;outline-color:transparent}4%,12%{translate:8px 0;outline-color:var(--gold)}22%,100%{translate:0 0;outline-color:transparent}}
-@media(max-width:639px){body[data-page="accounts"] .account-opening-steps::after{left:calc(13px + var(--step-badge-size)/2 + 1px)}}
-@media(prefers-reduced-motion:reduce){body[data-page="accounts"] .account-opening-steps::after{display:none}body[data-page="accounts"] .account-opening-steps li{animation:none}}
+@media(max-width:639px){body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps::after{left:calc(13px + var(--step-badge-size)/2 + 1px)}}
+@media(prefers-reduced-motion:reduce){body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps::after{display:none}body:is([data-page="accounts"],[data-page="loans"],[data-page="services"]) .account-opening-steps li{animation:none}}
 
 /* ===== Downloads page: "Fill form" button (KYC) + pop-up PDF viewer ===== */
 body[data-page="downloads"] .info-card.download-row button.button.dl-fill{
@@ -2183,3 +2183,5 @@ body.fill-open{overflow:hidden}
   body[data-page="downloads"] .info-card.download-row button.button.dl-fill{transition:none}
   body[data-page="downloads"] .info-card.download-row button.button.dl-fill:hover{transform:none}
 }
+/* Colour options widget hidden: site uses the default maroon palette */
+.theme-widget{display:none!important}
