@@ -1334,12 +1334,19 @@ body[data-page="rates"] .rates-page-services h2{margin-bottom:24px}
 body[data-page="rates"] .rates-page-table{table-layout:fixed;width:100%;}
 body[data-page="rates"] .rates-page-table th,
 body[data-page="rates"] .rates-page-table td{overflow-wrap:anywhere;word-break:normal;vertical-align:top}
+/* Rates page "Current rates": 4 columns (Product, Tenure, General, Senior Citizens) */
+body[data-page="rates"] .rates-page-current{min-width:34rem}
 body[data-page="rates"] .rates-page-current th:nth-child(1),
-body[data-page="rates"] .rates-page-current td:nth-child(1){width:38%}
+body[data-page="rates"] .rates-page-current td:nth-child(1){width:30%}
 body[data-page="rates"] .rates-page-current th:nth-child(2),
-body[data-page="rates"] .rates-page-current td:nth-child(2){width:34%}
+body[data-page="rates"] .rates-page-current td:nth-child(2){width:32%}
 body[data-page="rates"] .rates-page-current th:nth-child(3),
-body[data-page="rates"] .rates-page-current td:nth-child(3){width:28%}
+body[data-page="rates"] .rates-page-current td:nth-child(3),
+body[data-page="rates"] .rates-page-current th:nth-child(4),
+body[data-page="rates"] .rates-page-current td:nth-child(4){width:19%;text-align:right;font-variant-numeric:tabular-nums}
+body[data-page="rates"] .rates-page-current th:nth-child(4){white-space:normal}
+
+
 body[data-page="rates"] .rates-page-loans th:first-child,
 body[data-page="rates"] .rates-page-loans td:first-child,
 body[data-page="rates"] .rates-page-charges th:first-child,
@@ -1388,6 +1395,14 @@ body[data-page="downloads"] .download-row.is-entering{animation:download-row-ent
 
 /* Home page rates table: right-align the last column heading so it sits above its values */
 .rates-card table thead th:last-child{text-align:right}
+
+/* Home rates table: General + Senior Citizens columns */
+.rates-card table th:nth-child(3),
+.rates-card table td:nth-child(3),
+.rates-card table th:nth-child(4),
+.rates-card table td:nth-child(4){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rates-card table tbody td:nth-child(3){font-weight:700}
+@media (max-width:640px){.rates-card table{min-width:30rem}}
 
 /* Co-operative principles intro: centre the label, title, rule and summary together */
 .coop-intro,body[data-page="about"] .coop-intro{display:block;width:100%;text-align:center}
