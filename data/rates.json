@@ -10,73 +10,86 @@
         "en": "All balances",
         "ta": "அனைத்து இருப்புகளுக்கும்"
       },
-      "general": 3.5,
-      "senior": 3.5
+      "general": 3.0,
+      "senior": 3.0
     },
     {
-      "id": "fd-30-90",
+      "id": "fd-1-2m",
       "product": {
         "en": "Fixed Deposit",
         "ta": "நிலை வைப்பு"
       },
       "tenure": {
-        "en": "30 days to 90 days",
-        "ta": "30 முதல் 90 நாட்கள்"
+        "en": "1 to 2 months",
+        "ta": "1 முதல் 2 மாதங்கள்"
+      },
+      "general": 4.0,
+      "senior": 4.0
+    },
+    {
+      "id": "fd-3-4m",
+      "product": {
+        "en": "Fixed Deposit",
+        "ta": "நிலை வைப்பு"
+      },
+      "tenure": {
+        "en": "3 to 4 months",
+        "ta": "3 முதல் 4 மாதங்கள்"
       },
       "general": 5.0,
       "senior": 5.0
     },
     {
-      "id": "fd-91-180",
+      "id": "fd-5-6m",
       "product": {
         "en": "Fixed Deposit",
         "ta": "நிலை வைப்பு"
       },
       "tenure": {
-        "en": "91 days to 180 days",
-        "ta": "91 முதல் 180 நாட்கள்"
+        "en": "5 to 6 months",
+        "ta": "5 முதல் 6 மாதங்கள்"
       },
       "general": 5.5,
       "senior": 5.5
     },
     {
-      "id": "fd-181-364",
+      "id": "fd-6-9m",
       "product": {
         "en": "Fixed Deposit",
         "ta": "நிலை வைப்பு"
       },
       "tenure": {
-        "en": "181 days to 364 days",
-        "ta": "181 முதல் 364 நாட்கள்"
+        "en": "6 to 9 months",
+        "ta": "6 முதல் 9 மாதங்கள்"
+      },
+      "general": 6.0,
+      "senior": 6.0
+    },
+    {
+      "id": "fd-10-11m",
+      "product": {
+        "en": "Fixed Deposit",
+        "ta": "நிலை வைப்பு"
+      },
+      "tenure": {
+        "en": "10 to 11 months",
+        "ta": "10 முதல் 11 மாதங்கள்"
       },
       "general": 6.5,
-      "senior": 7.0
+      "senior": 6.5
     },
     {
-      "id": "fd-1y-2y",
+      "id": "fd-12m-24m",
       "product": {
         "en": "Fixed Deposit",
         "ta": "நிலை வைப்பு"
       },
       "tenure": {
-        "en": "1 year to 2 years",
-        "ta": "1 முதல் 2 ஆண்டுகள்"
+        "en": "12 to 24 months",
+        "ta": "12 முதல் 24 மாதங்கள்"
       },
-      "general": 8.0,
-      "senior": 8.25
-    },
-    {
-      "id": "fd-25m-60m",
-      "product": {
-        "en": "Fixed Deposit",
-        "ta": "நிலை வைப்பு"
-      },
-      "tenure": {
-        "en": "25 months to 60 months",
-        "ta": "25 முதல் 60 மாதங்கள்"
-      },
-      "general": 8.25,
-      "senior": 8.5
+      "general": 7.75,
+      "senior": 8.0
     },
     {
       "id": "rd-12m-24m",
@@ -88,8 +101,8 @@
         "en": "12 to 24 months",
         "ta": "12 முதல் 24 மாதங்கள்"
       },
-      "general": 8.0,
-      "senior": 8.25
+      "general": 7.75,
+      "senior": 8.0
     },
     {
       "id": "gold-loan-home",
@@ -105,7 +118,7 @@
       "senior": null
     }
   ],
-  "seniorCitizenExtra": 0.5,
+  "seniorCitizenExtra": 0.25,
   "ratesLastUpdated": "2026-10-05",
   "notices": [
     {
@@ -131,7 +144,7 @@
         "en": "House Construction Loan",
         "ta": "வீடு கட்டுமானக் கடன்"
       },
-      "rate": 13,
+      "rate": 12,
       "footnote": false
     },
     {
@@ -149,16 +162,16 @@
         "en": "Joint Liability Group Loan",
         "ta": "கூட்டுப் பொறுப்புக் குழுக் கடன்"
       },
-      "rate": 15,
+      "rate": 13,
       "footnote": false
     },
     {
       "id": "mortgage",
       "title": {
-        "en": "Home Mortgage Loan",
-        "ta": "வீட்டு அடமானக் கடன்"
+        "en": "Mortgage Loan",
+        "ta": "அடமானக் கடன்"
       },
-      "rate": 13,
+      "rate": 12,
       "footnote": false
     },
     {
@@ -167,7 +180,7 @@
         "en": "Loan for Differently Abled Persons (NHFDC)",
         "ta": "மாற்றுத்திறனாளிகளுக்கான கடன் (NHFDC)"
       },
-      "rate": 15,
+      "rate": 12,
       "footnote": false
     },
     {
@@ -176,7 +189,7 @@
         "en": "Self Help Group Loan",
         "ta": "சுய உதவிக் குழுக் கடன்"
       },
-      "rate": 15,
+      "rate": 12,
       "footnote": false
     },
     {
@@ -185,7 +198,7 @@
         "en": "Business Loan",
         "ta": "வணிகக் கடன்"
       },
-      "rate": 15,
+      "rate": 12,
       "footnote": false
     },
     {
@@ -194,7 +207,7 @@
         "en": "TABCEDCO Loan",
         "ta": "TABCEDCO கடன்"
       },
-      "rate": 7,
+      "rate": 8,
       "footnote": false
     },
     {
@@ -212,7 +225,7 @@
         "en": "Women Entrepreneur Loan",
         "ta": "பெண் தொழில்முனைவோர் கடன்"
       },
-      "rate": 15,
+      "rate": 12,
       "footnote": false
     },
     {
@@ -221,62 +234,36 @@
         "en": "Working Women Loan",
         "ta": "பணிபுரியும் பெண்கள் கடன்"
       },
-      "rate": 14,
-      "footnote": false
-    },
-    {
-      "id": "educational",
-      "title": {
-        "en": "Educational Loan",
-        "ta": "கல்விக் கடன்"
-      },
-      "rate": 15,
-      "footnote": true
-    },
-    {
-      "id": "siragugal",
-      "title": {
-        "en": "Siragugal Loan",
-        "ta": "சிறகுகள் கடன்"
-      },
-      "rate": 15,
-      "footnote": true
-    },
-    {
-      "id": "surety",
-      "title": {
-        "en": "Surety Loan",
-        "ta": "ஜாமீன் கடன்"
-      },
-      "rate": 15,
+      "rate": 12,
       "footnote": false
     }
   ],
   "savingsNote": {
-    "en": "Savings account interest rate: 3.50% p.a.",
-    "ta": "சேமிப்புக் கணக்கு வட்டி விகிதம்: ஆண்டுக்கு 3.50%"
+    "en": "Savings account interest rate: 3% p.a.",
+    "ta": "சேமிப்புக் கணக்கு வட்டி விகிதம்: ஆண்டுக்கு 3%"
   },
   "loanFootnote": {
     "en": "* Terms and conditions apply. Please confirm with your nearest branch.",
     "ta": "* நிபந்தனைகளுக்கு உட்பட்டது. உங்கள் அருகிலுள்ள கிளையில் உறுதிப்படுத்திக் கொள்ளவும்."
   },
   "footnote": {
-    "en": "Senior citizens get an additional 0.50% for fixed deposits of 181 to 364 days, and an additional 0.25% for fixed deposits of 1 year and above and recurring deposits. Rates are indicative; confirm with your nearest branch.",
-    "ta": "181 முதல் 364 நாட்கள் வரையிலான நிலையான வைப்புகளுக்கு மூத்த குடிமக்களுக்கு கூடுதலாக 0.50% வழங்கப்படும். 1 ஆண்டு மற்றும் அதற்கு மேற்பட்ட நிலையான வைப்புகள் மற்றும் தொடர் வைப்புகளுக்கு கூடுதலாக 0.25% வழங்கப்படும். விகிதங்கள் குறிப்புக்கானவை; அருகிலுள்ள கிளையில் உறுதிப்படுத்தவும்."
+    "en": "Senior citizens earn an additional 0.25% p.a. on deposits with tenure above 12 months. For monthly payout, the rate is 0.10% lower than the rates shown. Rates are indicative; confirm with your nearest branch.",
+    "ta": "12 மாதங்களுக்கு மேற்பட்ட வைப்புகளுக்கு மூத்த குடிமக்களுக்கு கூடுதலாக ஆண்டுக்கு 0.25% வழங்கப்படும். மாதாந்திர வட்டி செலுத்தும் வைப்புகளுக்கு, காட்டப்பட்ட விகிதத்தை விட 0.10% குறைவு. விகிதங்கள் குறிப்புக்கானவை; அருகிலுள்ள கிளையில் உறுதிப்படுத்தவும்."
   },
   "tamilReview": [
     "savings product: சேமிப்புக் கணக்கு; tenure: அனைத்து இருப்புகளுக்கும்",
-    "fd-30-90 product: நிலை வைப்பு; tenure: 30 முதல் 90 நாட்கள்",
-    "fd-91-180 product: நிலை வைப்பு; tenure: 91 முதல் 180 நாட்கள்",
-    "fd-181-364 product: நிலை வைப்பு; tenure: 181 முதல் 364 நாட்கள்",
-    "fd-1y-2y product: நிலை வைப்பு; tenure: 1 முதல் 2 ஆண்டுகள்",
-    "fd-25m-60m product: நிலை வைப்பு; tenure: 25 முதல் 60 மாதங்கள்",
+    "fd-1-2m product: நிலை வைப்பு; tenure: 1 முதல் 2 மாதங்கள்",
+    "fd-3-4m product: நிலை வைப்பு; tenure: 3 முதல் 4 மாதங்கள்",
+    "fd-5-6m product: நிலை வைப்பு; tenure: 5 முதல் 6 மாதங்கள்",
+    "fd-6-9m product: நிலை வைப்பு; tenure: 6 முதல் 9 மாதங்கள்",
+    "fd-10-11m product: நிலை வைப்பு; tenure: 10 முதல் 11 மாதங்கள்",
+    "fd-12m-24m product: நிலை வைப்பு; tenure: 12 முதல் 24 மாதங்கள்",
     "rd-12m-24m product: தொடர் வைப்பு; tenure: 12 முதல் 24 மாதங்கள்",
     "gold-loan-home product: நகைக் கடன்; tenure: திட்டத்தின்படி",
     "house-construction loan title: வீடு கட்டுமானக் கடன்",
     "gold loan title: நகைக் கடன்",
     "jlg loan title: கூட்டுப் பொறுப்புக் குழுக் கடன்",
-    "mortgage loan title: வீட்டு அடமானக் கடன்",
+    "mortgage loan title: அடமானக் கடன்",
     "nhfdc loan title: மாற்றுத்திறனாளிகளுக்கான கடன் (NHFDC)",
     "shg loan title: சுய உதவிக் குழுக் கடன்",
     "business loan title: வணிகக் கடன்",
@@ -284,9 +271,6 @@
     "tamco loan title: TAMCO கடன்",
     "women-entrepreneur loan title: பெண் தொழில்முனைவோர் கடன்",
     "working-women loan title: பணிபுரியும் பெண்கள் கடன்",
-    "educational loan title: கல்விக் கடன்",
-    "siragugal loan title: சிறகுகள் கடன்",
-    "surety loan title: ஜாமீன் கடன்",
     "data/ta.json general: பொது",
     "data/ta.json seniorCitizens: மூத்த குடிமக்கள்",
     "data/ta.json recurringDepositRate: தொடர் வைப்பு வட்டி விகிதம்",
@@ -296,9 +280,9 @@
     "data/ta.json effectiveFrom: அமலுக்கு வந்த தேதி",
     "data/ta.json annualRateBadge: ஆண்டுக்கு {rate}%",
     "data/ta.json annualRateFeature: ஆண்டுக்கு {rate}% வட்டி விகிதம்",
-    "savingsNote.ta: சேமிப்புக் கணக்கு வட்டி விகிதம்: ஆண்டுக்கு 3.50%",
+    "savingsNote.ta: சேமிப்புக் கணக்கு வட்டி விகிதம்: ஆண்டுக்கு 3%",
     "loanFootnote.ta: * நிபந்தனைகளுக்கு உட்பட்டது. உங்கள் அருகிலுள்ள கிளையில் உறுதிப்படுத்திக் கொள்ளவும்.",
-    "footnote.ta: 181 முதல் 364 நாட்கள் வரையிலான நிலையான வைப்புகளுக்கு மூத்த குடிமக்களுக்கு கூடுதலாக 0.50% வழங்கப்படும். 1 ஆண்டு மற்றும் அதற்கு மேற்பட்ட நிலையான வைப்புகள் மற்றும் தொடர் வைப்புகளுக்கு கூடுதலாக 0.25% வழங்கப்படும். விகிதங்கள் குறிப்புக்கானவை; அருகிலுள்ள கிளையில் உறுதிப்படுத்தவும்.",
+    "footnote.ta: 12 மாதங்களுக்கு மேற்பட்ட வைப்புகளுக்கு மூத்த குடிமக்களுக்கு கூடுதலாக ஆண்டுக்கு 0.25% வழங்கப்படும். மாதாந்திர வட்டி செலுத்தும் வைப்புகளுக்கு, காட்டப்பட்ட விகிதத்தை விட 0.10% குறைவு. விகிதங்கள் குறிப்புக்கானவை; அருகிலுள்ள கிளையில் உறுதிப்படுத்தவும்.",
     "data/accounts.json fixed description.ta: தேர்ந்தெடுத்த காலத்திற்கு சேமிப்பை ஒதுக்குங்கள். தற்போதைய நிலை வைப்பு விகிதங்களை வட்டி விகிதங்கள் பக்கத்தில் பார்க்கவும்."
   ]
 }

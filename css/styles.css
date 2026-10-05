@@ -2416,3 +2416,6 @@ html.loan-modal-open{overflow:hidden}
 /* Services: balance the existing item order across two columns. */
 body[data-page="services"] .page-product-sections--services{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(var(--service-rows),auto);grid-auto-flow:column;gap:2rem}
 @media(max-width:767px){body[data-page="services"] .page-product-sections--services{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}
+/* ATM / Mobile Banking "Coming soon" panel - same flat look as the How to use panel */
+.split-col.coming-soon-col .soon-lead{margin:.6rem 0 .3rem;color:var(--ink);line-height:1.6}
+.split-col.coming-soon-col .coming-soon-note{margin:.9rem 0 0;color:var(--muted);font-size:.95rem;line-height:1.55}
