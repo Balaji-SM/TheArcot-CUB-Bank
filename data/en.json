@@ -176,5 +176,14 @@
   "ratePa": "Rate p.a.",
   "welcomePrompt": "Choose your language to continue",
   "welcomeSaved": "Your choice is saved on this device.",
-  "tickerAlert": "Alert: the Bank never asks for your OTP, PIN or card details."
+  "tickerAlert": "Alert: the Bank never asks for your OTP, PIN or card details.",
+  "general": "General",
+  "seniorCitizens": "Senior Citizens",
+  "recurringDepositRate": "Recurring deposit rate",
+  "recurringDepositBlurb": "Save a fixed amount every month and earn a fixed rate.",
+  "loanTypeName": "Loan type",
+  "interestRateAnnual": "Interest rate (p.a.)",
+  "effectiveFrom": "Effective from",
+  "annualRateBadge": "{rate}% p.a.",
+  "annualRateFeature": "Interest rate of {rate}% p.a."
 }

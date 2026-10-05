@@ -112,27 +112,9 @@
         "ta": "வட்டி விகிதங்கள் ஆண்டுக்கானவை (p.a.); அவை மாறலாம். வைப்பு அல்லது கடன் அனுமதி வழங்கிய நாளில் உள்ள விகிதமே பொருந்தும்."
       },
       {
-        "en": "Senior citizen and special rates, if any, are as per bank policy.",
-        "ta": "மூத்த குடிமக்கள் மற்றும் சிறப்பு விகிதங்கள், இருப்பின், வங்கிக் கொள்கையின்படி இருக்கும்."
-      },
-      {
         "en": "Ask your branch for the latest rate card before you decide.",
         "ta": "முடிவெடுக்கும் முன் சமீபத்திய வட்டி விகிதப் பட்டியலை உங்கள் கிளையில் கேளுங்கள்."
       }
-    ],
-    "deposit_rates": [
-      { "product": { "en": "Savings Account", "ta": "சேமிப்புக் கணக்கு" }, "rate": "3%" },
-      { "product": { "en": "Fixed Deposit (12 to 24 days)", "ta": "நிலையான வைப்பு (12 முதல் 24 நாட்கள்)" }, "rate": "8%" },
-      { "product": { "en": "Fixed Deposit (1 year to less than 2 years)", "ta": "நிலையான வைப்பு (1 ஆண்டு முதல் 2 ஆண்டுகளுக்குக் குறைவு)" }, "rate": "8%" },
-      { "product": { "en": "Fixed Deposit (2 years and above)", "ta": "நிலையான வைப்பு (2 ஆண்டுகள் மற்றும் அதற்கு மேல்)" }, "rate": "8%" },
-      { "product": { "en": "Recurring Deposit", "ta": "தொடர் வைப்பு" }, "rate": "7.75%" }
-    ],
-    "loan_rates": [
-      { "product": { "en": "Personal Loan", "ta": "தனிநபர் கடன்" }, "rate": "12%" },
-      { "product": { "en": "Gold Loan", "ta": "தங்க நகைக் கடன்" }, "rate": "11%" },
-      { "product": { "en": "Vehicle Loan", "ta": "வாகனக் கடன்" }, "rate": "11%" },
-      { "product": { "en": "Housing Loan", "ta": "வீட்டுக் கடன்" }, "rate": "12%" },
-      { "product": { "en": "Business Loan", "ta": "தொழில் கடன்" }, "rate": "12%" }
     ],
     "service_charges": [
       { "service": { "en": "Cheque book (per leaf)", "ta": "காசோலைப் புத்தகம் (ஒரு தாளுக்கு)" }, "charge": { "en": "Rs 3", "ta": "ரூ 3" } },

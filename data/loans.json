@@ -9,10 +9,6 @@
       "en": "Finance to build your own home on land you own.",
       "ta": "உங்களுக்குச் சொந்தமான நிலத்தில் வீடு கட்ட நிதி உதவி."
     },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
-    },
     "features": [
       {
         "en": "Finance for constructing a new house",
@@ -21,10 +17,6 @@
       {
         "en": "Repayment in monthly instalments",
         "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -70,10 +62,6 @@
       "en": "Instant funds against your gold ornaments with minimal paperwork.",
       "ta": "குறைந்த ஆவணங்களுடன் உங்கள் தங்க நகைகளுக்கு எதிராக உடனடி நிதி."
     },
-    "rate": {
-      "en": "11% p.a.",
-      "ta": "ஆண்டுக்கு 11%"
-    },
     "features": [
       {
         "en": "Same-day disbursement after valuation",
@@ -90,10 +78,6 @@
       {
         "en": "Release of gold on full repayment",
         "ta": "முழுத் தொகை செலுத்தியதும் நகைகள் திரும்ப வழங்கப்படும்"
-      },
-      {
-        "en": "Interest rate of 11% p.a.",
-        "ta": "ஆண்டுக்கு 11% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -131,10 +115,6 @@
       "en": "Group-based credit for small borrowers who share responsibility for repayment.",
       "ta": "திருப்பிச் செலுத்தும் பொறுப்பைப் பகிர்ந்துகொள்ளும் சிறு கடன் பெறுவோருக்கான குழு அடிப்படையிலான கடன்."
     },
-    "rate": {
-      "en": "13% p.a.",
-      "ta": "ஆண்டுக்கு 13%"
-    },
     "features": [
       {
         "en": "Loan sanctioned to a group of borrowers",
@@ -143,10 +123,6 @@
       {
         "en": "Members share responsibility for repayment",
         "ta": "உறுப்பினர்கள் திருப்பிச் செலுத்தும் பொறுப்பைப் பகிர்ந்துகொள்வர்"
-      },
-      {
-        "en": "Interest rate of 13% p.a.",
-        "ta": "ஆண்டுக்கு 13% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -177,16 +153,12 @@
   {
     "id": "mortgage",
     "title": {
-      "en": "Mortgage Loan",
-      "ta": "அடமானக் கடன்"
+      "en": "Home Mortgage Loan",
+      "ta": "வீட்டு அடமானக் கடன்"
     },
     "summary": {
       "en": "Loan against your immovable property to meet financial needs.",
       "ta": "உங்கள் அசையாச் சொத்தை அடமானமாகக் கொண்டு நிதித் தேவைகளுக்கான கடன்."
-    },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
     },
     "features": [
       {
@@ -196,10 +168,6 @@
       {
         "en": "Repayment in monthly instalments",
         "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -249,10 +217,6 @@
       "en": "Financial support for differently abled persons to start or grow an income-generating activity.",
       "ta": "மாற்றுத்திறனாளிகள் வருமானம் ஈட்டும் தொழிலைத் தொடங்க அல்லது விரிவுபடுத்த நிதி உதவி."
     },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
-    },
     "features": [
       {
         "en": "Supports self-employment and small enterprises",
@@ -261,10 +225,6 @@
       {
         "en": "Offered under the NHFDC scheme",
         "ta": "என்.எச்.எஃப்.டி.சி திட்டத்தின் கீழ் வழங்கப்படுகிறது"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -310,10 +270,6 @@
       "en": "Credit for registered self help groups to support members' income-generating activities.",
       "ta": "உறுப்பினர்களின் வருமானம் ஈட்டும் செயல்பாடுகளுக்கு சுய உதவிக் குழுக்களுக்கான கடன்."
     },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
-    },
     "features": [
       {
         "en": "Loan given to the group for members' activities",
@@ -322,10 +278,6 @@
       {
         "en": "Encourages regular savings and timely repayment",
         "ta": "தொடர் சேமிப்பு மற்றும் உரிய நேரத்தில் திருப்பிச் செலுத்துதலை ஊக்குவிக்கிறது"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -363,10 +315,6 @@
       "en": "Working capital and growth finance for small businesses and traders.",
       "ta": "சிறு தொழில்கள் மற்றும் வணிகர்களுக்கான மூலதனம் மற்றும் வளர்ச்சிக் கடன்."
     },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
-    },
     "features": [
       {
         "en": "Funds for working capital or expansion",
@@ -375,10 +323,6 @@
       {
         "en": "Repayment in monthly instalments",
         "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -424,10 +368,6 @@
       "en": "Loan under the Tamil Nadu Backward Classes Economic Development Corporation (TABCEDCO) scheme.",
       "ta": "தமிழ்நாடு பிற்படுத்தப்பட்டோர் பொருளாதார மேம்பாட்டுக் கழகத் (TABCEDCO) திட்டத்தின் கீழ் கடன்."
     },
-    "rate": {
-      "en": "8% p.a.",
-      "ta": "ஆண்டுக்கு 8%"
-    },
     "features": [
       {
         "en": "Concessional interest rate under the scheme",
@@ -436,10 +376,6 @@
       {
         "en": "Supports self-employment and small business",
         "ta": "சுயதொழில் மற்றும் சிறு தொழிலுக்கு ஆதரவு"
-      },
-      {
-        "en": "Interest rate of 8% p.a.",
-        "ta": "ஆண்டுக்கு 8% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -489,10 +425,6 @@
       "en": "Loan under the Tamil Nadu Minorities Economic Development Corporation (TAMCO) scheme.",
       "ta": "தமிழ்நாடு சிறுபான்மையினர் பொருளாதார மேம்பாட்டுக் கழகத் (TAMCO) திட்டத்தின் கீழ் கடன்."
     },
-    "rate": {
-      "en": "6% p.a.",
-      "ta": "ஆண்டுக்கு 6%"
-    },
     "features": [
       {
         "en": "Concessional interest rate under the scheme",
@@ -501,10 +433,6 @@
       {
         "en": "Supports self-employment and small business",
         "ta": "சுயதொழில் மற்றும் சிறு தொழிலுக்கு ஆதரவு"
-      },
-      {
-        "en": "Interest rate of 6% p.a.",
-        "ta": "ஆண்டுக்கு 6% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -554,10 +482,6 @@
       "en": "Finance for women who want to start or grow their own business.",
       "ta": "சொந்தத் தொழிலைத் தொடங்க அல்லது விரிவுபடுத்த விரும்பும் பெண்களுக்கான நிதி."
     },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
-    },
     "features": [
       {
         "en": "Funds to start or expand a business",
@@ -566,10 +490,6 @@
       {
         "en": "Repayment in monthly instalments",
         "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -611,10 +531,6 @@
       "en": "Finance for working women to meet personal and family needs.",
       "ta": "பணிபுரியும் பெண்களின் தனிப்பட்ட மற்றும் குடும்பத் தேவைகளுக்கான நிதி."
     },
-    "rate": {
-      "en": "12% p.a.",
-      "ta": "ஆண்டுக்கு 12%"
-    },
     "features": [
       {
         "en": "Support for personal and family needs",
@@ -623,10 +539,6 @@
       {
         "en": "Repayment in monthly instalments",
         "ta": "மாதத் தவணைகளில் திருப்பிச் செலுத்தும் வசதி"
-      },
-      {
-        "en": "Interest rate of 12% p.a.",
-        "ta": "ஆண்டுக்கு 12% வட்டி விகிதம்"
       }
     ],
     "eligibility": [
@@ -657,5 +569,44 @@
         "ta": "சமீபத்திய வங்கி அறிக்கை"
       }
     ]
+  },
+  {
+    "id": "educational",
+    "title": {
+      "en": "Educational Loan",
+      "ta": "கல்விக் கடன்"
+    },
+    "summary": {
+      "en": "Details available at your nearest branch"
+    },
+    "features": [],
+    "eligibility": [],
+    "documents": []
+  },
+  {
+    "id": "siragugal",
+    "title": {
+      "en": "Siragugal Loan",
+      "ta": "சிறகுகள் கடன்"
+    },
+    "summary": {
+      "en": "Details available at your nearest branch"
+    },
+    "features": [],
+    "eligibility": [],
+    "documents": []
+  },
+  {
+    "id": "surety",
+    "title": {
+      "en": "Surety Loan",
+      "ta": "ஜாமீன் கடன்"
+    },
+    "summary": {
+      "en": "Details available at your nearest branch"
+    },
+    "features": [],
+    "eligibility": [],
+    "documents": []
   }
 ]
