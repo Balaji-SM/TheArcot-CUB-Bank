@@ -5,7 +5,7 @@
     { "id": "personal", "title": { "en": "Personal Loan", "ta": "தனிநபர் கடன்" },
       "summary": { "en": "Quick funds for medical needs, education, weddings, travel or home needs.", "ta": "தனிப்பட்ட தேவைகளுக்கான விரைவான கடன்." },
       "tenure": "Up to XX months", "amount": "Rs XX to Rs XX", "processing_fee": "XX% of loan amount", "security": "As per bank policy (guarantor may be required)",
-      "features": ["Simple documentation", "Quick processing", "Flexible repayment through monthly EMI", "Part-payment and foreclosure as per bank policy"],
+      "features": ["Simple documentation", "Quick processing", "Flexible repayment through monthly EMI", "Part-payment is available. Loan foreclosure charges are NIL."],
       "eligibility": ["Indian resident aged 21 to XX years", "Member or account holder of the bank", "Regular source of income (salary, business or pension)", "Satisfactory repayment history"],
       "documents": ["Loan application form with photograph", "KYC: Aadhaar, PAN, address proof", "Income proof: salary slips / bank statement / ITR", "Bank account statement for last XX months", "Guarantor details if required"] },
     { "id": "gold", "title": { "en": "Gold Loan", "ta": "தங்கக் கடன்" },
@@ -67,7 +67,7 @@
   "faqs": [
     { "q": "Are my deposits insured?", "a": "Deposits are insured by DICGC up to Rs 5 lakh per depositor per bank, subject to DICGC rules." },
     { "q": "How long does loan approval take?", "a": "Approval time depends on the loan type and documents. Sample: XX working days." },
-    { "q": "Can I repay a loan early?", "a": "Part-payment and foreclosure are allowed as per bank policy. Charges, if any: XX." },
+    { "q": "Can I repay a loan early?", "a": "Part-payment is available. Loan foreclosure charges are NIL." },
     { "q": "What if I lose my debit card?", "a": "Contact the bank immediately to block the card. Helpline: 000-0000-0000." },
     { "q": "How do I update my mobile number?", "a": "Submit a request form with ID proof at your home branch." }
   ],

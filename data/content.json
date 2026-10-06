@@ -14,7 +14,7 @@
         { "en": "Simple documentation", "ta": "எளிய ஆவண நடைமுறை" },
         { "en": "Quick processing", "ta": "விரைவான செயலாக்கம்" },
         { "en": "Flexible repayment through monthly EMI", "ta": "மாதத் தவணை மூலம் வசதியான திருப்பிச் செலுத்துதல்" },
-        { "en": "Part-payment and foreclosure as per bank policy", "ta": "வங்கிக் கொள்கையின்படி பகுதி செலுத்துதல் மற்றும் முன்கூட்டியே முடித்தல்" }
+        { "en": "Part-payment is available. Loan foreclosure charges are NIL.", "ta": "பகுதி செலுத்துதல் வசதி உள்ளது. கடன் முன்கூட்டியே முடிப்பதற்கான கட்டணம் இல்லை." }
       ],
       "eligibility": [
         { "en": "Indian resident aged 21 to XX years", "ta": "21 முதல் XX வயது வரையிலான இந்திய குடியிருப்பாளர்" },
@@ -318,7 +318,7 @@
   "faqs": [
     { "q": { "en": "Are my deposits insured?", "ta": "என் வைப்புகளுக்குக் காப்பீடு உள்ளதா?" }, "a": { "en": "Deposits are insured by DICGC up to Rs 5 lakh per depositor per bank, subject to DICGC rules.", "ta": "DICGC விதிகளுக்கு உட்பட்டு, ஒரு வங்கியில் ஒரு வைப்பாளருக்கு ரூ 5 லட்சம் வரை வைப்புகள் DICGC-யால் காப்பீடு செய்யப்படுகின்றன." } },
     { "q": { "en": "How long does loan approval take?", "ta": "கடன் ஒப்புதலுக்கு எவ்வளவு நேரம் ஆகும்?" }, "a": { "en": "Approval time depends on the loan type and documents. Sample: XX working days.", "ta": "ஒப்புதல் நேரம் கடன் வகை மற்றும் ஆவணங்களைப் பொறுத்தது. மாதிரி: XX வேலை நாட்கள்." } },
-    { "q": { "en": "Can I repay a loan early?", "ta": "கடனை முன்கூட்டியே திருப்பிச் செலுத்தலாமா?" }, "a": { "en": "Part-payment and foreclosure are allowed as per bank policy. Charges, if any: XX.", "ta": "வங்கிக் கொள்கையின்படி பகுதி செலுத்துதல் மற்றும் முன்கூட்டியே முடித்தல் அனுமதிக்கப்படும். கட்டணம் இருந்தால்: XX." } },
+    { "q": { "en": "Can I repay a loan early?", "ta": "கடனை முன்கூட்டியே திருப்பிச் செலுத்தலாமா?" }, "a": { "en": "Part-payment is available. Loan foreclosure charges are NIL.", "ta": "பகுதி செலுத்துதல் வசதி உள்ளது. கடன் முன்கூட்டியே முடிப்பதற்கான கட்டணம் இல்லை." } },
     { "q": { "en": "What if I lose my debit card?", "ta": "என் பற்று அட்டை தொலைந்தால் என்ன செய்வது?" }, "a": { "en": "Contact the bank immediately to block the card. Helpline: 000-0000-0000.", "ta": "அட்டையை முடக்க உடனடியாக வங்கியைத் தொடர்புகொள்ளவும். உதவி எண்: 000-0000-0000." } },
     { "q": { "en": "How do I update my mobile number?", "ta": "என் மொபைல் எண்ணை எப்படி மாற்றுவது?" }, "a": { "en": "Submit a request form with ID proof at your home branch.", "ta": "அடையாளச் சான்றுடன் கோரிக்கைப் படிவத்தை உங்கள் முதன்மைக் கிளையில் சமர்ப்பிக்கவும்." } }
   ],

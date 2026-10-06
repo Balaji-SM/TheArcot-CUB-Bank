@@ -1357,6 +1357,11 @@ body[data-page="rates"] .rates-page-charges th:last-child,
 body[data-page="rates"] .rates-page-charges td:last-child{width:38%}
 body[data-page="rates"] .rates-page-table th:last-child,
 body[data-page="rates"] .rates-page-table td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+body[data-page="rates"] .rates-page-charges .charge-value{display:inline-block;max-width:100%;overflow-wrap:anywhere;white-space:normal}
+body[data-page="rates"] .rates-page-charges .charge-coming-soon .charge-value{padding:2px 9px;border:1px solid color-mix(in srgb,var(--gold) 55%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--gold) 18%,var(--surface));color:var(--muted);font-size:.78em;font-weight:600;line-height:1.5}
+body[data-page="rates"] .rates-page-charges .charge-benefit .charge-value,
+body[data-page="rates"] .rates-page-charges .charge-best-value .charge-value{color:var(--navy);font-weight:800}
+body[data-page="rates"] .rates-page-charges .charge-row-coming-soon:hover{background:transparent!important}
 @media(max-width:899px){body[data-page="rates"] .rates-page-top{grid-template-columns:minmax(0,1fr);gap:24px}}
 @media(max-width:767px){body[data-page="rates"] .rates-page-service-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
 

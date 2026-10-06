@@ -117,18 +117,18 @@
       }
     ],
     "service_charges": [
-      { "service": { "en": "Cheque book (per leaf)", "ta": "காசோலைப் புத்தகம் (ஒரு தாளுக்கு)" }, "charge": { "en": "Rs 3", "ta": "ரூ 3" } },
+      { "service": { "en": "Cheque book (per leaf)", "ta": "காசோலைப் புத்தகம் (ஒரு தாளுக்கு)" }, "charge": { "en": "Rs 5 + GST", "ta": "ரூ 5 + GST" } },
       { "service": { "en": "Duplicate passbook", "ta": "நகல் வங்கிக் கணக்குப் புத்தகம்" }, "charge": { "en": "Rs 50", "ta": "ரூ 50" } },
-      { "service": { "en": "Debit card issuance / replacement", "ta": "பற்று அட்டை வழங்கல் / மாற்றம்" }, "charge": { "en": "Rs 150", "ta": "ரூ 150" } },
-      { "service": { "en": "NEFT (per transaction)", "ta": "NEFT (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Rs 2.50", "ta": "ரூ 2.50" } },
-      { "service": { "en": "RTGS (per transaction)", "ta": "RTGS (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Rs 25", "ta": "ரூ 25" } },
-      { "service": { "en": "IMPS (per transaction)", "ta": "IMPS (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Rs 5", "ta": "ரூ 5" } },
+      { "service": { "en": "Debit card issuance / replacement", "ta": "பற்று அட்டை வழங்கல் / மாற்றம்" }, "charge": { "en": "Coming soon", "ta": "விரைவில்" } },
+      { "service": { "en": "NEFT (per transaction)", "ta": "NEFT (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Coming soon", "ta": "விரைவில்" } },
+      { "service": { "en": "RTGS (per transaction)", "ta": "RTGS (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Coming soon", "ta": "விரைவில்" } },
+      { "service": { "en": "IMPS (per transaction)", "ta": "IMPS (ஒரு பரிவர்த்தனைக்கு)" }, "charge": { "en": "Coming soon", "ta": "விரைவில்" } },
       { "service": { "en": "Cheque return (insufficient funds)", "ta": "காசோலை திரும்புதல் (போதிய இருப்பு இல்லை)" }, "charge": { "en": "Rs 200", "ta": "ரூ 200" } },
       { "service": { "en": "Account statement copy", "ta": "கணக்கு அறிக்கை நகல்" }, "charge": { "en": "Rs 30", "ta": "ரூ 30" } },
-      { "service": { "en": "Non-maintenance of minimum balance", "ta": "குறைந்தபட்ச இருப்பு பராமரிக்காதது" }, "charge": { "en": "Rs 100 per quarter", "ta": "காலாண்டுக்கு ரூ 100" } },
-      { "service": { "en": "Locker annual rent (by size)", "ta": "பாதுகாப்புப் பெட்டக ஆண்டு வாடகை (அளவுப்படி)" }, "charge": { "en": "Rs 1500 - 5000", "ta": "ரூ 1500 - 5000" } },
-      { "service": { "en": "Loan processing fee", "ta": "கடன் செயலாக்கக் கட்டணம்" }, "charge": { "en": "0.50% of loan amount", "ta": "கடன் தொகையில் 0.50%" } },
-      { "service": { "en": "Loan foreclosure", "ta": "கடன் முன்கூட்டியே முடித்தல்" }, "charge": { "en": "As per bank policy", "ta": "வங்கிக் கொள்கையின்படி" } }
+      { "service": { "en": "Non-maintenance of minimum balance", "ta": "குறைந்தபட்ச இருப்பு பராமரிக்காதது" }, "charge": { "en": "NIL", "ta": "இல்லை" } },
+      { "service": { "en": "Locker annual rent (by size)", "ta": "பாதுகாப்புப் பெட்டக ஆண்டு வாடகை (அளவுப்படி)" }, "charge": { "en": "Rs 1000 - 2500 + GST", "ta": "ரூ 1000 - 2500 + GST" } },
+      { "service": { "en": "Loan processing fee", "ta": "கடன் செயலாக்கக் கட்டணம்" }, "charge": { "en": "Lowest ever compared to others", "ta": "மற்றவர்களை விட மிகக் குறைவு" } },
+      { "service": { "en": "Loan foreclosure", "ta": "கடன் முன்கூட்டியே முடித்தல்" }, "charge": { "en": "NIL", "ta": "இல்லை" } }
     ],
     "note": {
       "en": "GST and other taxes are extra as applicable. All values are placeholders.",
@@ -229,7 +229,7 @@
       "en": "Arcot Urban Co-operative Bank Ltd, 170A, Main Road, Arcot, Tamil Nadu",
       "ta": "ஆற்காடு நகர கூட்டுறவு வங்கி லிமிடெட், 170A, பிரதான சாலை, ஆற்காடு, தமிழ்நாடு"
     },
-    "phone": "9442862088",
+    "phone": "+91 70940 03381",
     "email": "contact@actcub.bank.in",
     "hours": {
       "en": "Mon-Fri 10:00-16:00, Sat 10:00-14:00",
