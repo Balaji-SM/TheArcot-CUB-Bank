@@ -186,6 +186,7 @@ const unitSuffix=format=>format==='percent'?'%':format==='years'?` ${tr('years')
 const controls=(id,key,min,max,value,step,format='number')=>{value=calculatorState.values[id]??value;return `<div class="range-control"><label for="${id}"><span>${tr(key)}</span><output id="${id}-out">${format==='money'?money(value):value+unitSuffix(format)}</output></label><input type="range" id="${id}" min="${min}" max="${max}" value="${value}" step="${step}" data-format="${format}"><div class="range-limits"><span>${format==='money'?money(min):min}</span><span>${format==='money'?money(max):max+unitSuffix(format)}</span></div></div>`};
 const dualControls=(id,key,min,max,value,step,format='number')=>{value=calculatorState.values[id]??value;const shown=format==='money'?money2(value):`${value}${format==='percent'?'%':''}`;return `<div class="range-control dual-range-control"><label for="${id}"><span>${tr(key)}</span><output id="${id}-out">${shown}</output></label><div class="calc-dual-inputs"><input type="range" id="${id}-range" min="${min}" max="${max}" value="${value}" step="${step}" data-calc-input="${id}" data-min="${min}" data-max="${max}" data-format="${format}" aria-label="${tr(key)}"><input type="number" id="${id}" min="${min}" max="${max}" value="${value}" step="${format==='money'?'any':step}" data-calc-input="${id}" data-min="${min}" data-max="${max}" data-format="${format}" aria-label="${tr(key)}"></div><div class="range-limits"><span>${format==='money'?money2(min):min}</span><span>${format==='money'?money2(max):max+ (format==='percent'?'%':'')}</span></div><small class="calc-input-error" id="${id}-error" aria-live="polite"></small></div>`};
 function calcTabs(active){return `<div class="calc-tabs" role="tablist" aria-label="${tr('calculatorTitle')}">${[['emi','emi'],['fd','fdCalc'],['rd','rdCalc'],['compare','loanCompare']].map(([id,key])=>`<button role="tab" aria-selected="${id===active}" class="${id===active?'active':''}" data-calc="${id}">${id==='emi'?(state.lang==='ta'?'கடன் வட்டி':'Loan interest'):tr(key)}</button>`).join('')}</div>`}
+function calcDepositRate(kind,months){const rows=state.data.rates?.rates||[];const id=kind==='rd'?'rd-12m-24m':months<=2?'fd-1-2m':months<=4?'fd-3-4m':months<=7?'fd-5-7m':months<=11?'fd-7-11m':'fd-11m-24m';const row=rows.find(x=>x.id===id);return row?Number(row.general):0}
 function renderCalc(kind='emi',root=$('#calculator-content')){
  if(!root)return;
  let fields='',out='';
@@ -195,10 +196,11 @@ function renderCalc(kind='emi',root=$('#calculator-content')){
   out=`<div class="result-main" id="res-primary"></div><span class="result-label">${tr('maturityAmount')}</span><div class="calc-donut-wrap"><div class="calc-donut" id="simple-interest-donut" role="img"></div><div class="calc-donut-legend"><div><i class="legend-principal"></i><span>${tr('principal')}</span><b id="si-principal-legend"></b></div><div><i class="legend-interest"></i><span>${aiLabel}</span><b id="si-interest-legend"></b></div></div></div><div class="result-rows"><div class="result-row"><span>${tr('principal')}</span><b id="res-a"></b></div><div class="result-row"><span>${aiLabel}</span><b id="res-b"></b></div><div class="result-row"><span>${dayLabel}</span><b id="res-day"></b></div></div>`;
  }else if(kind==='fd'){
   const ta=state.lang==='ta',fdMode=calculatorState.values.fdPayout||'yearly';
-  fields=controls('amount','investment',10000,5000000,300000,10000,'money')+controls('rate','rateLabel',0,24,0,.25,'percent')+controls('years','duration',1,10,3,1,'years')+`<div class="range-control fd-payout-control"><label for="fdPayout"><span>${ta?'வட்டி செலுத்தும் முறை':'Interest payout'}</span></label><select id="fdPayout" class="fd-payout-select"><option value="yearly"${fdMode==='yearly'?' selected':''}>${ta?'ஆண்டுதோறும் (FD / FDQ)':'Yearly payout (FD / FDQ)'}</option><option value="monthly"${fdMode==='monthly'?' selected':''}>${ta?'மாதந்தோறும் (FD மாதாந்திர வட்டி)':'Monthly payout (FD monthly)'}</option></select></div>`;
+  const fdMonths=calculatorState.values.years??12;
+  fields=controls('amount','investment',10000,5000000,300000,10000,'money')+`<div class="range-control"><label for="years"><span>${ta?'காலம் (மாதங்கள்)':'Tenure (months)'}</span><output id="years-out">${fdMonths}</output></label><input type="range" id="years" min="1" max="24" value="${fdMonths}" step="1" data-format="number"><div class="range-limits"><span>1</span><span>24</span></div></div><div class="range-control"><label><span>${tr('rateLabel')}</span><output id="fd-rate-out">${calcDepositRate('fd',fdMonths).toFixed(2)}%</output></label></div><div class="range-control fd-payout-control"><label for="fdPayout"><span>${ta?'வட்டி செலுத்தும் முறை':'Interest payout'}</span></label><select id="fdPayout" class="fd-payout-select"><option value="yearly"${fdMode==='yearly'?' selected':''}>${ta?'ஆண்டுதோறும் (FD / FDQ)':'Yearly payout (FD / FDQ)'}</option><option value="monthly"${fdMode==='monthly'?' selected':''}>${ta?'மாதந்தோறும் (FD மாதாந்திர வட்டி)':'Monthly payout (FD monthly)'}</option></select></div>`;
   out=`<div class="result-main" id="res-primary">—</div><span class="result-label" id="fd-label">${tr('maturity')}</span><div class="result-rows"><div class="result-row"><span>${tr('principal')}</span><b id="res-a"></b></div><div class="result-row"><span id="fd-b-label">${tr('totalInterest')}</span><b id="res-b"></b></div><div class="result-row" id="fd-c-row" hidden><span id="fd-c-label"></span><b id="res-c"></b></div></div>`;
  }else if(kind==='rd'){
-  fields=dualControls('rdDeposit','rdMonthlyDeposit',100,1000000,5000,100,'money')+dualControls('rdRate','rdInterestRate',0.01,100,8,0.01,'percent')+dualControls('rdMonths','rdTenureMonths',6,120,36,1,'number');
+  const rdMonths=calculatorState.values.rdMonths??12;fields=dualControls('rdDeposit','rdMonthlyDeposit',100,1000000,5000,100,'money')+`<div class="range-control"><label for="rdMonths"><span>${state.lang==='ta'?'காலம் (மாதங்கள்)':'Tenure (months)'}</span><output id="rdMonths-out">${rdMonths}</output></label><input type="range" id="rdMonths" min="12" max="24" value="${rdMonths}" step="1" data-format="number"><div class="range-limits"><span>12</span><span>24</span></div></div><div class="range-control"><label><span>${tr('rdInterestRate')}</span><output id="rd-rate-out">${calcDepositRate('rd',rdMonths).toFixed(2)}%</output></label></div>`;
   out=`<div class="result-main" id="res-primary"></div><span class="result-label">${tr('maturityAmount')}</span><div class="result-rows"><div class="result-row"><span>${tr('totalDeposited')}</span><b id="res-a"></b></div><div class="result-row"><span>${tr('interestEarned')}</span><b id="res-b"></b></div></div><p class="calc-note">${tr('quarterlyNote')}</p>`;
  }else{
   fields=controls('amount','emiAmount',50000,5000000,500000,50000,'money')+controls('years','loanTenure',1,30,5,1,'years')+controls('rateA','compareA',0,24,0,.25,'percent')+controls('rateB','compareB',0,24,0,.25,'percent');
@@ -213,7 +215,7 @@ function renderCalc(kind='emi',root=$('#calculator-content')){
    $('#res-primary',root).textContent=money2(maturity);set('res-a',principal,true);set('res-b',interest,true);set('res-day',principal*rate/36500,true);
    const share=principal/maturity*100,donut=$('#simple-interest-donut',root);donut.style.background=`conic-gradient(var(--navy) 0 ${share}%,var(--gold) ${share}% 100%)`;donut.setAttribute('aria-label',`${tr('principal')}: ${money2(principal)}; ${state.lang==='ta'?'ஆண்டு வட்டி':'Annual interest'}: ${money2(interest)}`);$('#si-principal-legend',root).textContent=money2(principal);$('#si-interest-legend',root).textContent=money2(interest);
   }else if(kind==='fd'){
-   const p=val('amount'),r=val('rate')/100,yrs=val('years'),ta=state.lang==='ta',monthly=($('#fdPayout',root)?.value||'yearly')==='monthly',cRow=$('#fd-c-row',root);
+   const p=val('amount'),months=val('years'),r=calcDepositRate('fd',months)/100,yrs=months/12,ta=state.lang==='ta',monthly=($('#fdPayout',root)?.value||'yearly')==='monthly',cRow=$('#fd-c-row',root);$('#fd-rate-out',root).textContent=(r*100).toFixed(2)+'%';
    if(!monthly){
     /* FD & FDQ: yearly payout, simple interest = Principal x Rate x Years */
     const interest=p*r*yrs;$('#res-primary',root).textContent=money(p+interest);$('#fd-label',root).textContent=tr('maturity');$('#fd-b-label',root).textContent=tr('totalInterest');cRow.hidden=true;set('res-a',p);set('res-b',interest);
@@ -222,7 +224,7 @@ function renderCalc(kind='emi',root=$('#calculator-content')){
     const m=Math.round(p*r/(12+r)),annual=m*12;$('#res-primary',root).textContent=money(m);$('#fd-label',root).textContent=ta?'மாதாந்திர வட்டி':'Monthly payout';$('#fd-b-label',root).textContent=ta?'மொத்த வட்டி (முழு காலம்)':'Total interest (full tenure)';$('#fd-c-label',root).textContent=ta?'ஆண்டு மொத்தம் (மாதம் × 12)':'Annual total (monthly × 12)';cRow.hidden=false;set('res-a',p);set('res-b',annual*yrs);set('res-c',annual);
    }
   }else if(kind==='rd'){
-   const deposit=val('rdDeposit'),months=val('rdMonths'),rate=val('rdRate');/* CBS RD rule: quarterly compounding; within each quarter, each monthly deposit earns simple interest for the months it is held (3,2,1); interest is added to the balance at quarter end. A last part-quarter earns simple interest only. */
+   const deposit=val('rdDeposit'),months=val('rdMonths'),rate=calcDepositRate('rd',months);$('#rd-rate-out',root).textContent=rate.toFixed(2)+'%';/* CBS RD rule: quarterly compounding; within each quarter, each monthly deposit earns simple interest for the months it is held (3,2,1); interest is added to the balance at quarter end. A last part-quarter earns simple interest only. */
    let bal=0;const qi=rate/400,mi=rate/1200;for(let done=0;done<months;done+=3){const m=Math.min(3,months-done);let held=0;for(let j=0;j<m;j++)held+=m-j;const interest=bal*qi*(m/3)+deposit*held*mi;bal+=deposit*m+(m===3?interest:0)+(m<3?interest:0)}const maturity=Math.round(bal),invested=deposit*months;$('#res-primary',root).textContent=money2(maturity);set('res-a',invested,true);set('res-b',maturity-invested,true);
   }else{
    const p=val('amount'),a=val('rateA')/1200,b=val('rateB')/1200,terms=val('years')*12,ea=a?p*a*Math.pow(1+a,terms)/(Math.pow(1+a,terms)-1):p/terms,eb=b?p*b*Math.pow(1+b,terms)/(Math.pow(1+b,terms)-1):p/terms;$('#res-primary',root).textContent=money(Math.abs(ea-eb));set('res-a',ea);set('res-b',eb);
@@ -1146,8 +1148,8 @@ function productIcon(type,i,it){
 /* Rates & Charges: Loan rates + Service charges in the same one-by-one structure */
 (function(){
   const T={
-    en:{loanTitle:'Current Rates',loanSub:'Rates per annum, calculated as simple interest on a daily basis (principal ÷ 365 × rate × days).'},
-    ta:{loanTitle:'தற்போதைய வட்டி விகிதங்கள்',loanSub:'ஆண்டுக்கான விகிதங்கள்; தினசரி அடிப்படையில் எளிய வட்டியாகக் கணக்கிடப்படுகிறது (அசல் ÷ 365 × வட்டி விகிதம் × நாட்கள்).'}
+    en:{loanTitle:'Current Rates'},
+    ta:{loanTitle:'தற்போதைய வட்டி விகிதங்கள்'}
   };
   function tidyRates(){
     if(document.body.dataset.page!=='rates')return;
@@ -1158,7 +1160,7 @@ function productIcon(type,i,it){
     if(loan){
       const h=$('h2',loan);if(h)h.textContent=t.loanTitle;
       const slot=$('.rates-page-note-slot',loan);
-      if(slot){slot.className='deposit-rates-sub';slot.removeAttribute('aria-hidden');slot.textContent=t.loanSub}
+      if(slot)slot.remove();
     }
 
     /* Service charges are already split evenly into separate tables at render time. */
