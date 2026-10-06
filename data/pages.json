@@ -176,6 +176,7 @@
         "items": [
           { "title": { "en": "Account Opening Form", "ta": "கணக்கு தொடங்கும் படிவம்" } },
           { "title": { "en": "KYC Form", "ta": "KYC படிவம்" } },
+          { "title": { "en": "KYC Form (Individual)", "ta": "KYC படிவம் (தனிநபர்)" } },
           { "title": { "en": "Nomination Form", "ta": "வாரிசு நியமனப் படிவம்" } },
           { "title": { "en": "Standing Instruction Form", "ta": "நிலையான அறிவுறுத்தல் படிவம்" } },
           { "title": { "en": "Debit Card Request Form", "ta": "பற்று அட்டை கோரிக்கைப் படிவம்" } },
@@ -198,7 +199,8 @@
           { "title": { "en": "Locker Application Form", "ta": "பாதுகாப்புப் பெட்டக விண்ணப்பப் படிவம்" } },
           { "title": { "en": "NEFT / RTGS / IMPS Fund Transfer Form", "ta": "NEFT / RTGS / IMPS நிதிப் பரிமாற்றப் படிவம்" } },
           { "title": { "en": "Cheque Book Request Form", "ta": "காசோலைப் புத்தகக் கோரிக்கைப் படிவம்" } },
-          { "title": { "en": "Mobile Number Update Form", "ta": "மொபைல் எண் புதுப்பிப்புப் படிவம்" } }
+          { "title": { "en": "Mobile Number Update Form", "ta": "மொபைல் எண் புதுப்பிப்புப் படிவம்" } },
+          { "title": { "en": "SMS Alert Application Form", "ta": "SMS சேவை விண்ணப்பப் படிவம்" } }
         ]
       },
       {
@@ -232,9 +234,9 @@
     "phone": "+91 70940 03381",
     "email": "contact@actcub.bank.in",
     "hours": {
-      "en": "Mon-Fri 10:00-16:00, Sat 10:00-14:00",
-      "ta": "திங்கள்–வெள்ளி 10:00–16:00, சனி 10:00–14:00"
-    },
+  "en": "Mon–Sat 10:00–16:00",
+  "ta": "திங்கள்–சனி 10:00–16:00"
+  },
     "grievance": [
   {
     "title": { "en": "Level 1: Branch Manager", "ta": "நிலை 1: கிளை மேலாளர்" },
