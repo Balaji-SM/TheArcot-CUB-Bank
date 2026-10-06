@@ -2424,3 +2424,20 @@ body[data-page="services"] .page-product-sections--services{display:grid;grid-te
 /* ATM / Mobile Banking "Coming soon" panel - same flat look as the How to use panel */
 .split-col.coming-soon-col .soon-lead{margin:.6rem 0 .3rem;color:var(--ink);line-height:1.6}
 .split-col.coming-soon-col .coming-soon-note{margin:.9rem 0 0;color:var(--muted);font-size:.95rem;line-height:1.55}
+
+/* Simple interest and recurring deposit calculator controls and chart */
+.calc-dual-inputs{display:flex;align-items:center;gap:12px}
+.calc-dual-inputs input[type="range"]{flex:1;min-width:0}
+.calc-dual-inputs input[type="number"]{width:132px;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit;font-size:.8rem}
+.calc-dual-inputs input[type="number"]:invalid{border-color:var(--blue)}
+.calc-input-error{display:block;min-height:0;color:var(--blue);font-size:.68rem}
+.calc-input-error:not(:empty){margin-top:5px}
+.calc-donut-wrap{display:flex;align-items:center;gap:18px;margin:16px 0 8px}
+.calc-donut{position:relative;display:grid;width:132px;height:132px;flex:none;place-items:center;border-radius:50%}
+.calc-donut::before{position:absolute;inset:17px;border-radius:50%;background:var(--tint);content:""}
+.calc-donut-legend{display:grid;gap:10px;min-width:0}
+.calc-donut-legend>div{display:grid;grid-template-columns:10px minmax(0,1fr);align-items:center;gap:0 7px;font-size:.7rem;color:var(--muted)}
+.calc-donut-legend i{grid-row:span 2;width:9px;height:9px;border-radius:50%;background:var(--navy)}
+.calc-donut-legend .legend-interest{background:var(--gold)}
+.calc-donut-legend b{grid-column:2;color:var(--ink);font-size:.72rem;overflow-wrap:anywhere}
+@media(max-width:480px){.calc-dual-inputs{gap:8px}.calc-dual-inputs input[type="number"]{width:108px}.calc-donut{width:110px;height:110px}.calc-donut::before{inset:15px}.calc-donut-wrap{gap:12px}}
