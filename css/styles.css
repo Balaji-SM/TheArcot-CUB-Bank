@@ -2480,3 +2480,18 @@ body[data-page="services"] .page-product-sections--services{display:grid;grid-te
 
 .deaf-pdf[hidden]{display:none}
 .deaf-pdf-missing{margin:0;padding:14px 18px;border:1px dashed rgba(128,128,128,.45);border-radius:12px;opacity:.8}
+/* ===== Financial Position (Disclosures) page ===== */
+.fp-section{max-width:980px;margin-inline:auto}
+.fp-card{background:#fff;border-radius:12px;border-top:4px solid var(--gold,#E8B03A);box-shadow:0 8px 26px rgba(90,18,34,.14);overflow:hidden}
+.fp-head{background:var(--navy);color:#fff;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 24px 0}
+.fp-head h2{margin:0;font-size:1.05rem;color:#fff}
+.fp-head small,.fp-unit{display:block;font-size:.78rem;opacity:.85;margin-top:2px}
+.fp-table{width:100%;border-collapse:collapse;min-width:560px}
+.fp-table thead th{background:var(--navy);color:#fff;text-align:left;font-size:.82rem;padding:18px 24px 14px}
+.fp-table td{padding:14px 24px;font-size:.92rem;border-bottom:1px solid rgba(128,128,128,.22);color:#2b1a1d}
+.fp-table .fp-amt{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fp-table .fp-gap{width:3%;padding:0}
+.fp-table .fp-total td{font-weight:700;border-bottom:0}
+.fp-sub{margin:28px 0 12px;font-size:1rem}
+.fp-downloads{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:640px){.fp-head{padding:14px 16px 0}.fp-table td,.fp-table thead th{padding:12px 14px}}
