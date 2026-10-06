@@ -2441,3 +2441,7 @@ body[data-page="services"] .page-product-sections--services{display:grid;grid-te
 .calc-donut-legend .legend-interest{background:var(--gold)}
 .calc-donut-legend b{grid-column:2;color:var(--ink);font-size:.72rem;overflow-wrap:anywhere}
 @media(max-width:480px){.calc-dual-inputs{gap:8px}.calc-dual-inputs input[type="number"]{width:108px}.calc-donut{width:110px;height:110px}.calc-donut::before{inset:15px}.calc-donut-wrap{gap:12px}}
+
+.fd-payout-select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#172033;font:inherit}
+.fd-payout-control{margin-top:8px}
+.result-row[hidden]{display:none}
