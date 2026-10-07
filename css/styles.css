@@ -2495,3 +2495,111 @@ body[data-page="services"] .page-product-sections--services{display:grid;grid-te
 .fp-sub{margin:28px 0 12px;font-size:1rem}
 .fp-downloads{display:flex;flex-wrap:wrap;gap:12px}
 @media (max-width:640px){.fp-head{padding:14px 16px 0}.fp-table td,.fp-table thead th{padding:12px 14px}}
+
+/* ===== Mobile fit: no sideways scrolling, nothing overlapping (added) ===== */
+html,body{max-width:100%;overflow-x:clip}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+img,svg,video,canvas,iframe{max-width:100%}
+@media (max-width:767px){
+  /* the header brand block was forced to 360px+, wider than a phone screen */
+  .brand-row>.brand{width:auto!important;min-width:0!important;max-width:100%}
+  .brand-row>.search{width:100%!important;max-width:100%;min-width:0}
+  .brand-copy{min-width:0}
+  .brand-copy strong,.brand-copy small{overflow-wrap:anywhere}
+  /* decorative circles that stick out past the right edge */
+  .kolam,.page-hero .kolam{display:none}
+  /* grid/flex children may shrink instead of pushing the page wider */
+  .rates-notices>*,.rates-card,.notices-card,.table-scroll,.calculator-shell,.hero-content>*{min-width:0;max-width:100%}
+  .hero-side{width:100%;max-width:100%}
+  .container{max-width:100%}
+}
+
+/* ===== Footer: copyright + "Built & managed by" credit (added) ===== */
+.site-footer .footer-bottom{justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px}
+.footer-copy{margin:0}
+.footer-credit{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.3rem .45rem;font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.footer-credit::before{content:"\2726";color:var(--gold);letter-spacing:0;font-size:.8rem}
+.footer-credit a{color:#fff;font-weight:700;font-size:.82rem;letter-spacing:0;text-transform:none;text-decoration:none}
+.footer-credit a:hover,.footer-credit a:focus-visible{color:var(--gold);text-decoration:underline}
+.footer-credit small{font-size:.62rem;letter-spacing:0;text-transform:none;opacity:.85}
+@media (max-width:767px){
+  /* keep the credit clear of the floating lamp / colour buttons */
+  .site-footer .footer-bottom{display:grid;justify-content:start;gap:8px;padding-bottom:76px}
+}
+
+/* ===== Mobile: inner-page banner (added) =====
+   Photo stays visible; text stays readable.
+   TUNE HERE: lower a wash number = more photo, higher = clearer text.
+   --photo-strip = extra height under the text where the photo shows clearly. */
+@media (max-width:767px){
+  body[data-page] .page-hero{
+    --wash-top:.80;      /* behind the title / first lines   (0 to 1) */
+    --wash-mid:.68;      /* behind the paragraph             (0 to 1) */
+    --wash-bottom:.10;   /* bottom strip, photo almost clear (0 to 1) */
+    --photo-strip:130px;
+    padding-bottom:var(--photo-strip);
+  }
+  body[data-page] .page-hero::before{
+    background-image:linear-gradient(180deg,
+      rgba(255,248,236,var(--wash-top)) 0%,
+      rgba(255,248,236,var(--wash-mid)) 55%,
+      rgba(255,248,236,var(--wash-bottom)) 100%),var(--page-banner,url("../assets/images/hero-family-clean.jpg?v=3"))!important;
+  }
+  /* strong cream glow keeps the letters sharp over the photo */
+  body[data-page] .page-hero h1,
+  body[data-page] .page-hero p,
+  body[data-page] .page-hero .eyebrow,
+  body[data-page] .page-hero .breadcrumbs,
+  body[data-page] .page-hero .breadcrumbs a{
+    text-shadow:0 0 12px rgba(255,248,236,1),0 0 6px rgba(255,248,236,.95),0 0 2px rgba(255,248,236,.9);
+  }
+  body[data-page] .page-hero p:not(.eyebrow){color:#2b2420!important;font-weight:500}
+  body[data-page] .page-hero .eyebrow{color:var(--kanchipuram-maroon)!important;font-weight:700}
+}
+
+/* ===== DEAF page and Financial Position page: banner images (added) =====
+   deaf      -> the home page family photo (hero-family-clean.jpg)
+   financial -> the Accounts banner (Banner accounts.jpg)
+   To change either picture, change only the url(...) in the first two lines. */
+body[data-page="deaf"]{--page-banner:url("../assets/images/hero-family-clean.jpg?v=3");--banner-y:35%;--copy-end:62vw}
+body[data-page="financial"]{--page-banner:url("../assets/images/Banner%20accounts.jpg?v=1");--banner-y:55%;--copy-end:62vw}
+
+body[data-page="deaf"] .page-hero::before,
+body[data-page="financial"] .page-hero::before{
+  background-image:linear-gradient(90deg,rgba(255,248,236,.94) 0%,rgba(255,248,236,.86) 26%,rgba(255,248,236,.58) 44%,rgba(255,248,236,.18) 60%,rgba(255,248,236,0) 72%),var(--page-banner);
+  background-size:cover;background-repeat:no-repeat;background-position:70% var(--banner-y,40%);
+}
+body[data-page="deaf"] .page-hero>.container>*,
+body[data-page="financial"] .page-hero>.container>*{max-width:min(620px,calc(var(--copy-end) - (100vw - 100%) / 2))}
+@media (max-width:767px){
+  body[data-page="deaf"] .page-hero::before,
+  body[data-page="financial"] .page-hero::before{background-position:78% var(--banner-y,40%)}
+}
+
+/* ===== DEAF page on phones: photo shown like the home page (added) =====
+   Text sits on plain cream, the family photo sits in a band under the text, centred on the family.
+   TUNE HERE (same meaning as on the home page):
+   --hero-img-w : bigger = zoomed OUT (more of the scene), smaller = zoomed IN
+   --hero-img-x : lower = family moves right, higher = family moves left
+   --hero-img-y : moves the photo up / down inside the band
+   --hero-band-h: height of the photo band */
+@media (max-width:767px){
+  body[data-page="deaf"] .page-hero{
+    --hero-img-w:clamp(1400px,420vw,2400px);
+    --hero-img-x:72%;
+    --hero-img-y:62%;
+    --hero-band-h:clamp(280px,82vw,470px);
+    background:var(--bg,#FBF6EA);
+    padding-bottom:var(--hero-band-h);
+  }
+  body[data-page="deaf"] .page-hero::before{
+    inset:auto 0 0 0;height:var(--hero-band-h);
+    background-image:url("../assets/images/hero-family-clean.jpg?v=3")!important;
+    background-size:var(--hero-img-w) auto!important;
+    background-position:var(--hero-img-x) var(--hero-img-y)!important;
+    background-repeat:no-repeat;
+    animation:none;transform:none;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 100%);
+    mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 100%);
+  }
+}
