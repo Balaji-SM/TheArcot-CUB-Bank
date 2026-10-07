@@ -348,14 +348,19 @@ if(id==='calculators')return `<div class="calculator-layout"><div class="calcula
 if(id==='downloads'){
   const ta=state.lang==='ta';        
   const groups=p.categories||p.downloads||p.items||[];
-  const normalized=Array.isArray(groups)?groups:[{title:ta?'பதிவிறக்கங்கள்':'Downloads',items:groups}];
+  const normalized=(Array.isArray(groups)?groups:[{title:ta?'பதிவிறக்கங்கள்':'Downloads',items:groups}]).filter(g=>!/notices?\s*(and|&|&amp;)\s*reports?/i.test(JSON.stringify({t:g.title,n:g.name,l:g.label,c:g.category})));
+  /* Notices & Reports tab (Annual Report) – items come from ANNUAL_REPORTS below. The old placeholder "Notices and Reports" tab is hidden above. */
+  (function(){
+    const items=ANNUAL_REPORTS.map(r=>({title:{en:'Annual Report '+r.year,ta:'ஆண்டு அறிக்கை '+r.year},description:{en:r.en,ta:r.ta}}));
+    normalized.push({title:{en:'Notices & Reports',ta:'அறிவிப்புகள் & அறிக்கைகள்'},items});
+  })();
   const tabs=normalized.map((g,i)=>`<button id="downloads-tab-${i}" class="download-tab ${i===downloadsActive?'active':''}" type="button" role="tab" aria-selected="${i===downloadsActive}" aria-controls="downloads-panel" tabindex="${i===downloadsActive?0:-1}" data-download-tab="${i}">${localized(g.title??g.name)||`${ta?'வகை':'Category'} ${i+1}`}<span class="download-tab-count" aria-label="${g.items?.length||g.documents?.length||0}">${g.items?.length||g.documents?.length||0}</span></button>`).join('');
   const rows=normalized.flatMap((g,gi)=>(g.items||g.documents||[]).map(item=>{    
     const name=localized(item.title??item.name??item.label),
           desc=localized(item.description??item.text),
           files=pdfFor(item),
           links=files.length
-            ?files.map(([label,file,fill])=>{if(fill){const ft=ta?'படிவத்தை நிரப்பு':'Fill form',fn=(name+(label?' – '+label:'')).replace(/"/g,'&quot;');return `<button type="button" class="button dl-fill" data-fill-pdf="${PDF_BASE+file}" data-fill-name="${fn}" aria-haspopup="dialog">${ft}${label?' – '+label:''}</button>`}const dl=ta?'பதிவிறக்கு':'Download',full=dl+(label?' – '+label:'');const fileType=/\.pdf$/i.test(file)?'PDF':/\.docx?$/i.test(file)?'Word':'';return `<a class="button dl-icon" href="${PDF_BASE+file}" download="${file}" title="${full}" aria-label="${full} (${fileType})"><span class="dl-text">${dl}</span><span class="dl-filetype">${fileType}</span>${label?`<span class="dl-label">${label}</span>`:''}</a>`}).join(' ')
+            ?files.map(([label,file,fill])=>{if(fill){const ft=ta?'படிவத்தை நிரப்பு':'Fill form',fn=(name+(label?' – '+label:'')).replace(/"/g,'&quot;');return `<button type="button" class="button dl-fill" data-fill-pdf="${PDF_BASE+file}" data-fill-name="${fn}" aria-haspopup="dialog">${ft}${label?' – '+label:''}</button>`}const dl=ta?'பதிவிறக்கு':'Download',full=dl+(label?' – '+label:'');const fileType=/\.pdf$/i.test(file)?'PDF':/\.docx?$/i.test(file)?'Word':'';return `<a class="button dl-icon" href="${encodeURI(PDF_BASE+file)}" download="${file}" title="${full}" aria-label="${full} (${fileType})"><span class="dl-text">${dl}</span><span class="dl-filetype">${fileType}</span>${label?`<span class="dl-label">${label}</span>`:''}</a>`}).join(' ')
             :`<span class="fine-print">${ta?'விரைவில்':'Coming soon'}</span>`;
     return `<article class="info-card download-row" data-download-category="${gi}"><h3>${name}</h3>${desc?`<p>${desc}</p>`:''}${links}</article>`;
   })).join('');
@@ -851,6 +856,11 @@ const PDF_FILES={
   'sms alert application form':[['','SMS_Application_Form.docx']],
   'nomination form':[['','Nomination_Form.pdf']]
 };
+/* Annual reports – to add a new year, copy one line, change year + file, upload the PDF */
+const ANNUAL_REPORTS=[
+  {year:2026,file:'Arcot-UCB-Annual-Report-2026.pdf',en:'Audited Balance Sheet, Profit & Loss Account and Notes on Accounts as on 31-03-2026',ta:'31-03-2026 நிலவரப்படி தணிக்கை செய்யப்பட்ட இருப்புநிலைக் குறிப்பு, இலாப நட்டக் கணக்கு மற்றும் கணக்குக் குறிப்புகள்'}
+];
+ANNUAL_REPORTS.forEach(r=>{PDF_FILES['annual report '+r.year]=[['',r.file]]});
 function pdfFor(item){
   const t=item.title??item.name??item.label;
   const key=String(t&&typeof t==='object'?(t.en||''):(t||'')).trim().toLowerCase();
