@@ -2607,9 +2607,19 @@ body[data-page="financial"] .page-hero>.container>*{max-width:min(620px,calc(var
 /* ===== NOTICE POP-UP: "Inoperative Account? Reactivate Now!" (reuses the .soon-modal look) ===== */
 .notice-pop-card{max-height:90vh;overflow-y:auto}
 .notice-pop-card .notice-pop-warn{padding:12px 14px;border-left:4px solid var(--gold);background:color-mix(in srgb,var(--gold) 20%,var(--surface));color:var(--deep);font-weight:600;border-radius:6px}
-.notice-pop-docs{border-top:1px solid var(--line);padding-top:12px}
-.notice-pop-docs summary{cursor:pointer;font-weight:700;color:var(--navy)}
-.notice-pop-docs ul{margin:10px 0 0;padding-left:20px;line-height:1.75;color:var(--ink)}
-.notice-pop-deaf{font-size:.85rem;font-weight:700;color:var(--navy);text-decoration:underline}
-.notice-pop .button:focus-visible,.notice-pop summary:focus-visible,.notice-pop-deaf:focus-visible,.notice-pop .soon-modal-x:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.notice-pop .button:focus-visible,.notice-pop .soon-modal-x:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .notice-pop-card .soon-modal-actions .button{white-space:normal}
+
+
+/* ===== INOPERATIVE ACCOUNTS page (data-page="inopp") ===== */
+.detail-block .inopp-lead{color:var(--ink);font-size:1rem;line-height:1.65;max-width:70ch}
+.detail-block .inopp-warn{max-width:70ch;margin:14px 0 0;padding:12px 14px;border-left:4px solid var(--gold);background:color-mix(in srgb,var(--gold) 20%,var(--surface));color:var(--deep);font-size:.95rem;font-weight:600;border-radius:6px}
+.inopp-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.inopp-pdf{max-width:560px;margin-top:6px}
+.inopp-docs{margin:0;padding-left:20px;line-height:1.85;color:var(--ink);max-width:70ch}
+body[data-page="inopp"] .page-content>.detail-block{margin:0;padding-block:18px}
+
+/* Inoperative page: outline button text was white on a light background */
+.detail-block .inopp-actions .button.button-outline{color:var(--navy)!important;background:var(--surface);border:2px solid var(--navy);font-weight:700}
+.detail-block .inopp-actions .button.button-outline:hover,.detail-block .inopp-actions .button.button-outline:focus-visible{background:var(--navy);color:#fff!important}
+.inopp-actions .button{white-space:normal;text-align:center}
