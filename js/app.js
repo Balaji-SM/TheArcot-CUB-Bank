@@ -1225,3 +1225,70 @@ function productIcon(type,i,it){
   const prevRefresh=refresh;refresh=function(){prevRefresh();tidyRates()};
   tidyRates();
 })();
+
+/* ===== NOTICE POP-UP: "Inoperative Account? Reactivate Now!" (home page) =====
+   TO EDIT TEXT : change NOTICE_POPUP.text below (English + Tamil).
+   TO TURN OFF  : set NOTICE_POPUP.enabled=false  (or delete this whole block).
+   SHOWN        : on the home page, once per browser visit (set showOnce=false to show on every load). */
+const NOTICE_POPUP={
+  enabled:true,
+  showOnce:true,
+  delay:600,                        /* milliseconds after the page loads */
+  key:'arcot-notice-reactivate-2026-09',
+  branchLink:'branches.html',       /* "Find Branch" button */
+  deafLink:'deaf-accounts.html',    /* small link to the DEAF accounts search page */
+  pdfLink:'In-opp-Account-30-09-2026.pdf',   /* the list PDF: copy it into the same folder as your html pages (or change this path). Set to '' to hide the button */
+  text:{
+    en:{title:'Inoperative Account? Reactivate Now!',
+        msg:'Visit your branch with your Re-KYC documents to make your account operative and enjoy uninterrupted banking benefits.',
+        warn:'Balances unclaimed for 10 years are transferred to the RBI\u2019s DEAF. Act now to avoid this.',
+        branch:'Find Branch',pdf:'View inoperative accounts list (PDF)',close:'Close',docs:'Documents required',deaf:'Check the DEAF accounts list',
+        list:['Aadhaar or other Officially Valid Document (OVD)','PAN card or Form 60','Recent passport-size photograph','Latest address proof, if the address has changed','Mobile number and email ID for updates']},
+    ta:{title:'செயலற்ற கணக்கா? இப்போதே மீண்டும் செயல்படுத்துங்கள்!',
+        msg:'தடையற்ற வங்கிச் சேவைகளைத் தொடர, உங்கள் Re-KYC ஆவணங்களுடன் கிளைக்கு வந்து உங்கள் கணக்கைச் செயல்பாட்டில் கொண்டு வாருங்கள்.',
+        warn:'10 ஆண்டுகள் உரிமை கோரப்படாத இருப்புத் தொகை இந்திய ரிசர்வ் வங்கியின் DEAF நிதிக்கு மாற்றப்படும். இதைத் தவிர்க்க உடனே நடவடிக்கை எடுங்கள்.',
+        branch:'கிளையைக் கண்டறிய',pdf:'செயலற்ற கணக்குகள் பட்டியல் (PDF)',close:'மூடு',docs:'தேவையான ஆவணங்கள்',deaf:'DEAF கணக்குகள் பட்டியலைப் பார்க்க',
+        list:['ஆதார் அல்லது அலுவல்ரீதியாகச் செல்லுபடியாகும் பிற ஆவணம் (OVD)','பான் அட்டை அல்லது படிவம் 60','சமீபத்திய பாஸ்போர்ட் அளவு புகைப்படம்','முகவரி மாறியிருந்தால் சமீபத்திய முகவரிச் சான்று','தகவல்களுக்கான மொபைல் எண் மற்றும் மின்னஞ்சல் முகவரி']}
+  }
+};
+(function(){
+  if(!NOTICE_POPUP.enabled)return;
+  let box=null,lastFocus=null;
+  const isHome=()=>!!document.querySelector('.hero')||/(^|\/)(index\.html)?$/.test(location.pathname);
+  const seen=()=>{try{return sessionStorage.getItem(NOTICE_POPUP.key)==='1'}catch(e){return false}};
+  const mark=()=>{try{sessionStorage.setItem(NOTICE_POPUP.key,'1')}catch(e){}};
+  function build(){
+    const t=NOTICE_POPUP.text[state.lang==='ta'?'ta':'en'];
+    if(box)box.remove();
+    box=document.createElement('div');
+    box.className='soon-modal notice-pop';
+    box.innerHTML=`<div class="soon-modal-card notice-pop-card" role="dialog" aria-modal="true" aria-labelledby="notice-pop-title"><button type="button" class="soon-modal-x" aria-label="${t.close}">&times;</button><h2 id="notice-pop-title">${t.title}</h2><p>${t.msg}</p><p class="notice-pop-warn">${t.warn}</p><div class="soon-modal-actions"><a class="button" href="${NOTICE_POPUP.branchLink}">${t.branch}</a>${NOTICE_POPUP.pdfLink?`<a class="button button-light notice-pop-pdf" href="${encodeURI(NOTICE_POPUP.pdfLink)}" target="_blank" rel="noopener">${t.pdf}</a>`:''}<button type="button" class="button button-outline soon-modal-close">${t.close}</button></div><details class="notice-pop-docs"><summary>${t.docs}</summary><ul>${t.list.map(x=>`<li>${x}</li>`).join('')}</ul></details><a class="notice-pop-deaf" href="${NOTICE_POPUP.deafLink}">${t.deaf}</a></div>`;
+    document.body.appendChild(box);
+  }
+  function open(){
+    if(box||!isHome()||(NOTICE_POPUP.showOnce&&seen()))return;
+    mark();lastFocus=document.activeElement;build();
+    requestAnimationFrame(()=>{box.classList.add('open');const b=box.querySelector('.soon-modal-close');if(b)b.focus()});
+  }
+  function close(){
+    if(!box)return;
+    const b=box;box=null;b.classList.remove('open');
+    setTimeout(()=>b.remove(),250);
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  document.addEventListener('click',e=>{
+    if(!box)return;
+    if(e.target===box||e.target.closest('.notice-pop .soon-modal-x,.notice-pop .soon-modal-close'))close();
+  });
+  document.addEventListener('keydown',e=>{
+    if(!box)return;
+    if(e.key==='Escape'){close();return}
+    if(e.key==='Tab'){   /* keep keyboard focus inside the pop-up */
+      const f=[...box.querySelectorAll('button,a[href],summary')];if(!f.length)return;
+      const first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
+  window.addEventListener('load',()=>setTimeout(open,NOTICE_POPUP.delay));
+})();
