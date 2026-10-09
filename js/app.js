@@ -279,7 +279,8 @@ function money(n){return new Intl.NumberFormat(state.lang==='ta'?'en-IN':'en-IN'
 function money2(n){return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',minimumFractionDigits:2,maximumFractionDigits:2}).format(Math.max(0,n||0))}
 const unitSuffix=format=>format==='percent'?'%':format==='years'?` ${tr('years')}`:'';
 const controls=(id,key,min,max,value,step,format='number')=>{value=calculatorState.values[id]??value;return `<div class="range-control"><label for="${id}"><span>${tr(key)}</span><output id="${id}-out">${format==='money'?money(value):value+unitSuffix(format)}</output></label><input type="range" id="${id}" min="${min}" max="${max}" value="${value}" step="${step}" data-format="${format}"><div class="range-limits"><span>${format==='money'?money(min):min}</span><span>${format==='money'?money(max):max+unitSuffix(format)}</span></div></div>`};
-const dualControls=(id,key,min,max,value,step,format='number')=>{value=calculatorState.values[id]??value;const shown=format==='money'?money2(value):`${value}${format==='percent'?'%':''}`;return `<div class="range-control dual-range-control"><label for="${id}"><span>${tr(key)}</span><output id="${id}-out">${shown}</output></label><div class="calc-dual-inputs"><input type="range" id="${id}-range" min="${min}" max="${max}" value="${value}" step="${step}" data-calc-input="${id}" data-min="${min}" data-max="${max}" data-format="${format}" aria-label="${tr(key)}"><input type="number" id="${id}" min="${min}" max="${max}" value="${value}" step="${format==='money'?'any':step}" data-calc-input="${id}" data-min="${min}" data-max="${max}" data-format="${format}" aria-label="${tr(key)}"></div><div class="range-limits"><span>${format==='money'?money2(min):min}</span><span>${format==='money'?money2(max):max+ (format==='percent'?'%':'')}</span></div><small class="calc-input-error" id="${id}-error" aria-live="polite"></small></div>`};
+const calcFmt=(format,v)=>format==='money'?money2(v):format==='money0'?money(v):format==='percent'?v+'%':format==='years'?v+' '+tr('years'):String(v);
+const dualControls=(id,key,min,max,value,step,format='number',anyStep=false)=>{value=calculatorState.values[id]??value;value=Math.min(max,Math.max(min,Number(value)));const label=String(key).charAt(0)==='='?String(key).slice(1):tr(key);const minShown=format==='money'?money2(min):format==='money0'?money(min):min;return `<div class="range-control dual-range-control"><label for="${id}"><span>${label}</span><output id="${id}-out">${calcFmt(format,value)}</output></label><div class="calc-dual-inputs"><input type="range" id="${id}-range" min="${min}" max="${max}" value="${value}" step="${step}" data-calc-input="${id}" data-min="${min}" data-max="${max}" data-format="${format}" aria-label="${label}"><input type="number" id="${id}" min="${min}" max="${max}" value="${value}" step="${format==='money'||anyStep?'any':step}" inputmode="decimal" data-calc-input="${id}" data-min="${min}" data-max="${max}" data-format="${format}" aria-label="${label}"></div><div class="range-limits"><span>${minShown}</span><span>${calcFmt(format,max)}</span></div><small class="calc-input-error" id="${id}-error" aria-live="polite"></small></div>`};
 function calcTabs(active){return `<div class="calc-tabs" role="tablist" aria-label="${tr('calculatorTitle')}">${[['emi','emi'],['fd','fdCalc'],['rd','rdCalc'],['compare','loanCompare']].map(([id,key])=>`<button role="tab" aria-selected="${id===active}" class="${id===active?'active':''}" data-calc="${id}">${id==='emi'?(state.lang==='ta'?'கடன் வட்டி':'Loan interest'):tr(key)}</button>`).join('')}</div>`}
 function calcDepositRate(kind,months){const rows=state.data.rates?.rates||[];const id=kind==='rd'?'rd-12m-24m':months<=2?'fd-1-2m':months<=4?'fd-3-4m':months<=7?'fd-5-7m':months<=11?'fd-7-11m':'fd-11m-24m';const row=rows.find(x=>x.id===id);return row?Number(row.general):0}
 function renderCalc(kind='emi',root=$('#calculator-content')){
@@ -292,13 +293,13 @@ function renderCalc(kind='emi',root=$('#calculator-content')){
  }else if(kind==='fd'){
   const ta=state.lang==='ta',fdMode=calculatorState.values.fdPayout||'yearly';
   const fdMonths=calculatorState.values.years??12;
-  fields=controls('amount','investment',10000,5000000,300000,10000,'money')+`<div class="range-control"><label for="years"><span>${ta?'காலம் (மாதங்கள்)':'Tenure (months)'}</span><output id="years-out">${fdMonths}</output></label><input type="range" id="years" min="1" max="24" value="${fdMonths}" step="1" data-format="number"><div class="range-limits"><span>1</span><span>24</span></div></div><div class="range-control"><label><span>${tr('rateLabel')}</span><output id="fd-rate-out">${calcDepositRate('fd',fdMonths).toFixed(2)}%</output></label></div><div class="range-control fd-payout-control"><label for="fdPayout"><span>${ta?'வட்டி செலுத்தும் முறை':'Interest payout'}</span></label><select id="fdPayout" class="fd-payout-select"><option value="yearly"${fdMode==='yearly'?' selected':''}>${ta?'ஆண்டுதோறும் (FD / FDQ)':'Yearly payout (FD / FDQ)'}</option><option value="monthly"${fdMode==='monthly'?' selected':''}>${ta?'மாதந்தோறும் (FD மாதாந்திர வட்டி)':'Monthly payout (FD monthly)'}</option></select></div>`;
+  fields=dualControls('amount','investment',10000,5000000,300000,10000,'money0')+dualControls('years',ta?'=காலம் (மாதங்கள்)':'=Tenure (months)',1,24,fdMonths,1,'number')+`<div class="range-control"><label><span>${tr('rateLabel')}</span><output id="fd-rate-out">${calcDepositRate('fd',fdMonths).toFixed(2)}%</output></label></div><div class="range-control fd-payout-control"><label for="fdPayout"><span>${ta?'வட்டி செலுத்தும் முறை':'Interest payout'}</span></label><select id="fdPayout" class="fd-payout-select"><option value="yearly"${fdMode==='yearly'?' selected':''}>${ta?'ஆண்டுதோறும் (FD / FDQ)':'Yearly payout (FD / FDQ)'}</option><option value="monthly"${fdMode==='monthly'?' selected':''}>${ta?'மாதந்தோறும் (FD மாதாந்திர வட்டி)':'Monthly payout (FD monthly)'}</option></select></div>`;
   out=`<div class="result-main" id="res-primary">—</div><span class="result-label" id="fd-label">${tr('maturity')}</span><div class="result-rows"><div class="result-row"><span>${tr('principal')}</span><b id="res-a"></b></div><div class="result-row"><span id="fd-b-label">${tr('totalInterest')}</span><b id="res-b"></b></div><div class="result-row" id="fd-c-row" hidden><span id="fd-c-label"></span><b id="res-c"></b></div></div>`;
  }else if(kind==='rd'){
   const rdMonths=calculatorState.values.rdMonths??12;fields=dualControls('rdDeposit','rdMonthlyDeposit',100,1000000,5000,100,'money')+`<div class="range-control"><label for="rdMonths"><span>${state.lang==='ta'?'காலம் (மாதங்கள்)':'Tenure (months)'}</span><output id="rdMonths-out">${rdMonths}</output></label><input type="range" id="rdMonths" min="12" max="24" value="${rdMonths}" step="1" data-format="number"><div class="range-limits"><span>12</span><span>24</span></div></div><div class="range-control"><label><span>${tr('rdInterestRate')}</span><output id="rd-rate-out">${calcDepositRate('rd',rdMonths).toFixed(2)}%</output></label></div>`;
   out=`<div class="result-main" id="res-primary"></div><span class="result-label">${tr('maturityAmount')}</span><div class="result-rows"><div class="result-row"><span>${tr('totalDeposited')}</span><b id="res-a"></b></div><div class="result-row"><span>${tr('interestEarned')}</span><b id="res-b"></b></div></div><p class="calc-note">${tr('quarterlyNote')}</p>`;
  }else{
-  fields=controls('amount','emiAmount',50000,5000000,500000,50000,'money')+controls('years','loanTenure',1,30,5,1,'years')+controls('rateA','compareA',0,24,0,.25,'percent')+controls('rateB','compareB',0,24,0,.25,'percent');
+  fields=dualControls('amount','emiAmount',50000,5000000,500000,50000,'money0')+dualControls('years','loanTenure',1,30,5,1,'years')+dualControls('rateA','compareA',0,24,0,.25,'percent',true)+dualControls('rateB','compareB',0,24,0,.25,'percent',true);
   out=`<div class="result-main" id="res-primary">—</div><span class="result-label">${tr('compareDifference')}</span><div class="result-rows"><div class="result-row"><span>${tr('compareA')}</span><b id="res-a"></b></div><div class="result-row"><span>${tr('compareB')}</span><b id="res-b"></b></div></div>`;
  }
  root.innerHTML=`<div class="calc-content"><div class="calc-controls">${fields}</div><div class="calc-result"><h3>${tr('calcResult')}</h3>${out}</div></div>`;
@@ -331,7 +332,7 @@ function renderCalc(kind='emi',root=$('#calculator-content')){
   const id=input.dataset.calcInput,value=Number(input.value),min=Number(input.dataset.min),max=Number(input.dataset.max),error=$('#'+id+'-error',root),numberInput=$('#'+id,root);
   if(input.type==='number'&&(!input.value||!Number.isFinite(value)||value<min||value>max)){input.setCustomValidity(tr('calcValidation'));if(error)error.textContent=tr('calcValidation');return}
   if(numberInput)numberInput.setCustomValidity('');if(error)error.textContent='';
-  $$(`[data-calc-input="${id}"]`,root).forEach(pair=>{if(pair!==input)pair.value=input.value});calculatorState.values[id]=input.value;const output=$('#'+id+'-out',root);if(output)output.textContent=input.dataset.format==='money'?money2(value):`${value}${input.dataset.format==='percent'?'%':''}`;update();
+  $$(`[data-calc-input="${id}"]`,root).forEach(pair=>{if(pair!==input)pair.value=input.value});calculatorState.values[id]=input.value;const output=$('#'+id+'-out',root);if(output)output.textContent=calcFmt(input.dataset.format,value);update();
  }));
  update();
 }
@@ -464,7 +465,7 @@ function setupSharedHeader(){
  const nav=document.createElement('nav');nav.className='main-nav';nav.setAttribute('aria-label','Main navigation');nav.innerHTML='<div class="container nav-inner"><a class="nav-home" href="index.html" aria-label="Home">⌂</a><div id="navigation"></div></div>';
  const anchor=$('#shared-header-root')||$('#page-root')||$('#main');document.body.insertBefore(utility,anchor);document.body.insertBefore(brand,anchor);document.body.insertBefore(nav,anchor);
 }
-function setupShellPages(){setupSharedHeader();const contactEmail=localized(state.data.pages?.contact?.email)||'contact@actcub.bank.in';$$('.site-footer,.theme-widget,.scroll-progress,.back-top').forEach(el=>el.remove());const footer=document.createElement('footer');footer.className='site-footer';footer.innerHTML=`<div class="kolam-border" aria-hidden="true"></div><div class="container footer-grid"><div class="footer-brand"><a class="brand brand-inverse" href="index.html"><img class="brand-logo" src="logos/Logo.png" data-try="0" onerror="brandLogoFallback(this)" alt="The Arcot Co-operative Urban Bank Limited" height="56"><span class="brand-copy"><strong>${tr('bankName')}</strong><small>${tr('tagline')}</small></span></a><p>${tr('footerAbout')}</p><div class="footer-contact"><a href="tel:">${tr('phone')}</a><a href="mailto:${contactEmail}">${tr('email')}: ${contactEmail}</a><span data-footer-address></span></div></div><div><h3>${tr('banking')}</h3><a href="accounts.html">${tr('accounts')}</a><a href="loans.html">${tr('loans')}</a><a href="services.html">${tr('services')}</a><a href="rates.html">${tr('ratesCharges')}</a></div><div><h3>${tr('information')}</h3><a href="about.html">${tr('about')}</a><a href="downloads.html">${tr('downloads')}</a><a href="branches.html">${tr('branches')}</a></div><div><h3>${tr('support')}</h3><a href="contact.html">${tr('contact')}</a><a href="downloads.html">${tr('policies')}</a><a href="contact.html">${tr('grievance')}</a></div>${quickLinksMarkup()}</div><div class="container footer-bottom"><span class="footer-copy">© ${new Date().getFullYear()} ${tr('bankName')}. ${state.lang==='ta'?'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.':'All rights reserved.'}</span><span class="footer-credit">${state.lang==='ta'?'உருவாக்கி நிர்வகிப்பவர்':'Built &amp; managed by'} <a href="https://a5cyber.in/" target="_blank" rel="noopener noreferrer">A5 Cyber Nexus</a> <small>Pvt. Ltd.</small></span></div>`;document.body.append(footer);const widget=document.createElement('div');widget.className='theme-widget';widget.innerHTML=`<button class="theme-toggle" aria-expanded="false" aria-controls="theme-panel">◉ ${tr('colourOptions')}</button><div class="theme-panel" id="theme-panel" hidden><div class="theme-panel-head"><strong>${tr('choosePalette')}</strong><button class="theme-close" aria-label="Close">×</button></div><div class="palette-list" id="palette-list"></div></div>`;document.body.append(widget);const progress=document.createElement('div');progress.className='scroll-progress';progress.innerHTML='<span></span>';document.body.prepend(progress);const back=document.createElement('button');back.className='back-top';back.innerHTML='🪔';back.setAttribute('aria-label','Back to top');document.body.append(back)}
+function setupShellPages(){setupSharedHeader();const contactEmail=localized(state.data.pages?.contact?.email)||'contact@actcub.bank.in';$$('.site-footer,.theme-widget,.scroll-progress,.back-top').forEach(el=>el.remove());const footer=document.createElement('footer');footer.className='site-footer';footer.innerHTML=`<div class="kolam-border" aria-hidden="true"></div><div class="container footer-grid"><div class="footer-brand"><a class="brand brand-inverse" href="index.html"><img class="brand-logo" src="logos/Logo.png" data-try="0" onerror="brandLogoFallback(this)" alt="The Arcot Co-operative Urban Bank Limited" height="56"><span class="brand-copy"><strong>${tr('bankName')}</strong><small>${tr('tagline')}</small></span></a><p>${tr('footerAbout')}</p><div class="footer-contact"><a href="tel:">${tr('phone')}</a><a href="mailto:${contactEmail}">${tr('email')}: ${contactEmail}</a><span data-footer-address></span></div></div><div><h3>${tr('banking')}</h3><a href="accounts.html">${tr('accounts')}</a><a href="loans.html">${tr('loans')}</a><a href="services.html">${tr('services')}</a><a href="rates.html">${tr('ratesCharges')}</a></div><div><h3>${tr('information')}</h3><a href="about.html">${tr('about')}</a><a href="downloads.html">${tr('downloads')}</a><a href="branches.html">${tr('branches')}</a></div><div><h3>${tr('support')}</h3><a href="contact.html">${tr('contact')}</a><a href="downloads.html">${tr('policies')}</a><a href="contact.html">${tr('grievance')}</a></div>${quickLinksMarkup()}</div><div class="container footer-bottom"><span class="footer-copy">© ${new Date().getFullYear()} ${tr('bankName')}. ${state.lang==='ta'?'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.':'All rights reserved.'}</span><span class="footer-credit">${state.lang==='ta'?'உருவாக்கி நிர்வகிப்பவர்':'Built &amp; managed by'} <a href="https://a5cyber.in/" target="_blank" rel="noopener noreferrer">A5 Cyber Nexus</a></span></div>`;document.body.append(footer);const widget=document.createElement('div');widget.className='theme-widget';widget.innerHTML=`<button class="theme-toggle" aria-expanded="false" aria-controls="theme-panel">◉ ${tr('colourOptions')}</button><div class="theme-panel" id="theme-panel" hidden><div class="theme-panel-head"><strong>${tr('choosePalette')}</strong><button class="theme-close" aria-label="Close">×</button></div><div class="palette-list" id="palette-list"></div></div>`;document.body.append(widget);const progress=document.createElement('div');progress.className='scroll-progress';progress.innerHTML='<span></span>';document.body.prepend(progress);const back=document.createElement('button');back.className='back-top';back.innerHTML='🪔';back.setAttribute('aria-label','Back to top');document.body.append(back)}
 let eventsInitialized=false;function initEvents(){if(eventsInitialized)return;eventsInitialized=true;document.addEventListener('click',e=>{const l=e.target.closest('[data-language]');if(l){if(!['en','ta'].includes(l.dataset.language))return;state.lang=l.dataset.language;saveLanguage(state.lang);refresh();}if(e.target.closest('.language-toggle')){state.lang=state.lang==='en'?'ta':'en';saveLanguage(state.lang);refresh()}const toggle=e.target.closest('.theme-toggle');if(toggle){const panel=$('#theme-panel');panel.hidden=!panel.hidden;toggle.setAttribute('aria-expanded',String(!panel.hidden))}if(e.target.closest('.theme-close')){$('#theme-panel').hidden=true}const tab=e.target.closest('[data-tab]');if(tab){$$('[data-tab]').forEach(b=>{b.classList.toggle('active',b===tab);b.setAttribute('aria-selected',b===tab)});renderProducts(tab.dataset.tab)}const calc=e.target.closest('[data-calc]');if(calc){const host=$('#calculator-content')||$('#inner-calculator');if(host){if(host.id==='calculator-content'){$$('.calc-tabs [data-calc]').forEach(b=>b.classList.toggle('active',b===calc));$$('.calc-tabs [data-calc]').forEach(b=>b.setAttribute('aria-selected',String(b===calc)))}calculatorState.kind=calc.dataset.calc;renderCalc(calculatorState.kind,host);if(host.id==='inner-calculator')host.insertAdjacentHTML('afterbegin',calcTabs(calculatorState.kind))}}const menuBtn=e.target.closest('.menu-toggle');if(menuBtn){const nav=$('.main-nav');nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(nav.classList.contains('open')))}if(e.target.closest('.back-top'))window.scrollTo({top:0,behavior:'smooth'})});document.addEventListener('submit',e=>{const search=e.target.closest('.search');if(!search)return;e.preventDefault();const q=$('#site-search').value.trim().toLowerCase();if(q)location.href=({accounts:'accounts.html',savings:'accounts.html',loan:'loans.html',rate:'rates.html',branch:'branches.html',contact:'contact.html',download:'downloads.html',calculator:'calculators.html'}[Object.keys({accounts:1,savings:1,loan:1,rate:1,branch:1,contact:1,download:1,calculator:1}).find(k=>q.includes(k))]||'about.html')});window.addEventListener('scroll',()=>{const bar=$('.scroll-progress span'),top=$('.back-top'),max=document.documentElement.scrollHeight-innerHeight;if(bar)bar.style.width=(max>0?scrollY/max*100:0)+'%';if(top)top.classList.toggle('visible',scrollY>450)});}
 let navControlsInitialized=false;function initNavControls(){if(navControlsInitialized)return;navControlsInitialized=true;document.addEventListener('click',e=>{const size=e.target.closest('[data-scale]');if(size){const steps=fontScales,current=steps.indexOf(state.fontScale),delta=Number(size.dataset.scale),next=delta===0?steps.indexOf(1):Math.max(0,Math.min(steps.length-1,(current<0?2:current)+delta));state.fontScale=steps[next];savePreference('arcot-font-scale',state.fontScale);document.documentElement.style.setProperty('--font-scale',state.fontScale);document.documentElement.style.fontSize=(state.fontScale*100)+'%';renderNavControls();requestAnimationFrame(fitNavigation)}const more=e.target.closest('.more-button');if(more){const item=more.closest('.more-item');item.classList.toggle('open');more.setAttribute('aria-expanded',String(item.classList.contains('open')))}});window.addEventListener('resize',fitNavigation)}
 let dataPageControlsInitialized=false;function initDataPageControls(){if(dataPageControlsInitialized)return;dataPageControlsInitialized=true;document.addEventListener('click',e=>{const tab=e.target.closest('[data-download-tab]');if(tab){const n=tab.dataset.downloadTab;$$('[data-download-tab]').forEach(b=>{b.classList.toggle('active',b===tab);b.setAttribute('aria-selected',String(b===tab))});$$('[data-download-category]').forEach(row=>row.hidden=row.dataset.downloadCategory!==n)}const calc=e.target.closest('[data-calc]');if(calc&&document.body.dataset.page==='calculators')renderCalculatorGuide(pageRecord('calculators'),calc.dataset.calc)});document.addEventListener('submit',e=>{if(e.target.matches('.demo-contact-form'))e.preventDefault()})}
@@ -1336,4 +1337,79 @@ const NOTICE_POPUP={
     }
   });
   window.addEventListener('load',()=>setTimeout(open,NOTICE_POPUP.delay));
+})();
+
+
+/* ===== Mobile menu: right-side drawer ===== */
+(function(){
+  const mq=matchMedia('(max-width:767px)');
+  function setup(){
+    let overlay=document.querySelector('.nav-overlay');
+    if(!overlay){overlay=document.createElement('div');overlay.className='nav-overlay';document.body.appendChild(overlay)}
+    const nav=document.querySelector('.main-nav');
+    document.documentElement.classList.remove('nav-drawer-open');
+    if(!nav||nav.dataset.drawer)return;
+    nav.dataset.drawer='1';
+    const closeBtn=document.createElement('button');
+    closeBtn.type='button';closeBtn.className='nav-drawer-close';
+    closeBtn.setAttribute('aria-label','Close menu');closeBtn.innerHTML='&times;';
+    nav.insertBefore(closeBtn,nav.firstChild);
+    const close=()=>{
+      nav.classList.remove('open');
+      const t=document.querySelector('.menu-toggle');if(t)t.setAttribute('aria-expanded','false');
+    };
+    closeBtn.addEventListener('click',close);
+    overlay.addEventListener('click',close);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open'))close()});
+    new MutationObserver(()=>{
+      document.documentElement.classList.toggle('nav-drawer-open',nav.classList.contains('open')&&mq.matches);
+    }).observe(nav,{attributes:true,attributeFilter:['class']});
+    mq.addEventListener('change',()=>{if(!mq.matches)close()});
+  }
+  const prev=refresh;
+  refresh=function(){prev();setup()};
+})();
+
+
+/* ===== Calculator tabs on phones: own scroll indicator, fade, nudge, active tab in view ===== */
+(function(){
+  let nudged=false;
+  const reduce=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function bar(el){
+    let b=el.nextElementSibling;
+    if(!b||!b.classList.contains('calc-tabs-bar')){
+      b=document.createElement('div');b.className='calc-tabs-bar';b.setAttribute('aria-hidden','true');b.innerHTML='<span></span>';
+      el.insertAdjacentElement('afterend',b);
+    }
+    return b;
+  }
+  function update(el){
+    const b=bar(el),can=el.scrollWidth>el.clientWidth+2;
+    b.hidden=!can;
+    el.classList.toggle('can-scroll',can&&el.scrollLeft+el.clientWidth<el.scrollWidth-2);
+    if(can){
+      const th=b.firstChild;
+      th.style.width=(el.clientWidth/el.scrollWidth*100)+'%';
+      th.style.left=(el.scrollLeft/el.scrollWidth*100)+'%';
+    }
+  }
+  function scan(){
+    document.querySelectorAll('.calc-tabs').forEach(el=>{
+      if(!el.dataset.tabsInit){
+        el.dataset.tabsInit='1';
+        const active=el.querySelector('.active');
+        if(active&&el.scrollWidth>el.clientWidth)el.scrollLeft=Math.max(0,active.offsetLeft-(el.clientWidth-active.offsetWidth)/2);
+      }
+      update(el);
+      if(!nudged&&el.scrollWidth>el.clientWidth+2&&el.scrollLeft===0&&!reduce()){
+        nudged=true;
+        setTimeout(()=>{el.scrollTo({left:72,behavior:'smooth'});setTimeout(()=>el.scrollTo({left:0,behavior:'smooth'}),650)},500);
+      }
+    });
+  }
+  document.addEventListener('scroll',e=>{const t=e.target;if(t&&t.classList&&t.classList.contains('calc-tabs'))update(t)},true);
+  addEventListener('resize',scan);
+  new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
+  document.addEventListener('DOMContentLoaded',scan);
+  scan();
 })();

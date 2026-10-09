@@ -2519,9 +2519,9 @@ img,svg,video,canvas,iframe{max-width:100%}
 .footer-copy{margin:0}
 .footer-credit{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.3rem .45rem;font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 .footer-credit::before{content:"\2726";color:var(--gold);letter-spacing:0;font-size:.8rem}
-.footer-credit a{color:#fff;font-weight:700;font-size:.82rem;letter-spacing:0;text-transform:none;text-decoration:none}
+.footer-credit a{color:#fff;font-weight:600;font-size:.7rem;letter-spacing:0;text-transform:none;text-decoration:none}
 .footer-credit a:hover,.footer-credit a:focus-visible{color:var(--gold);text-decoration:underline}
-.footer-credit small{font-size:.62rem;letter-spacing:0;text-transform:none;opacity:.85}
+.footer-credit small{font-size:.58rem;letter-spacing:0;text-transform:none;opacity:.85}
 @media (max-width:767px){
   /* keep the credit clear of the floating lamp / colour buttons */
   .site-footer .footer-bottom{display:grid;justify-content:start;gap:8px;padding-bottom:76px}
@@ -2623,3 +2623,69 @@ body[data-page="inopp"] .page-content>.detail-block{margin:0;padding-block:18px}
 .detail-block .inopp-actions .button.button-outline{color:var(--navy)!important;background:var(--surface);border:2px solid var(--navy);font-weight:700}
 .detail-block .inopp-actions .button.button-outline:hover,.detail-block .inopp-actions .button.button-outline:focus-visible{background:var(--navy);color:#fff!important}
 .inopp-actions .button{white-space:normal;text-align:center}
+
+
+/* ===== Calculators on phones: typing boxes ===== */
+@media(max-width:640px){
+  .calc-dual-inputs input[type="number"]{width:120px;font-size:16px}
+}
+
+/* ===== Mobile menu: right-side drawer ===== */
+.nav-overlay,.nav-drawer-close{display:none}
+
+@media(max-width:767px){
+  .nav-overlay{display:block;position:fixed;inset:0;z-index:1000;background:rgba(40,8,16,.55);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s .3s}
+  html.nav-drawer-open .nav-overlay{opacity:1;visibility:visible;transition:opacity .3s ease}
+  html.nav-drawer-open{overflow:hidden}
+
+  .main-nav,.main-nav.open{display:block!important;position:fixed;top:0;right:0;bottom:0;left:auto;width:min(80vw,320px);z-index:1001;overflow-y:auto;overscroll-behavior:contain;background:var(--navy);box-shadow:-14px 0 34px rgba(0,0,0,.35);transform:translateX(105%);visibility:hidden;transition:transform .3s ease,visibility 0s .3s}
+  .main-nav.open{transform:none;visibility:visible;transition:transform .3s ease}
+
+  .main-nav .nav-inner,.main-nav.open .nav-inner{display:block;width:100%;min-height:0;padding:64px 0 28px}
+  .main-nav #navigation,.main-nav.open #navigation{display:flex!important;flex-direction:column;grid-template-columns:none!important;width:100%}
+  .main-nav .nav-item{width:100%;border-bottom:1px solid rgba(255,255,255,.12)}
+  .main-nav .nav-link,.main-nav.open .nav-link{width:100%;height:auto;min-height:50px;padding:14px 22px;font-size:1rem;justify-content:space-between}
+  .main-nav.open .more-item{display:none!important}
+
+  .main-nav .dropdown,.main-nav.open .dropdown{position:static;min-width:0;padding:4px 0 10px;background:rgba(0,0,0,.2);border:0;border-radius:0;box-shadow:none;animation:none}
+  .main-nav .dropdown a{padding:11px 22px 11px 38px;color:#fff;white-space:normal}
+  .main-nav .nav-item.open-touch>.nav-link::after{transform:rotate(225deg) translate(-1px,-2px)}
+
+  .nav-drawer-close{display:grid;place-items:center;position:absolute;top:10px;right:12px;width:42px;height:42px;padding:0 0 3px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
+  .nav-drawer-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .main-nav,.nav-overlay{transition:none!important}
+}
+
+
+/* ===== Calculator tabs on phones: visible scrollbar + fade hint that more tabs are hidden ===== */
+@media(max-width:767px){
+  .calc-tabs{
+    width:100%;max-width:100%;justify-content:flex-start;gap:4px;
+    overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;overscroll-behavior-x:contain;
+    padding-bottom:8px;
+    scrollbar-width:thin;scrollbar-color:var(--gold) var(--tint);
+  }
+  .calc-tabs::-webkit-scrollbar{display:block;height:6px}
+  .calc-tabs::-webkit-scrollbar-track{background:var(--tint);border-radius:6px}
+  .calc-tabs::-webkit-scrollbar-thumb{background:var(--gold);border-radius:6px}
+  .calc-tabs button{flex:none;white-space:nowrap;scroll-snap-align:start}
+  .calc-tabs.can-scroll{
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);
+    mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);
+  }
+}
+
+
+/* ===== Calculator tabs on phones: own scroll indicator (native scrollbars are hidden on phones) ===== */
+.calc-tabs-bar{display:none}
+@media(max-width:767px){
+  .calc-tabs{scrollbar-width:none;padding-bottom:0;margin-bottom:0}
+  .calc-tabs::-webkit-scrollbar{display:none;height:0}
+  .calc-tabs-bar{display:block;position:relative;height:5px;margin:8px 0 22px;border-radius:5px;background:var(--tint)}
+  .calc-tabs-bar[hidden]{display:none}
+  .calc-tabs-bar span{position:absolute;top:0;bottom:0;left:0;width:60%;border-radius:5px;background:var(--gold);transition:left .1s linear}
+}
