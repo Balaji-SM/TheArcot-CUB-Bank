@@ -1394,7 +1394,7 @@ const NOTICE_POPUP={
     }
   }
   function scan(){
-    document.querySelectorAll('.calc-tabs').forEach(el=>{
+    document.querySelectorAll('.calc-tabs,.download-tabs').forEach(el=>{
       if(!el.dataset.tabsInit){
         el.dataset.tabsInit='1';
         const active=el.querySelector('.active');
@@ -1407,7 +1407,7 @@ const NOTICE_POPUP={
       }
     });
   }
-  document.addEventListener('scroll',e=>{const t=e.target;if(t&&t.classList&&t.classList.contains('calc-tabs'))update(t)},true);
+  document.addEventListener('scroll',e=>{const t=e.target;if(t&&t.classList&&(t.classList.contains('calc-tabs')||t.classList.contains('download-tabs')))update(t)},true);
   addEventListener('resize',scan);
   new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
   document.addEventListener('DOMContentLoaded',scan);
